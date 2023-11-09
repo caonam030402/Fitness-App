@@ -1,5 +1,5 @@
 import 'package:fitness_app/components/button.dart';
-import 'package:fitness_app/components/input_text_with_title.dart';
+import 'package:fitness_app/components/input_text.dart';
 import 'package:fitness_app/configs/app_icons.dart';
 import 'package:fitness_app/configs/app_routes.dart';
 import 'package:fitness_app/styles/app_colors.dart';
@@ -8,9 +8,15 @@ import 'package:fitness_app/styles/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class SignUpPage extends StatelessWidget {
-  const SignUpPage({super.key});
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
 
+  @override
+  State<RegisterPage> createState() => _RegisterPageState();
+}
+
+class _RegisterPageState extends State<RegisterPage> {
+  bool? isChecked = false;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -45,29 +51,31 @@ class SignUpPage extends StatelessWidget {
             SizedBox(
               height: 30,
             ),
-            InputTextWithTitle(
-              title: 'First Name',
+            InputText(
+              lable: 'First Name',
               icon: AppIcons.ic_profile,
             ),
             SizedBox(
               height: 17,
             ),
-            InputTextWithTitle(
-              title: 'Last Name',
+            InputText(
+              lable: 'Last Name',
               icon: AppIcons.ic_profile,
             ),
             SizedBox(
               height: 17,
             ),
-            InputTextWithTitle(
-              title: 'Email',
+            InputText(
+              lable: 'Email',
               icon: AppIcons.ic_message,
+              keyboardType: TextInputType.emailAddress,
             ),
             SizedBox(
               height: 17,
             ),
-            InputTextWithTitle(
-              title: 'Password',
+            InputText(
+              hiddenValue: true,
+              lable: 'Password',
               icon: AppIcons.ic_lock,
             ),
             SizedBox(
@@ -75,6 +83,15 @@ class SignUpPage extends StatelessWidget {
             ),
             Row(
               children: [
+                Checkbox(
+                    checkColor: AppColors.gray_2,
+                    fillColor: MaterialStateProperty.all(AppColors.white),
+                    value: isChecked,
+                    onChanged: (bool? value) {
+                      setState(() {
+                        isChecked = value!;
+                      });
+                    }),
                 Container(
                   width: 244,
                   child: Text(
@@ -91,7 +108,8 @@ class SignUpPage extends StatelessWidget {
             Button(
                 text: 'Register',
                 onPressed: () {
-                  Navigator.of(context).pushReplacementNamed(AppRoutes.login);
+                  Navigator.of(context)
+                      .pushReplacementNamed(AppRoutes.information);
                 }),
             SizedBox(
               height: 15,
@@ -173,8 +191,7 @@ class SignUpPage extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () {
-                    Navigator.of(context)
-                              .pushReplacementNamed(AppRoutes.login);
+                    Navigator.of(context).pushReplacementNamed(AppRoutes.login);
                   },
                   child: Text(
                     'Login',

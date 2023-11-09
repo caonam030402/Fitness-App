@@ -5,13 +5,17 @@ import 'package:fitness_app/styles/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class InputTextWithTitle extends StatelessWidget {
+class InputText extends StatelessWidget {
+  final TextInputType? keyboardType;
   final icon;
-  final title;
-  const InputTextWithTitle({
+  final lable;
+  final bool hiddenValue;
+  const InputText({
     super.key,
-    required this.title,
+    required this.lable,
     required this.icon,
+    this.hiddenValue = false,
+    this.keyboardType,
   });
 
   @override
@@ -24,7 +28,8 @@ class InputTextWithTitle extends StatelessWidget {
           children: [
             Container(
               height: 48,
-              width: MediaQuery.of(context).size.width - (AppStyles.PaddingBothSidesPage * 2),
+              width: MediaQuery.of(context).size.width -
+                  (AppStyles.PaddingBothSidesPage * 2),
               decoration: BoxDecoration(
                   color: AppColors.border,
                   borderRadius: BorderRadius.circular(14)),
@@ -36,8 +41,10 @@ class InputTextWithTitle extends StatelessWidget {
                   ),
                   Expanded(
                       child: TextField(
+                    obscureText: hiddenValue,
+                    keyboardType: keyboardType,
                     decoration: InputDecoration(
-                        hintText: title,
+                        hintText: lable,
                         hintStyle: AppText.small.copyWith(
                             height: 2,
                             fontWeight: FontWeight.w400,
@@ -46,7 +53,7 @@ class InputTextWithTitle extends StatelessWidget {
                   )),
                 ],
               ),
-            ),
+            )
           ],
         )
       ],

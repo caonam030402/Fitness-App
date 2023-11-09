@@ -1,5 +1,5 @@
 import 'package:fitness_app/components/button.dart';
-import 'package:fitness_app/components/input_text_with_title.dart';
+import 'package:fitness_app/components/input_text.dart';
 import 'package:fitness_app/configs/app_icons.dart';
 import 'package:fitness_app/configs/app_routes.dart';
 import 'package:fitness_app/styles/app_colors.dart';
@@ -45,31 +45,37 @@ class LoginPage extends StatelessWidget {
             SizedBox(
               height: 30,
             ),
-            InputTextWithTitle(
-              title: 'Email',
-              icon: AppIcons.ic_message,
-            ),
+            InputText(
+                lable: 'Email',
+                icon: AppIcons.ic_message,
+                keyboardType: TextInputType.emailAddress),
             SizedBox(
               height: 17,
             ),
-            InputTextWithTitle(
-              title: 'Password',
+            InputText(
+              hiddenValue: true,
+              lable: 'Password',
               icon: AppIcons.ic_lock,
             ),
             SizedBox(
-              height: 17,
+              height: 7,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  width: 160,
-                  child: Text(
-                    'Forgot your password?',
-                    style: AppText.small.copyWith(
-                        color: AppColors.gray_2,
-                        fontWeight: FontWeight.w500,
-                        decoration: TextDecoration.underline),
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pushReplacementNamed(AppRoutes.main);
+                  },
+                  child: Container(
+                    width: 160,
+                    child: Text(
+                      'Forgot your password?',
+                      style: AppText.small.copyWith(
+                          color: AppColors.gray_2,
+                          fontWeight: FontWeight.w500,
+                          decoration: TextDecoration.underline),
+                    ),
                   ),
                 ),
               ],
@@ -80,7 +86,8 @@ class LoginPage extends StatelessWidget {
             Button(
                 text: 'Login',
                 onPressed: () {
-                  Navigator.of(context).pushReplacementNamed(AppRoutes.main);
+                  Navigator.of(context)
+                      .pushReplacementNamed(AppRoutes.wellcome);
                 }),
             SizedBox(
               height: 15,
@@ -162,7 +169,8 @@ class LoginPage extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () {
-                    Navigator.of(context).pushReplacementNamed(AppRoutes.signup);
+                    Navigator.of(context)
+                        .pushReplacementNamed(AppRoutes.register);
                   },
                   child: Text(
                     'Register',
