@@ -1,11 +1,11 @@
 import 'package:fitness_app/configs/app_icons.dart';
+import 'package:fitness_app/configs/app_routes.dart';
 import 'package:fitness_app/pages/onboarding_page.dart';
 import 'package:fitness_app/styles/app_colors.dart';
 import 'package:fitness_app/styles/app_styles.dart';
 import 'package:fitness_app/styles/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:widget_mask/widget_mask.dart';
 
 class IntroPage extends StatelessWidget {
   final String title;
@@ -14,7 +14,7 @@ class IntroPage extends StatelessWidget {
   final controller;
   final Widget image;
 
-  IntroPage({
+  const IntroPage({
     super.key,
     required this.image,
     required this.title,
@@ -29,7 +29,7 @@ class IntroPage extends StatelessWidget {
       body: Column(
         children: [
           Container(child: image),
-          SizedBox(
+          const SizedBox(
             height: 40,
           ),
           Padding(
@@ -42,7 +42,7 @@ class IntroPage extends StatelessWidget {
                   title,
                   style: AppText.heading2.copyWith(fontWeight: FontWeight.bold),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Text(
@@ -60,40 +60,41 @@ class IntroPage extends StatelessWidget {
         focusElevation: 0,
         backgroundColor: Colors.transparent,
         elevation: 0,
-        child: Container(
-          child: Stack(
-            children: [
-              Container(
-                width: 80,
-                height: 80,
-                child: CircularProgressIndicator(
-                  color: AppColors.primary,
-                  value: indexPage * (1 / listIntroPageItem.length),
-                  strokeWidth: 2,
+        child: Stack(
+          children: [
+            SizedBox(
+              width: 80,
+              height: 80,
+              child: CircularProgressIndicator(
+                color: AppColors.primary,
+                value: indexPage * (1 / listIntroPageItem.length),
+                strokeWidth: 2,
+              ),
+            ),
+            Positioned(
+              top: 5,
+              right: 5,
+              left: 5,
+              bottom: 5,
+              child: Container(
+                width: 40,
+                height: 40,
+                padding: const EdgeInsets.all(20),
+                decoration: const BoxDecoration(
+                    gradient: AppColors.primaryGradiant,
+                    borderRadius: BorderRadius.all(Radius.circular(100))),
+                child: SvgPicture.asset(
+                  AppIcons.ic_arrow_right,
+                  width: 10,
                 ),
               ),
-              Positioned(
-                top: 5,
-                right: 5,
-                left: 5,
-                bottom: 5,
-                child: Container(
-                  width: 40,
-                  height: 40,
-                  padding: EdgeInsets.all(20),
-                  decoration: BoxDecoration(
-                      gradient: AppColors.primaryGradiant,
-                      borderRadius: BorderRadius.all(Radius.circular(100))),
-                  child: SvgPicture.asset(
-                    AppIcons.ic_arrow_right,
-                    width: 10,
-                  ),
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
         onPressed: () {
+          if (listIntroPageItem.length == indexPage) {
+            Navigator.of(context).pushReplacementNamed(AppRoutes.register);
+          }
           if (controller.hasClients) {
             controller.jumpToPage(
               indexPage,

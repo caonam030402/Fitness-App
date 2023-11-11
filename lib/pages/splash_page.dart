@@ -12,7 +12,7 @@ class SplashPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimatedSplashScreen(
       splash: Center(child: SvgPicture.asset(AppIcons.ic_logo)),
-      nextScreen: OnboardingPage(),
+      nextScreen: const OnboardingPage(),
       backgroundColor: AppColors.white,
     );
   }
