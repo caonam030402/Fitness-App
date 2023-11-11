@@ -15,7 +15,7 @@ class Button extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       height: 60,
       decoration: BoxDecoration(
-        gradient: AppColors.primaryGradian,
+        gradient: AppColors.primaryGradiant,
         borderRadius: BorderRadius.all(Radius.circular(99)),
         boxShadow: [
           BoxShadow(

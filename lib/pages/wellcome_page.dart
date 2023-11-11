@@ -32,7 +32,7 @@ class WellcomePage extends StatelessWidget {
                       Positioned(
                           left: 35,
                           bottom: 0,
-                          child: SvgPicture.asset(AppIcons.vt_man)),
+                          child: SvgPicture.asset(AppIcons.vt_man_1)),
                       Positioned(
                           right: 50,
                           bottom: 0,

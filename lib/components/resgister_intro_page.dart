@@ -56,7 +56,7 @@ class ResgisterIntroPage extends StatelessWidget {
                   height: 478,
                   width: 275,
                   decoration: BoxDecoration(
-                      gradient: AppColors.primaryGradian,
+                      gradient: AppColors.primaryGradiant,
                       borderRadius: BorderRadius.circular(22)),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,

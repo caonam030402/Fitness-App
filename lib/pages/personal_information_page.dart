@@ -30,7 +30,7 @@ class PersonalInformationPage extends StatelessWidget {
                   children: [
                     Container(
                         width: MediaQuery.of(context).size.width * 0.95,
-                        child: SvgPicture.asset(AppIcons.sp_shape_1)),
+                        child: SvgPicture.asset(AppIcons.sp_shape_3)),
                     Positioned(
                         right: 0,
                         left: 0,
@@ -86,7 +86,7 @@ class PersonalInformationPage extends StatelessWidget {
                         width: 48,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(14),
-                            gradient: AppColors.secondaryGradian),
+                            gradient: AppColors.secondaryGradiant),
                         child: Center(
                             child: Text('KG',
                                 style: AppText.small.copyWith(
@@ -114,7 +114,7 @@ class PersonalInformationPage extends StatelessWidget {
                         width: 48,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(14),
-                            gradient: AppColors.secondaryGradian),
+                            gradient: AppColors.secondaryGradiant),
                         child: Center(
                             child: Text('CM',
                                 style: AppText.small.copyWith(
