@@ -13,7 +13,7 @@
             buildForArchiving = "YES"
             buildForAnalyzing = "YES">
             <BuildableReference
-               BuildableIdentifier = "primary"
+               BuildableIdentifier = "primaryGradiant"
                BlueprintIdentifier = "33CC10EC2044A3C60003C045"
                BuildableName = "fitness_app.app"
                BlueprintName = "Runner"
@@ -29,7 +29,7 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <MacroExpansion>
          <BuildableReference
-            BuildableIdentifier = "primary"
+            BuildableIdentifier = "primaryGradiant"
             BlueprintIdentifier = "33CC10EC2044A3C60003C045"
             BuildableName = "fitness_app.app"
             BlueprintName = "Runner"
@@ -41,7 +41,7 @@
             skipped = "NO"
             parallelizable = "YES">
             <BuildableReference
-               BuildableIdentifier = "primary"
+               BuildableIdentifier = "primaryGradiant"
                BlueprintIdentifier = "331C80D4294CF70F00263BE5"
                BuildableName = "RunnerTests.xctest"
                BlueprintName = "RunnerTests"
@@ -63,7 +63,7 @@
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
          <BuildableReference
-            BuildableIdentifier = "primary"
+            BuildableIdentifier = "primaryGradiant"
             BlueprintIdentifier = "33CC10EC2044A3C60003C045"
             BuildableName = "fitness_app.app"
             BlueprintName = "Runner"
@@ -80,7 +80,7 @@
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
          <BuildableReference
-            BuildableIdentifier = "primary"
+            BuildableIdentifier = "primaryGradiant"
             BlueprintIdentifier = "33CC10EC2044A3C60003C045"
             BuildableName = "fitness_app.app"
             BlueprintName = "Runner"
