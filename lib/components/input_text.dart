@@ -5,17 +5,21 @@ import 'package:fitness_app/styles/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+List<String> list = <String>['Male', 'Female', 'Other'];
+
 class InputText extends StatelessWidget {
   final TextInputType? keyboardType;
   final icon;
   final lable;
   final bool hiddenValue;
+  final bool? containerWidth;
   const InputText({
     super.key,
     required this.lable,
     required this.icon,
-    this.hiddenValue = false,
     this.keyboardType,
+    this.hiddenValue = false,
+    this.containerWidth = false,
   });
 
   @override
@@ -28,8 +32,12 @@ class InputText extends StatelessWidget {
           children: [
             Container(
               height: 48,
-              width: MediaQuery.of(context).size.width -
-                  (AppStyles.PaddingBothSidesPage * 2),
+              width: containerWidth == false
+                  ? (MediaQuery.of(context).size.width -
+                      (AppStyles.PaddingBothSidesPage * 2))
+                  : (MediaQuery.of(context).size.width -
+                      (AppStyles.PaddingBothSidesPage * 2) -
+                      58),
               decoration: BoxDecoration(
                   color: AppColors.border,
                   borderRadius: BorderRadius.circular(14)),

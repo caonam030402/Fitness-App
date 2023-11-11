@@ -1,7 +1,6 @@
 import 'package:fitness_app/components/button.dart';
 import 'package:fitness_app/components/input_date.dart';
 import 'package:fitness_app/components/input_text.dart';
-import 'package:fitness_app/components/input_text_with_element.dart';
 import 'package:fitness_app/configs/app_icons.dart';
 import 'package:fitness_app/configs/app_routes.dart';
 import 'package:fitness_app/styles/app_colors.dart';
@@ -71,18 +70,59 @@ class PersonalInformationPage extends StatelessWidget {
                   SizedBox(
                     height: 17,
                   ),
-                  InputTextWithElement(
-                    lable: 'Your Weight',
-                    icon: AppIcons.ic_weight_scale,
-                    unit: 'KG',
+                  Row(
+                    children: [
+                      InputText(
+                        lable: 'Your Weight',
+                        icon: AppIcons.ic_weight_scale,
+                          keyboardType: TextInputType.number,
+                        containerWidth: true,
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Container(
+                        height: 48,
+                        width: 48,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(14),
+                            gradient: AppColors.secondaryGradian),
+                        child: Center(
+                            child: Text('KG',
+                                style: AppText.small.copyWith(
+                                  fontWeight: FontWeight.w500,
+                                  color: AppColors.white,
+                                ))),
+                      ),
+                    ],
                   ),
                   SizedBox(
                     height: 17,
                   ),
-                  InputTextWithElement(
-                    lable: 'Your Height',
-                    icon: AppIcons.ic_swap,
-                    unit: 'CM',
+                  Row(
+                    children: [
+                      InputText(
+                          lable: 'Your Height',
+                          icon: AppIcons.ic_swap,
+                          keyboardType: TextInputType.number,
+                          containerWidth: true),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Container(
+                        height: 48,
+                        width: 48,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(14),
+                            gradient: AppColors.secondaryGradian),
+                        child: Center(
+                            child: Text('CM',
+                                style: AppText.small.copyWith(
+                                  fontWeight: FontWeight.w500,
+                                  color: AppColors.white,
+                                ))),
+                      ),
+                    ],
                   ),
                   SizedBox(
                     height: 17,

@@ -59,36 +59,44 @@ class ResgisterIntroPage extends StatelessWidget {
                       gradient: AppColors.primaryGradian,
                       borderRadius: BorderRadius.circular(22)),
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       SizedBox(
                         height: 30,
                       ),
                       SvgPicture.asset(image),
                       SizedBox(
-                        height: 30,
-                      ),
-                      Text(title,
-                          style: AppText.medium.copyWith(
-                              fontWeight: FontWeight.w600,
-                              color: AppColors.white),
-                          textAlign: TextAlign.center),
-                      Divider(
-                        height: 4,
-                        thickness: 1,
-                        indent: 110,
-                        endIndent: 110,
-                        color: AppColors.border,
-                      ),
-                      SizedBox(
                         height: 20,
                       ),
-                      Container(
-                        width: 210,
-                        child: Text(desc,
-                            style: AppText.small.copyWith(
-                                fontWeight: FontWeight.w400,
-                                color: AppColors.white),
-                            textAlign: TextAlign.center),
+                      Column(
+                        children: [
+                          Text(title,
+                              style: AppText.medium.copyWith(
+                                  fontWeight: FontWeight.w600,
+                                  color: AppColors.white),
+                              textAlign: TextAlign.center),
+                          Divider(
+                            height: 4,
+                            thickness: 1,
+                            indent: 110,
+                            endIndent: 110,
+                            color: AppColors.border,
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Container(
+                            width: 210,
+                            child: Text(desc,
+                                style: AppText.small.copyWith(
+                                    fontWeight: FontWeight.w400,
+                                    color: AppColors.white),
+                                textAlign: TextAlign.center),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                        ],
                       )
                     ],
                   ),
