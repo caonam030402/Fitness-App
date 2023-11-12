@@ -1,4 +1,4 @@
-import 'package:fitness_app/components/resgister_intro_page.dart';
+import 'package:fitness_app/components/register_intro_page.dart';
 import 'package:fitness_app/configs/app_icons.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +20,7 @@ class _ListRegisterIntroPageState extends State<ListRegisterIntroPage> {
           controller: _controller,
           itemBuilder: (BuildContext context, int index) {
             final item = listRegisterIntroItem[index];
-            return ResgisterIntroPage(
+            return RegisterIntroPage(
               indexPage: index + 1,
               image: item.image,
               title: item.title,

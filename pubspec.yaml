@@ -40,7 +40,6 @@ dependencies:
   gradient_floating_button: ^0.0.3
   widget_mask: ^1.0.0+0
 
-
 dev_dependencies:
   flutter_test:
     sdk: flutter

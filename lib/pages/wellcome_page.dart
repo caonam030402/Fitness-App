@@ -12,14 +12,13 @@ class WellcomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Scaffold(
+    return Scaffold(
       body: Stack(
         children: [
           Column(
             children: [
               SizedBox(
-                height: 40,
+                height: 60,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -86,6 +85,6 @@ class WellcomePage extends StatelessWidget {
           )
         ],
       ),
-    ));
+    );
   }
 }

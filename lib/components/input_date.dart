@@ -39,16 +39,22 @@ class _InputDateState extends State<InputDate> {
                   ),
                   Expanded(
                       child: TextField(
-                        readOnly: true,
-                        controller: _date,
-                        onTap: () async {
-                          DateTime? pickeddate = await showDatePicker(context: context, initialDate: DateTime.now(), firstDate: DateTime(1960), lastDate: DateTime(2040));
-                          if(pickeddate != null) {
-                            setState(() {
-                              _date.text = DateFormat('yyyy-MM-dd').format(pickeddate);
-                            });
-                          }
-                        },
+                    style: AppText.small,
+                    readOnly: true,
+                    controller: _date,
+                    onTap: () async {
+                      DateTime? pickeddate = await showDatePicker(
+                          context: context,
+                          initialDate: DateTime.now(),
+                          firstDate: DateTime(1960),
+                          lastDate: DateTime(2040));
+                      if (pickeddate != null) {
+                        setState(() {
+                          _date.text =
+                              DateFormat('yyyy-MM-dd').format(pickeddate);
+                        });
+                      }
+                    },
                     decoration: InputDecoration(
                         hintText: widget.label,
                         hintStyle: AppText.small.copyWith(

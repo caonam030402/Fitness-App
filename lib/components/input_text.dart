@@ -49,6 +49,7 @@ class InputText extends StatelessWidget {
                   ),
                   Expanded(
                       child: TextField(
+                    style: AppText.small,
                     obscureText: hiddenValue,
                     keyboardType: keyboardType,
                     decoration: InputDecoration(
