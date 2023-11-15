@@ -1,10 +1,6 @@
-import 'package:fitness_app/pages/login_and_register/list_register_intro_page.dart';
-import 'package:fitness_app/pages/login_and_register/login_page.dart';
 import 'package:fitness_app/pages/main_page.dart';
 import 'package:fitness_app/pages/onboarding/onboarding_page.dart';
-import 'package:fitness_app/pages/login_and_register/personal_information_page.dart';
-import 'package:fitness_app/pages/login_and_register/register_page.dart';
-import 'package:fitness_app/pages/login_and_register/wellcome_page.dart';
+
 import 'package:fitness_app/pages/onboarding/splash_page.dart';
 
 class AppRoutes {
