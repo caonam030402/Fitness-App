@@ -34,7 +34,7 @@ class IntroPage extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(
-                horizontal: AppStyles.PaddingBothSidesPage),
+                horizontal: AppStyles.paddingBothSidesPage),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

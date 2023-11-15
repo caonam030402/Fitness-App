@@ -29,7 +29,7 @@ class RegisterIntroPage extends StatelessWidget {
         height: MediaQuery.of(context).size.height,
         child: Padding(
           padding: const EdgeInsets.symmetric(
-              horizontal: AppStyles.PaddingBothSidesPage),
+              horizontal: AppStyles.paddingBothSidesPage),
           child: Column(
             children: [
               SizedBox(
@@ -119,7 +119,7 @@ class RegisterIntroPage extends StatelessWidget {
                     ;
                   }),
               SizedBox(
-                height: AppStyles.PaddingBothSidesPage,
+                height: AppStyles.paddingBothSidesPage,
               ),
             ],
           ),

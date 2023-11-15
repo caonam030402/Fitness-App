@@ -42,7 +42,7 @@ class WellcomePage extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(
-                    horizontal: AppStyles.PaddingBothSidesPage),
+                    horizontal: AppStyles.paddingBothSidesPage),
                 child: Column(
                   children: [
                     SizedBox(
@@ -75,7 +75,7 @@ class WellcomePage extends StatelessWidget {
             right: 0,
             left: 0,
             child: Padding(
-              padding: const EdgeInsets.all(AppStyles.PaddingBothSidesPage),
+              padding: const EdgeInsets.all(AppStyles.paddingBothSidesPage),
               child: Button(
                   text: 'Go To Home',
                   onPressed: () {

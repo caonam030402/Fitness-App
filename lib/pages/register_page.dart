@@ -30,7 +30,7 @@ class _RegisterPageState extends State<RegisterPage> {
           height: MediaQuery.of(context).size.height,
           child: Padding(
             padding: const EdgeInsets.symmetric(
-                horizontal: AppStyles.PaddingBothSidesPage),
+                horizontal: AppStyles.paddingBothSidesPage),
             child: Column(
               children: [
                 SizedBox(

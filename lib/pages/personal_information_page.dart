@@ -41,7 +41,7 @@ class PersonalInformationPage extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(
-                    horizontal: AppStyles.PaddingBothSidesPage),
+                    horizontal: AppStyles.paddingBothSidesPage),
                 child: Column(
                   children: [
                     SizedBox(
@@ -134,7 +134,7 @@ class PersonalInformationPage extends StatelessWidget {
                               .pushReplacementNamed(AppRoutes.intro);
                         }),
                     SizedBox(
-                      height: AppStyles.PaddingBothSidesPage,
+                      height: AppStyles.paddingBothSidesPage,
                     ),
                   ],
                 ),

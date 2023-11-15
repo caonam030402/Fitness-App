@@ -34,9 +34,9 @@ class InputText extends StatelessWidget {
               height: 48,
               width: containerWidth == false
                   ? (MediaQuery.of(context).size.width -
-                      (AppStyles.PaddingBothSidesPage * 2))
+                      (AppStyles.paddingBothSidesPage * 2))
                   : (MediaQuery.of(context).size.width -
-                      (AppStyles.PaddingBothSidesPage * 2) -
+                      (AppStyles.paddingBothSidesPage * 2) -
                       58),
               decoration: BoxDecoration(
                   color: AppColors.border,

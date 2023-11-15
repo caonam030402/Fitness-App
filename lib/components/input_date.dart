@@ -27,7 +27,7 @@ class _InputDateState extends State<InputDate> {
             Container(
               height: 48,
               width: MediaQuery.of(context).size.width -
-                  (AppStyles.PaddingBothSidesPage * 2),
+                  (AppStyles.paddingBothSidesPage * 2),
               decoration: BoxDecoration(
                   color: AppColors.border,
                   borderRadius: BorderRadius.circular(14)),
