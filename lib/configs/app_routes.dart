@@ -1,11 +1,12 @@
-import 'package:fitness_app/pages/list_register_intro_page.dart';
-import 'package:fitness_app/pages/login_page.dart';
+import 'package:fitness_app/pages/loginAndRegister/list_register_intro_page.dart';
+import 'package:fitness_app/pages/loginAndRegister/login_page.dart';
+import 'package:fitness_app/pages/loginAndRegister/personal_information_page.dart';
+import 'package:fitness_app/pages/loginAndRegister/register_page.dart';
+import 'package:fitness_app/pages/loginAndRegister/wellcome_page.dart';
 import 'package:fitness_app/pages/main_page.dart';
-import 'package:fitness_app/pages/onboarding_page.dart';
-import 'package:fitness_app/pages/personal_information_page.dart';
-import 'package:fitness_app/pages/register_page.dart';
-import 'package:fitness_app/pages/wellcome_page.dart';
-import 'package:fitness_app/pages/splash_page.dart';
+import 'package:fitness_app/pages/onboarding/onboarding_page.dart';
+import 'package:fitness_app/pages/onboarding/splash_page.dart';
+import 'package:fitness_app/pages/progressTracker/progress_tracker_page.dart';
 
 class AppRoutes {
   static final pages = {
@@ -16,6 +17,7 @@ class AppRoutes {
     '/wellcome': (context) => WellcomePage(),
     '/information': (context) => PersonalInformationPage(),
     '/splash': (context) => SplashPage(),
+    '/camera': (context) => ProgressTrackerPage(),
     '/onboarding': (context) => OnboardingPage()
   };
   static const login = '/login';
@@ -26,4 +28,5 @@ class AppRoutes {
   static const information = '/information';
   static const splash = '/splash';
   static const onboarding = '/onboarding';
+  static const camera = '/camera';
 }

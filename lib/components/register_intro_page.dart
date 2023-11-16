@@ -1,6 +1,6 @@
 import 'package:fitness_app/components/button.dart';
 import 'package:fitness_app/configs/app_routes.dart';
-import 'package:fitness_app/pages/list_register_intro_page.dart';
+import 'package:fitness_app/pages/loginAndRegister/list_register_intro_page.dart';
 import 'package:fitness_app/styles/app_colors.dart';
 import 'package:fitness_app/styles/app_styles.dart';
 import 'package:fitness_app/styles/app_text.dart';
@@ -29,7 +29,7 @@ class RegisterIntroPage extends StatelessWidget {
         height: MediaQuery.of(context).size.height,
         child: Padding(
           padding: const EdgeInsets.symmetric(
-              horizontal: AppStyles.PaddingBothSidesPage),
+              horizontal: AppStyles.paddingBothSidesPage),
           child: Column(
             children: [
               SizedBox(
@@ -109,7 +109,7 @@ class RegisterIntroPage extends StatelessWidget {
                   onPressed: () {
                     if (indexPage == listRegisterIntroItem.length) {
                       Navigator.of(context)
-                          .pushReplacementNamed(AppRoutes.register);
+                          .pushReplacementNamed(AppRoutes.login);
                     }
                     if (controller.hasClients) {
                       controller.jumpToPage(
@@ -119,7 +119,7 @@ class RegisterIntroPage extends StatelessWidget {
                     ;
                   }),
               SizedBox(
-                height: AppStyles.PaddingBothSidesPage,
+                height: AppStyles.paddingBothSidesPage,
               ),
             ],
           ),

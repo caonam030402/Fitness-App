@@ -1,6 +1,6 @@
 import 'package:fitness_app/configs/app_icons.dart';
 import 'package:fitness_app/configs/app_routes.dart';
-import 'package:fitness_app/pages/onboarding_page.dart';
+import 'package:fitness_app/pages/onboarding/onboarding_page.dart';
 import 'package:fitness_app/styles/app_colors.dart';
 import 'package:fitness_app/styles/app_styles.dart';
 import 'package:fitness_app/styles/app_text.dart';
@@ -34,7 +34,7 @@ class IntroPage extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(
-                horizontal: AppStyles.PaddingBothSidesPage),
+                horizontal: AppStyles.paddingBothSidesPage),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
