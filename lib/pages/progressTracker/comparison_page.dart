@@ -1,3 +1,4 @@
+import 'package:fitness_app/components/button.dart';
 import 'package:fitness_app/components/comparison_item.dart';
 import 'package:fitness_app/components/tool_bar.dart';
 import 'package:fitness_app/styles/app_styles.dart';
@@ -9,34 +10,89 @@ class ComparisonPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        bottomNavigationBar: Padding(
+          padding: const EdgeInsets.all(AppStyles.paddingBothSidesPage),
+          child: Button(text: 'Compare', onPressed: () {}),
+        ),
         appBar: ToolBar(title: 'Comparison'),
-        body: Column(
-          children: [
-            SizedBox(
-              height: 20,
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.all(AppStyles.paddingBothSidesPage),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.8,
+                  child: ListView(
+                    children: [
+                      ComparisonItem(
+                        title: 'Select Month 1',
+                      ),
+                      ComparisonItem(
+                        title: 'Select Month 2',
+                      ),
+                      ComparisonItem(
+                        title: 'Select Month 2',
+                      ),
+                      ComparisonItem(
+                        title: 'Select Month 2',
+                      ),
+                      ComparisonItem(
+                        title: 'Select Month 1',
+                      ),
+                      ComparisonItem(
+                        title: 'Select Month 2',
+                      ),
+                      ComparisonItem(
+                        title: 'Select Month 2',
+                      ),
+                      ComparisonItem(
+                        title: 'Select Month 2',
+                      ),
+                      ComparisonItem(
+                        title: 'Select Month 1',
+                      ),
+                      ComparisonItem(
+                        title: 'Select Month 2',
+                      ),
+                      ComparisonItem(
+                        title: 'Select Month 2',
+                      ),
+                      ComparisonItem(
+                        title: 'Select Month 2',
+                      ),
+                      ComparisonItem(
+                        title: 'Select Month 1',
+                      ),
+                      ComparisonItem(
+                        title: 'Select Month 2',
+                      ),
+                      ComparisonItem(
+                        title: 'Select Month 2',
+                      ),
+                      ComparisonItem(
+                        title: 'Select Month 2',
+                      ),
+                      ComparisonItem(
+                        title: 'Select Month 1',
+                      ),
+                      ComparisonItem(
+                        title: 'Select Month 2',
+                      ),
+                      ComparisonItem(
+                        title: 'Select Month 2',
+                      ),
+                      ComparisonItem(
+                        title: 'Select Month 2',
+                      ),
+                      SizedBox(
+                        height: 30,
+                      )
+                    ],
+                  ),
+                )
+              ],
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                  horizontal: AppStyles.paddingBothSidesPage),
-              child: Column(
-                children: [
-                  Container(
-                    height: MediaQuery.of(context).size.height - 100,
-                    child: ListView(
-                      children: [
-                        ComparisonItem(
-                          title: 'Select Month 1',
-                        ),
-                        ComparisonItem(
-                          title: 'Select Month 2',
-                        ),
-                      ],
-                    ),
-                  )
-                ],
-              ),
-            )
-          ],
+          ),
         ));
   }
 }

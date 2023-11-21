@@ -36,6 +36,9 @@ class ListViewItem extends StatelessWidget {
                 );
               }),
         ),
+        SizedBox(
+          height: 20,
+        ),
       ],
     );
   }

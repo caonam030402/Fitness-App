@@ -7,7 +7,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class BannerBig extends StatelessWidget {
-  const BannerBig({super.key});
+  final String content;
+  final String contentColor;
+  const BannerBig(
+      {super.key, required this.content, required this.contentColor});
 
   @override
   Widget build(BuildContext context) {
@@ -31,15 +34,15 @@ class BannerBig extends StatelessWidget {
                 width: 170,
                 child: RichText(
                   text: TextSpan(
-                    text: 'Track Your Progress Each Month With ',
+                    text: content,
                     style: AppText.small.copyWith(
                         fontWeight: FontWeight.w500,
                         color: AppColors.black,
                         height: 1.8),
-                    children: const [
+                    children: [
                       TextSpan(
-                          text: 'Photo',
-                          style: TextStyle(
+                          text: contentColor,
+                          style: const TextStyle(
                               fontWeight: FontWeight.w600,
                               color: AppColors.primary)),
                     ],
