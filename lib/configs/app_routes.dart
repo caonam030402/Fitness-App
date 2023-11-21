@@ -6,6 +6,7 @@ import 'package:fitness_app/pages/loginAndRegister/wellcome_page.dart';
 import 'package:fitness_app/pages/main_page.dart';
 import 'package:fitness_app/pages/onboarding/onboarding_page.dart';
 import 'package:fitness_app/pages/onboarding/splash_page.dart';
+import 'package:fitness_app/pages/progressTracker/comparison_page.dart';
 import 'package:fitness_app/pages/progressTracker/progress_tracker_page.dart';
 
 class AppRoutes {
@@ -18,7 +19,8 @@ class AppRoutes {
     '/information': (context) => PersonalInformationPage(),
     '/splash': (context) => SplashPage(),
     '/camera': (context) => ProgressTrackerPage(),
-    '/onboarding': (context) => OnboardingPage()
+    '/onboarding': (context) => OnboardingPage(),
+    '/comparison': (context) => ComparisonPage(),
   };
   static const login = '/login';
   static const register = '/register';
@@ -29,4 +31,5 @@ class AppRoutes {
   static const splash = '/splash';
   static const onboarding = '/onboarding';
   static const camera = '/camera';
+  static const comparison = '/comparison';
 }

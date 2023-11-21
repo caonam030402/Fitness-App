@@ -1,5 +1,6 @@
 import 'package:fitness_app/components/bottom_navigation_item.dart';
 import 'package:fitness_app/configs/app_icons.dart';
+import 'package:fitness_app/pages/progressTracker/progress_tracker_page.dart';
 import 'package:fitness_app/styles/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -32,7 +33,7 @@ class _MainPageState extends State<MainPage> {
     const Center(child: Text('Home')),
     const Center(child: Text('Message')),
     const Center(child: Text('Add')),
-    const Center(child: Text('Camera')),
+    ProgressTrackerPage(),
     const Center(child: Text('Profile')),
   ];
 }
