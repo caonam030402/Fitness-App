@@ -1,5 +1,5 @@
 import 'package:fitness_app/components/grid_list_item.dart';
-import 'package:fitness_app/pages/progressTracker/progress_tracker_page.dart';
+import 'package:fitness_app/pages/progressTracker/progressTracker/progress_tracker_page.dart';
 import 'package:flutter/material.dart';
 
 class Photo extends StatelessWidget {

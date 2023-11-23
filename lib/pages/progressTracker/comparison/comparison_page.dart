@@ -1,5 +1,5 @@
 import 'package:fitness_app/components/button.dart';
-import 'package:fitness_app/components/comparison_item.dart';
+import 'package:fitness_app/pages/progressTracker/comparison/widgets/comparison_item.dart';
 import 'package:fitness_app/components/tool_bar.dart';
 import 'package:fitness_app/styles/app_styles.dart';
 import 'package:flutter/material.dart';
@@ -11,17 +11,21 @@ class ComparisonPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         bottomNavigationBar: Padding(
-          padding: const EdgeInsets.all(AppStyles.paddingBothSidesPage),
+          padding: const EdgeInsets.only(
+            bottom: AppStyles.paddingBothSidesPage,
+            left: AppStyles.paddingBothSidesPage,
+            right: AppStyles.paddingBothSidesPage,
+          ),
           child: Button(text: 'Compare', onPressed: () {}),
         ),
         appBar: ToolBar(title: 'Comparison'),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.all(AppStyles.paddingBothSidesPage),
-            child: Column(
-              children: [
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.8,
+        body: Padding(
+          padding: EdgeInsets.all(AppStyles.paddingBothSidesPage),
+          child: Column(
+            children: [
+              SingleChildScrollView(
+                child: SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.71,
                   child: ListView(
                     children: [
                       ComparisonItem(
@@ -84,14 +88,11 @@ class ComparisonPage extends StatelessWidget {
                       ComparisonItem(
                         title: 'Select Month 2',
                       ),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.width * 0.15,
-                      )
                     ],
                   ),
-                )
-              ],
-            ),
+                ),
+              )
+            ],
           ),
         ));
   }

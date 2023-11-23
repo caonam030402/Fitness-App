@@ -1,8 +1,8 @@
 import 'package:fitness_app/components/button.dart';
 import 'package:fitness_app/components/grid_list_item.dart';
-import 'package:fitness_app/components/switchingphoto.dart';
+import 'package:fitness_app/pages/progressTracker/result/widgets/switchingphoto.dart';
 import 'package:fitness_app/components/tool_bar.dart';
-import 'package:fitness_app/pages/progressTracker/progress_tracker_page.dart';
+import 'package:fitness_app/pages/progressTracker/progressTracker/progress_tracker_page.dart';
 import 'package:fitness_app/styles/app_styles.dart';
 import 'package:flutter/material.dart';
 
