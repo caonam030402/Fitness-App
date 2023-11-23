@@ -50,6 +50,7 @@ class _ComparisonItemState extends State<ComparisonItem> {
                 backgroundColor: Colors.transparent,
                 foregroundColor: AppColors.white,
                 shadowColor: Colors.transparent,
+                elevation: 0,
                 shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(99)))),
             child: Column(

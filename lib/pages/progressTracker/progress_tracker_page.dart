@@ -101,6 +101,7 @@ class ProgressTrackerPage extends StatelessWidget {
                                               foregroundColor:
                                                   Colors.transparent,
                                               shadowColor: Colors.transparent,
+                                              elevation: 0,
                                               shape: RoundedRectangleBorder(
                                                   borderRadius:
                                                       BorderRadius.circular(
@@ -132,12 +133,12 @@ class ProgressTrackerPage extends StatelessWidget {
                               height: 10,
                             ),
                             TitleSection(
-                                title: 'Gallery',
-                                textButton: 'See more',
-                                onPressed: () {
-                                  Navigator.of(context)
-                                      .pushReplacementNamed(AppRoutes.main);
-                                }),
+                              title: 'Gallery',
+                              onPressed: () {
+                                Navigator.of(context)
+                                    .pushNamed(AppRoutes.result);
+                              },
+                            ),
                             SizedBox(
                               height: 5,
                             ),
@@ -155,7 +156,7 @@ class ProgressTrackerPage extends StatelessWidget {
             ),
           ),
           Positioned(
-              bottom: AppStyles.heightBottomNavigation * 1.7,
+              bottom: MediaQuery.of(context).size.width * 0.2,
               right: AppStyles.paddingBothSidesPage,
               child: ButtonFloating(
                 icon: AppIcons.ic_camera_stroke,
@@ -171,7 +172,6 @@ class ProgressTrackerPage extends StatelessWidget {
 
 const ListItem = [
   AppIcons.im_jogging,
-  AppIcons.im_weightlifting,
   AppIcons.im_muscle_relaxants,
 ];
 

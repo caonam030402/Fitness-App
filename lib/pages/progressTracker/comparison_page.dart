@@ -85,7 +85,7 @@ class ComparisonPage extends StatelessWidget {
                         title: 'Select Month 2',
                       ),
                       SizedBox(
-                        height: 30,
+                        height: MediaQuery.of(context).size.width * 0.15,
                       )
                     ],
                   ),

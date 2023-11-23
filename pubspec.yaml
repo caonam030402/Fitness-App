@@ -40,6 +40,8 @@ dependencies:
   gradient_floating_button: ^0.0.3
   widget_mask: ^1.0.0+0
   image_picker: ^1.0.4
+  fl_chart: ^0.64.0
+  syncfusion_flutter_charts: ^23.2.4
 
 dev_dependencies:
   flutter_test:

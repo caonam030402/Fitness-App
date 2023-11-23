@@ -62,6 +62,7 @@ class Button extends StatelessWidget {
             backgroundColor: Colors.transparent,
             foregroundColor: AppColors.white,
             shadowColor: Colors.transparent,
+            elevation: 0,
             shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(99)))),
         child: Text(text, style: sizeButton.textStyle),

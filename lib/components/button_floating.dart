@@ -20,6 +20,7 @@ class ButtonFloating extends StatelessWidget {
             backgroundColor: Colors.transparent,
             foregroundColor: Colors.transparent,
             shadowColor: Colors.transparent,
+            elevation: 0,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(99))),
         onPressed: onPressed,

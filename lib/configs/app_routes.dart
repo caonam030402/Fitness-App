@@ -8,6 +8,7 @@ import 'package:fitness_app/pages/onboarding/onboarding_page.dart';
 import 'package:fitness_app/pages/onboarding/splash_page.dart';
 import 'package:fitness_app/pages/progressTracker/comparison_page.dart';
 import 'package:fitness_app/pages/progressTracker/progress_tracker_page.dart';
+import 'package:fitness_app/pages/progressTracker/result_page.dart';
 
 class AppRoutes {
   static final pages = {
@@ -21,6 +22,7 @@ class AppRoutes {
     '/camera': (context) => ProgressTrackerPage(),
     '/onboarding': (context) => OnboardingPage(),
     '/comparison': (context) => ComparisonPage(),
+    '/result': (context) => ResultPage(),
   };
   static const login = '/login';
   static const register = '/register';
@@ -32,4 +34,5 @@ class AppRoutes {
   static const onboarding = '/onboarding';
   static const camera = '/camera';
   static const comparison = '/comparison';
+  static const result = '/result';
 }

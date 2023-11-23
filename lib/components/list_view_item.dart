@@ -28,10 +28,14 @@ class ListViewItem extends StatelessWidget {
               itemCount: item == 0 ? 0 : item.length,
               itemBuilder: (BuildContext context, int index) {
                 return Container(
-                  height: 100,
-                  child: Padding(
-                    padding: const EdgeInsets.only(right: 10),
-                    child: Image.asset(item[index]),
+                  padding: EdgeInsets.only(right: 10),
+                  decoration:
+                      BoxDecoration(borderRadius: BorderRadius.circular(14)),
+                  child: Image.asset(
+                    item[index],
+                    height: 100,
+                    width: 100,
+                    fit: BoxFit.cover,
                   ),
                 );
               }),
