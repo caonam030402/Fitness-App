@@ -1,7 +1,7 @@
 import 'package:fitness_app/components/banner_big.dart';
 import 'package:fitness_app/components/button_floating.dart';
 import 'package:fitness_app/components/daily_action.dart';
-import 'package:fitness_app/pages/progressTracker/progressTracker/widgets/list_view_item.dart';
+import 'package:fitness_app/pages/progressTracker/progressTracker/widgets/list_item_photo.dart';
 import 'package:fitness_app/components/title_section.dart';
 import 'package:fitness_app/configs/app_icons.dart';
 import 'package:fitness_app/configs/app_routes.dart';
@@ -20,11 +20,11 @@ class ProgressTrackerPage extends StatelessWidget {
         children: [
           SingleChildScrollView(
             child: Padding(
-              padding: EdgeInsets.only(
+              padding: const EdgeInsets.only(
                   bottom: AppStyles.heightBottomNavigation + 30),
               child: Column(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 50,
                   ),
                   Padding(
@@ -35,15 +35,15 @@ class ProgressTrackerPage extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Warning(),
-                            SizedBox(
+                            const Warning(),
+                            const SizedBox(
                               height: 25,
                             ),
-                            BannerBig(
+                            const BannerBig(
                               content: 'Track Your Progress Each Month With ',
                               contentColor: 'Photo',
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 25,
                             ),
                             DailyAction(
@@ -54,7 +54,7 @@ class ProgressTrackerPage extends StatelessWidget {
                                     .pushNamed(AppRoutes.comparison);
                               },
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 10,
                             ),
                             TitleSection(
@@ -64,13 +64,13 @@ class ProgressTrackerPage extends StatelessWidget {
                                     .pushNamed(AppRoutes.result);
                               },
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 5,
                             ),
-                            ListViewItem(date: '2 June', item: ListItem),
-                            ListViewItem(date: '2 June', item: ListItem),
-                            ListViewItem(date: '2 June', item: ListItem),
-                            ListViewItem(date: '5 May', item: ListItem1),
+                            const ListItemPhoto(date: '2 June', item: ListItem),
+                            const ListItemPhoto(date: '2 June', item: ListItem),
+                            const ListItemPhoto(date: '2 June', item: ListItem),
+                            const ListItemPhoto(date: '5 May', item: ListItem1),
                           ],
                         ),
                       ],

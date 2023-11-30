@@ -34,32 +34,36 @@ class _SwitchingPhotoState extends State<SwitchingPhoto>
         SizedBox(
           height: AppStyles.paddingBothSidesPage,
         ),
-        Column(
-          children: [
-            Container(
-              height: 60,
-              decoration: BoxDecoration(
-                  color: AppColors.border,
-                  borderRadius: BorderRadius.circular(99)),
-              child: Padding(
-                padding: EdgeInsets.all(10),
-                child: TabBar(
-                    controller: tabController,
-                    unselectedLabelColor: AppColors.gray_2,
-                    labelColor: AppColors.white,
-                    indicator: BoxDecoration(
-                        color: AppColors.primary,
-                        borderRadius: BorderRadius.circular(99)),
-                    tabs: [
-                      Tab(text: 'Photo'),
-                      Tab(text: 'Statistic'),
-                    ]),
+        Padding(
+          padding: const EdgeInsets.symmetric(
+              horizontal: AppStyles.paddingBothSidesPage),
+          child: Column(
+            children: [
+              Container(
+                height: 60,
+                decoration: BoxDecoration(
+                    color: AppColors.border,
+                    borderRadius: BorderRadius.circular(99)),
+                child: Padding(
+                  padding: EdgeInsets.all(10),
+                  child: TabBar(
+                      controller: tabController,
+                      unselectedLabelColor: AppColors.gray_2,
+                      labelColor: AppColors.white,
+                      indicator: BoxDecoration(
+                          color: AppColors.primary,
+                          borderRadius: BorderRadius.circular(99)),
+                      tabs: [
+                        Tab(text: 'Photo'),
+                        Tab(text: 'Statistic'),
+                      ]),
+                ),
               ),
-            ),
-            SizedBox(
-              height: AppStyles.paddingBothSidesPage,
-            ),
-          ],
+              SizedBox(
+                height: 15,
+              ),
+            ],
+          ),
         ),
         Expanded(
             child: TabBarView(

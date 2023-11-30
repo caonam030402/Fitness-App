@@ -2,11 +2,12 @@ import 'package:fitness_app/components/button.dart';
 import 'package:fitness_app/components/input_text.dart';
 import 'package:fitness_app/configs/app_icons.dart';
 import 'package:fitness_app/configs/app_routes.dart';
+import 'package:fitness_app/pages/loginAndRegister/components/border_or.dart';
+import 'package:fitness_app/pages/loginAndRegister/components/button_icon.dart';
 import 'package:fitness_app/styles/app_colors.dart';
 import 'package:fitness_app/styles/app_styles.dart';
 import 'package:fitness_app/styles/app_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -22,7 +23,7 @@ class LoginPage extends StatelessWidget {
               horizontal: AppStyles.paddingBothSidesPage),
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 70,
               ),
               Row(
@@ -44,22 +45,22 @@ class LoginPage extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
-              InputText(
+              const InputText(
                   lable: 'Email',
                   icon: AppIcons.ic_message,
                   keyboardType: TextInputType.emailAddress),
-              SizedBox(
+              const SizedBox(
                 height: 17,
               ),
-              InputText(
+              const InputText(
                 hiddenValue: true,
                 lable: 'Password',
                 icon: AppIcons.ic_lock,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 7,
               ),
               Row(
@@ -70,7 +71,7 @@ class LoginPage extends StatelessWidget {
                       Navigator.of(context)
                           .pushReplacementNamed(AppRoutes.main);
                     },
-                    child: Container(
+                    child: SizedBox(
                       width: 160,
                       child: Text(
                         'Forgot your password?',
@@ -83,84 +84,22 @@ class LoginPage extends StatelessWidget {
                   ),
                 ],
               ),
-              Spacer(),
+              const Spacer(),
               Button(
                   text: 'Login',
                   onPressed: () {
                     Navigator.of(context)
                         .pushReplacementNamed(AppRoutes.wellcome);
                   }),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
-              Container(
-                width: MediaQuery.of(context).size.width,
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Divider(thickness: 1, color: AppColors.gray_3),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        'Or',
-                        style: AppText.small.copyWith(
-                            fontWeight: FontWeight.w400,
-                            color: AppColors.black),
-                      ),
-                    ),
-                    Expanded(
-                      child: Divider(thickness: 1, color: AppColors.gray_3),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
+              const BorderOr(),
+              const SizedBox(
                 height: 30,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    height: 50,
-                    width: 50,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(14),
-                        border:
-                            Border.all(width: 0.8, color: AppColors.gray_3)),
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.transparent,
-                        foregroundColor: AppColors.white,
-                        shadowColor: Colors.transparent,
-                      ),
-                      child: SvgPicture.asset(AppIcons.ic_google),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 30,
-                  ),
-                  Container(
-                    height: 50,
-                    width: 50,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(14),
-                        border:
-                            Border.all(width: 0.8, color: AppColors.gray_3)),
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.transparent,
-                        foregroundColor: AppColors.white,
-                        shadowColor: Colors.transparent,
-                      ),
-                      child: SvgPicture.asset(AppIcons.ic_facebook),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(
+              const ButtonIcon(),
+              const SizedBox(
                 height: 30,
               ),
               Row(
@@ -185,7 +124,7 @@ class LoginPage extends StatelessWidget {
                   )
                 ],
               ),
-              Spacer()
+              const Spacer()
             ],
           ),
         ),

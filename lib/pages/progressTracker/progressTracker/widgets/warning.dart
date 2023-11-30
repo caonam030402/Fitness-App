@@ -31,7 +31,7 @@ class Warning extends StatelessWidget {
                       fit: BoxFit.scaleDown,
                     ),
                   )),
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
               Column(
@@ -42,7 +42,7 @@ class Warning extends StatelessWidget {
                     style: AppText.small.copyWith(
                         fontWeight: FontWeight.w400, color: AppColors.red),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   Text(
@@ -58,7 +58,7 @@ class Warning extends StatelessWidget {
         Positioned(
             top: 5,
             right: 5,
-            child: Container(
+            child: SizedBox(
               height: 50,
               width: 50,
               child: ElevatedButton(

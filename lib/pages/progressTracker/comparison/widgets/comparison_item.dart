@@ -18,6 +18,7 @@ class _ComparisonItemState extends State<ComparisonItem> {
   DateTime date = DateTime.now();
   @override
   void initState() {
+    super.initState();
     label = DateFormat('MMM').format(date);
   }
 
@@ -27,7 +28,7 @@ class _ComparisonItemState extends State<ComparisonItem> {
       children: [
         Container(
           height: 48,
-          padding: EdgeInsets.symmetric(horizontal: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 10),
           decoration: BoxDecoration(
               color: AppColors.border, borderRadius: BorderRadius.circular(16)),
           child: ElevatedButton(
@@ -63,7 +64,7 @@ class _ComparisonItemState extends State<ComparisonItem> {
                       children: [
                         SvgPicture.asset(AppIcons.ic_calendar,
                             height: 18, color: AppColors.gray_1),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         Text(
@@ -82,7 +83,7 @@ class _ComparisonItemState extends State<ComparisonItem> {
                               fontWeight: FontWeight.w400,
                               color: AppColors.gray_2),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         SvgPicture.asset(AppIcons.ic_arrow_right,
@@ -95,7 +96,7 @@ class _ComparisonItemState extends State<ComparisonItem> {
             ),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 15,
         )
       ],

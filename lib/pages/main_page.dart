@@ -33,7 +33,7 @@ class _MainPageState extends State<MainPage> {
     const Center(child: Text('Home')),
     const Center(child: Text('Message')),
     const Center(child: Text('Add')),
-    ProgressTrackerPage(),
+    const ProgressTrackerPage(),
     const Center(child: Text('Profile')),
   ];
 }

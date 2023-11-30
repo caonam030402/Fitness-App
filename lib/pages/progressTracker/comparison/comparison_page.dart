@@ -18,16 +18,16 @@ class ComparisonPage extends StatelessWidget {
           ),
           child: Button(text: 'Compare', onPressed: () {}),
         ),
-        appBar: ToolBar(title: 'Comparison'),
+        appBar: const ToolBar(title: 'Comparison'),
         body: Padding(
-          padding: EdgeInsets.all(AppStyles.paddingBothSidesPage),
+          padding: const EdgeInsets.all(AppStyles.paddingBothSidesPage),
           child: Column(
             children: [
               SingleChildScrollView(
                 child: SizedBox(
                   height: MediaQuery.of(context).size.height * 0.71,
                   child: ListView(
-                    children: [
+                    children: const [
                       ComparisonItem(
                         title: 'Select Month 1',
                       ),
