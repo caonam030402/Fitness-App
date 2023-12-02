@@ -19,7 +19,10 @@ class BarIndicator extends StatefulWidget {
     this.gradient,
     this.direction = Direction.vertical,
     this.isBorderRadiusCenter = true,
+    this.color,
   }) : super(key: key);
+
+  final Color? color;
 
   final bool isLabelPercent;
 
@@ -108,7 +111,7 @@ class _BarIndicatorState extends State<BarIndicator> {
                   height: widget.height ?? 120,
                   width: widget.width ?? 20,
                   decoration: BoxDecoration(
-                    color: AppColors.gray_3.withOpacity(0.4),
+                    color: widget.color ?? AppColors.gray_3.withOpacity(0.4),
                     borderRadius: BorderRadius.all(
                       Radius.circular(
                         widget.circularRadius ?? 20,

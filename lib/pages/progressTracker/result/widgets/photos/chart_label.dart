@@ -4,16 +4,11 @@ import 'package:fitness_app/styles/app_styles.dart';
 import 'package:fitness_app/styles/app_text.dart';
 import 'package:flutter/material.dart';
 
-class ChartLabel extends StatefulWidget {
-  final String title;
-  final double percent = 0.8;
-  const ChartLabel({super.key, required this.title});
+class ChartLabel extends StatelessWidget {
+  final String label;
+  final double percent;
+  const ChartLabel({super.key, required this.label, required this.percent});
 
-  @override
-  State<ChartLabel> createState() => _ChartLabelState();
-}
-
-class _ChartLabelState extends State<ChartLabel> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -22,15 +17,15 @@ class _ChartLabelState extends State<ChartLabel> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              widget.title,
+              label,
               style: AppText.large.copyWith(
                   fontWeight: FontWeight.w600, color: AppColors.black),
             ),
-            if (widget.percent >= 0.7) ...[
+            if (percent >= 0.7) ...[
               Text('Good',
                   style: AppText.small.copyWith(
                       color: AppColors.green, fontWeight: FontWeight.w500))
-            ] else if (widget.percent >= 0.5) ...[
+            ] else if (percent >= 0.5) ...[
               Text('Normal',
                   style: AppText.small.copyWith(
                       color: Colors.yellow, fontWeight: FontWeight.w500))
@@ -53,7 +48,7 @@ class _ChartLabelState extends State<ChartLabel> {
               BarIndicator(
                 isBorderRadiusCenter: false,
                 isLabelPercent: true,
-                percent: widget.percent,
+                percent: percent,
                 direction: Direction.vertical,
                 height: 20,
                 width: MediaQuery.of(context).size.width -

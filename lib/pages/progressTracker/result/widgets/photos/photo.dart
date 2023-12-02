@@ -1,7 +1,7 @@
 import 'package:fitness_app/components/grid_list_item.dart';
 import 'package:fitness_app/pages/progressTracker/components/month.dart';
 import 'package:fitness_app/pages/progressTracker/progressTracker/progress_tracker_page.dart';
-import 'package:fitness_app/pages/progressTracker/result/widgets/chart_label.dart';
+import 'package:fitness_app/pages/progressTracker/result/widgets/photos/chart_label.dart';
 import 'package:fitness_app/styles/app_styles.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +17,8 @@ class Photo extends StatelessWidget {
         child: Column(
           children: [
             ChartLabel(
-              title: 'Average Progress',
+              label: 'Average Progress',
+              percent: 0.2,
             ),
             Month(),
             GridListItem(item: ListItem, title: 'Front Facing'),
