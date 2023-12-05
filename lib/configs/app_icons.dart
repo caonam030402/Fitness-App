@@ -26,6 +26,7 @@ class AppIcons {
   static const ic_back = '${_svg}ic_back.svg';
   static const ic_menu = '${_svg}ic_menu.svg';
   static const ic_down = '${_svg}ic_down.svg';
+  static const ic_bell = '${_svg}ic_bell.svg';
 
   static const vt_weightlifting = '${_svg}vt_weightlifting.svg';
   static const vt_rope_skipping = '${_svg}vt_rope_skipping.svg';
