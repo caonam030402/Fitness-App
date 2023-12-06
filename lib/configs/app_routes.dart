@@ -6,9 +6,9 @@ import 'package:fitness_app/pages/loginAndRegister/wellcome_page.dart';
 import 'package:fitness_app/pages/main_page.dart';
 import 'package:fitness_app/pages/onboarding/onboarding_page.dart';
 import 'package:fitness_app/pages/onboarding/splash_page.dart';
-import 'package:fitness_app/pages/progressTracker/comparison/comparison_page.dart';
-import 'package:fitness_app/pages/progressTracker/progressTracker/progress_tracker_page.dart';
-import 'package:fitness_app/pages/progressTracker/result/result_page.dart';
+import 'package:fitness_app/pages/progressTracker/comparison/index.dart';
+import 'package:fitness_app/pages/progressTracker/progressPhoto/index.dart';
+import 'package:fitness_app/pages/progressTracker/result/index.dart';
 
 class AppRoutes {
   static final pages = {
@@ -19,7 +19,7 @@ class AppRoutes {
     '/wellcome': (context) => WellcomePage(),
     '/information': (context) => PersonalInformationPage(),
     '/splash': (context) => SplashPage(),
-    '/camera': (context) => ProgressTrackerPage(),
+    '/camera': (context) => ProgressPhotoPage(),
     '/onboarding': (context) => OnboardingPage(),
     '/comparison': (context) => ComparisonPage(),
     '/result': (context) => ResultPage(),

@@ -9,39 +9,42 @@ class GridListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Text(
-          title,
-          style: AppText.medium
-              .copyWith(color: AppColors.gray_1, fontWeight: FontWeight.w500),
-        ),
-        SizedBox(
-          height: 15,
-        ),
-        Container(
-          height: 170,
-          child: GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2, mainAxisSpacing: 10, crossAxisSpacing: 10),
-            physics: NeverScrollableScrollPhysics(),
-            itemCount: item == 0 ? 0 : item.length,
-            itemBuilder: (BuildContext context, int index) {
-              return Container(
-                  decoration:
-                      BoxDecoration(borderRadius: BorderRadius.circular(20)),
-                  child: Image.asset(
-                    item[index],
-                    fit: BoxFit.cover,
-                  ));
-            },
+    return SizedBox(
+      height: 230,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(
+            title,
+            style: AppText.medium
+                .copyWith(color: AppColors.gray_1, fontWeight: FontWeight.w500),
           ),
-        ),
-        SizedBox(
-          height: 15,
-        ),
-      ],
+          const SizedBox(
+            height: 15,
+          ),
+          Container(
+            height: 170,
+            child: GridView.builder(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2, mainAxisSpacing: 10, crossAxisSpacing: 10),
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: item == 0 ? 0 : item.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Container(
+                    decoration:
+                        BoxDecoration(borderRadius: BorderRadius.circular(20)),
+                    child: Image.asset(
+                      item[index],
+                      fit: BoxFit.cover,
+                    ));
+              },
+            ),
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+        ],
+      ),
     );
   }
 }

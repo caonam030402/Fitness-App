@@ -17,7 +17,7 @@ class WellcomePage extends StatelessWidget {
         children: [
           Column(
             children: [
-              const SizedBox(
+              SizedBox(
                 height: 60,
               ),
               Row(
@@ -26,7 +26,7 @@ class WellcomePage extends StatelessWidget {
                   Stack(
                     children: [
                       Container(
-                          padding: const EdgeInsets.only(bottom: 10),
+                          padding: EdgeInsets.only(bottom: 10),
                           child: SvgPicture.asset(AppIcons.sp_shape_2)),
                       Positioned(
                           left: 35,
@@ -45,17 +45,17 @@ class WellcomePage extends StatelessWidget {
                     horizontal: AppStyles.paddingBothSidesPage),
                 child: Column(
                   children: [
-                    const SizedBox(
+                    SizedBox(
                       height: 40,
                     ),
                     Text('Welcome, Stefani',
                         style: AppText.heading4.copyWith(
                             fontWeight: FontWeight.w700,
                             color: AppColors.black)),
-                    const SizedBox(
+                    SizedBox(
                       height: 5,
                     ),
-                    SizedBox(
+                    Container(
                       width: 230,
                       child: Text(
                         'You are all set now, let’s reach your goals together with us',

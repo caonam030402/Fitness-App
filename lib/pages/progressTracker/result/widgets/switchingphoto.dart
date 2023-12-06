@@ -1,5 +1,5 @@
-import 'package:fitness_app/pages/progressTracker/result/widgets/photos/photo.dart';
-import 'package:fitness_app/pages/progressTracker/result/widgets/statistic/statistic.dart';
+import 'package:fitness_app/pages/progressTracker/result/widgets/photo.dart';
+import 'package:fitness_app/pages/progressTracker/result/widgets/statistic.dart';
 import 'package:fitness_app/styles/app_colors.dart';
 import 'package:fitness_app/styles/app_styles.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +31,7 @@ class _SwitchingPhotoState extends State<SwitchingPhoto>
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(
+        const SizedBox(
           height: AppStyles.paddingBothSidesPage,
         ),
         Padding(
@@ -45,7 +45,7 @@ class _SwitchingPhotoState extends State<SwitchingPhoto>
                     color: AppColors.border,
                     borderRadius: BorderRadius.circular(99)),
                 child: Padding(
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   child: TabBar(
                       controller: tabController,
                       unselectedLabelColor: AppColors.gray_2,
@@ -53,13 +53,13 @@ class _SwitchingPhotoState extends State<SwitchingPhoto>
                       indicator: BoxDecoration(
                           color: AppColors.primary,
                           borderRadius: BorderRadius.circular(99)),
-                      tabs: [
+                      tabs: const [
                         Tab(text: 'Photo'),
                         Tab(text: 'Statistic'),
                       ]),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
             ],
@@ -68,7 +68,7 @@ class _SwitchingPhotoState extends State<SwitchingPhoto>
         Expanded(
             child: TabBarView(
           controller: tabController,
-          children: [
+          children: const [
             Photo(),
             Statistic(),
           ],
