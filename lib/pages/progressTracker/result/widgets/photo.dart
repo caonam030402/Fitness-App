@@ -7,6 +7,14 @@ import 'package:flutter/material.dart';
 
 class Photo extends StatelessWidget {
   const Photo({super.key});
+  double calculateGridViewHeight() {
+    int totalItems =
+        gridListItems.fold(0, (sum, item) => sum + item.items.length);
+    int rows = (totalItems / 2).ceil();
+    double rowHeight = 180;
+    double totalHeight = rows * rowHeight;
+    return totalHeight;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +30,9 @@ class Photo extends StatelessWidget {
             ),
             const Month(),
             SizedBox(
-              height: 230 * gridListItems.length.toDouble(),
+              height: calculateGridViewHeight() + (51 * gridListItems.length),
               child: ListView.builder(
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   itemCount: gridListItems.length,
                   itemBuilder: (context, index) {
                     final item = gridListItems[index];
@@ -52,9 +60,6 @@ List<GridListItems> gridListItems = [
     AppIcons.im_weightlifting,
     AppIcons.im_muscle_relaxants,
     AppIcons.im_jogging,
-    AppIcons.im_weightlifting,
-    AppIcons.im_muscle_relaxants,
-    AppIcons.im_jogging,
   ], title: 'Front Facing'),
   GridListItems(items: [
     AppIcons.im_weightlifting,
@@ -139,5 +144,5 @@ List<GridListItems> gridListItems = [
     AppIcons.im_weightlifting,
     AppIcons.im_muscle_relaxants,
     AppIcons.im_jogging,
-  ], title: 'Front Facing'),
+  ], title: 'Right Facing'),
 ];

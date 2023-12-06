@@ -3,14 +3,21 @@ import 'package:fitness_app/styles/app_text.dart';
 import 'package:flutter/material.dart';
 
 class GridListItem extends StatelessWidget {
-  final item;
+  final List item;
   final String title;
   const GridListItem({super.key, required this.item, required this.title});
+
+  double calculateGridViewHeight() {
+    int rows = (item.length / 2).ceil();
+    double rowHeight = 180;
+    double totalHeight = rows * rowHeight;
+    return totalHeight;
+  }
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 230,
+      height: 51 + calculateGridViewHeight(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -23,7 +30,7 @@ class GridListItem extends StatelessWidget {
             height: 15,
           ),
           Container(
-            height: 170,
+            height: calculateGridViewHeight(),
             child: GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2, mainAxisSpacing: 10, crossAxisSpacing: 10),

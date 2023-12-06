@@ -26,12 +26,13 @@ class _ComparisonPageState extends State<ComparisonPage> {
         appBar: const ToolBar(title: 'Comparison'),
         body: Padding(
           padding: const EdgeInsets.all(AppStyles.paddingBothSidesPage),
-          child: Column(
-            children: [
-              SingleChildScrollView(
-                child: SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.71,
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 63 * comparisonItems.length.toDouble(),
                   child: ListView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
                     itemCount: comparisonItems.length,
                     itemBuilder: (context, index) {
                       final item = comparisonItems[index];
@@ -41,8 +42,8 @@ class _ComparisonPageState extends State<ComparisonPage> {
                     },
                   ),
                 ),
-              )
-            ],
+              ],
+            ),
           ),
         ));
   }
