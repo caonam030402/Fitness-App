@@ -58,7 +58,7 @@ class MyBottomNavigation extends StatelessWidget {
               top: 30,
               bottom: 0,
               child: Container(
-                decoration: BoxDecoration(color: Colors.transparent),
+                color: Colors.white,
                 height: 50,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),

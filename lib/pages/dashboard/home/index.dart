@@ -1,6 +1,7 @@
 import 'package:fitness_app/components/daily_action.dart';
 import 'package:fitness_app/components/title_section.dart';
 import 'package:fitness_app/configs/app_icons.dart';
+import 'package:fitness_app/configs/app_routes.dart';
 import 'package:fitness_app/pages/dashboard/home/widgets/banner_home.dart';
 import 'package:fitness_app/pages/dashboard/home/widgets/workout_card.dart';
 import 'package:fitness_app/styles/app_colors.dart';
@@ -14,11 +15,13 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Padding(
+    return SafeArea(
+      bottom: false,
+      child: Scaffold(
+        body: Padding(
           padding: const EdgeInsets.symmetric(
-              horizontal: AppStyles.paddingBothSidesPage),
+            horizontal: AppStyles.paddingBothSidesPage,
+          ),
           child: CustomScrollView(
             slivers: [
               SliverToBoxAdapter(
@@ -35,22 +38,27 @@ class HomePage extends StatelessWidget {
                                 .copyWith(fontWeight: FontWeight.w800)),
                       ],
                     ),
-                    Stack(
-                      children: [
-                        SvgPicture.asset(AppIcons.ic_bell, height: 20),
-                        Positioned(
-                            top: 0,
-                            right: 2,
-                            child: Container(
-                              width: 6,
-                              height: 6,
-                              decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.red,
-                                  border: Border.all(
-                                      color: AppColors.white, width: 1)),
-                            ))
-                      ],
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).pushNamed(AppRoutes.notification);
+                      },
+                      child: Stack(
+                        children: [
+                          SvgPicture.asset(AppIcons.ic_bell, height: 20),
+                          Positioned(
+                              top: 0,
+                              right: 2,
+                              child: Container(
+                                width: 6,
+                                height: 6,
+                                decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Colors.red,
+                                    border: Border.all(
+                                        color: AppColors.white, width: 1)),
+                              ))
+                        ],
+                      ),
                     )
                   ],
                 ),

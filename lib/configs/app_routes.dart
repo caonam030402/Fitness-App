@@ -1,3 +1,4 @@
+import 'package:fitness_app/pages/dashboard/home/notification/index.dart';
 import 'package:fitness_app/pages/loginAndRegister/list_register_intro_page.dart';
 import 'package:fitness_app/pages/loginAndRegister/login_page.dart';
 import 'package:fitness_app/pages/loginAndRegister/personal_information_page.dart';
@@ -16,7 +17,8 @@ class AppRoutes {
     '/wellcome': (context) => WellcomePage(),
     '/information': (context) => PersonalInformationPage(),
     '/splash': (context) => SplashPage(),
-    '/onboarding': (context) => OnboardingPage()
+    '/onboarding': (context) => OnboardingPage(),
+    '/notification': (context) => Notification(),
   };
   static const login = '/login';
   static const register = '/register';
@@ -26,4 +28,5 @@ class AppRoutes {
   static const information = '/information';
   static const splash = '/splash';
   static const onboarding = '/onboarding';
+  static const notification = '/notification';
 }
