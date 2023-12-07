@@ -19,11 +19,17 @@ class HomePage extends StatelessWidget {
       bottom: false,
       child: Scaffold(
         body: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: AppStyles.paddingBothSidesPage,
-          ),
+          padding: const EdgeInsets.only(
+              bottom: AppStyles.heightBottomNavigation,
+              right: AppStyles.paddingBothSidesPage,
+              left: AppStyles.paddingBothSidesPage),
           child: CustomScrollView(
             slivers: [
+              SliverToBoxAdapter(
+                child: const SizedBox(
+                  height: 20,
+                ),
+              ),
               SliverToBoxAdapter(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -75,8 +81,13 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               SliverToBoxAdapter(
-                  child:
-                      DailyAction(title: 'Today Target', textAction: 'Check')),
+                  child: DailyAction(
+                title: 'Today Target',
+                textAction: 'Check',
+                onPressed: () {
+                  Navigator.of(context).pushNamed(AppRoutes.activity_tracker);
+                },
+              )),
               SliverToBoxAdapter(
                 child: const SizedBox(
                   height: 10,

@@ -1,5 +1,5 @@
 import 'package:fitness_app/components/tool_bar.dart';
-import 'package:fitness_app/pages/dashboard/home/notification/widgets/notification_item.dart';
+import 'package:fitness_app/pages/dashboard/notification/widgets/notification_item.dart';
 import 'package:fitness_app/styles/app_colors.dart';
 import 'package:fitness_app/styles/app_styles.dart';
 import 'package:flutter/material.dart';
