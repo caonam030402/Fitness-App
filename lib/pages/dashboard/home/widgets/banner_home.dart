@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:fitness_app/components/button.dart';
 import 'package:fitness_app/styles/app_colors.dart';
 import 'package:fitness_app/styles/app_styles.dart';

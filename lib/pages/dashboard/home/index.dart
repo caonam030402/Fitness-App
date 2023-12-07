@@ -1,5 +1,8 @@
+import 'package:fitness_app/components/daily_action.dart';
+import 'package:fitness_app/components/title_section.dart';
 import 'package:fitness_app/configs/app_icons.dart';
 import 'package:fitness_app/pages/dashboard/home/widgets/banner_home.dart';
+import 'package:fitness_app/pages/dashboard/home/widgets/workout_card.dart';
 import 'package:fitness_app/styles/app_colors.dart';
 import 'package:fitness_app/styles/app_styles.dart';
 import 'package:fitness_app/styles/app_text.dart';
@@ -14,45 +17,78 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(AppStyles.paddingBothSidesPage),
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    children: [
-                      Text('Welcome Back,',
-                          style:
-                              AppText.small.copyWith(color: AppColors.gray_2)),
-                      Text('Cao Nam',
-                          style: AppText.heading4
-                              .copyWith(fontWeight: FontWeight.w800)),
-                    ],
-                  ),
-                  Stack(
-                    children: [
-                      SvgPicture.asset(AppIcons.ic_bell, height: 20),
-                      Positioned(
-                          top: 0,
-                          right: 2,
-                          child: Container(
-                            width: 6,
-                            height: 6,
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.red,
-                                border: Border.all(
-                                    color: AppColors.white, width: 1)),
-                          ))
-                    ],
-                  )
-                ],
+          padding: const EdgeInsets.symmetric(
+              horizontal: AppStyles.paddingBothSidesPage),
+          child: CustomScrollView(
+            slivers: [
+              SliverToBoxAdapter(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      children: [
+                        Text('Welcome Back,',
+                            style: AppText.small
+                                .copyWith(color: AppColors.gray_2)),
+                        Text('Cao Nam',
+                            style: AppText.heading4
+                                .copyWith(fontWeight: FontWeight.w800)),
+                      ],
+                    ),
+                    Stack(
+                      children: [
+                        SvgPicture.asset(AppIcons.ic_bell, height: 20),
+                        Positioned(
+                            top: 0,
+                            right: 2,
+                            child: Container(
+                              width: 6,
+                              height: 6,
+                              decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.red,
+                                  border: Border.all(
+                                      color: AppColors.white, width: 1)),
+                            ))
+                      ],
+                    )
+                  ],
+                ),
               ),
-              const SizedBox(
-                height: 20,
+              SliverToBoxAdapter(
+                child: const SizedBox(
+                  height: 20,
+                ),
               ),
-              const BannerHome()
+              SliverToBoxAdapter(child: const BannerHome()),
+              SliverToBoxAdapter(
+                child: const SizedBox(
+                  height: 20,
+                ),
+              ),
+              SliverToBoxAdapter(
+                  child:
+                      DailyAction(title: 'Today Target', textAction: 'Check')),
+              SliverToBoxAdapter(
+                child: const SizedBox(
+                  height: 10,
+                ),
+              ),
+              SliverToBoxAdapter(child: TitleSection(title: 'Latest Workout')),
+              SliverList.separated(
+                itemCount: listLastWorkout.length,
+                separatorBuilder: (context, index) {
+                  return SizedBox(
+                    height: 10,
+                  );
+                },
+                itemBuilder: (context, index) {
+                  final lastWorkout = listLastWorkout[index];
+                  return WorkoutCard(
+                    lastWorkout: lastWorkout,
+                  );
+                },
+              )
             ],
           ),
         ),
@@ -60,3 +96,44 @@ class HomePage extends StatelessWidget {
     );
   }
 }
+
+class LastWorkout {
+  String title;
+  String desc;
+  double progress;
+  String image;
+
+  LastWorkout(
+      {required this.title,
+      required this.desc,
+      required this.image,
+      required this.progress});
+}
+
+List<LastWorkout> listLastWorkout = [
+  LastWorkout(
+      desc: '180 Calories Burn | 20minutes',
+      image: '',
+      progress: 0.3,
+      title: 'Fullbody Workout'),
+  LastWorkout(
+      desc: '180 Calories Burn | 20minutes',
+      image: '',
+      progress: 0.5,
+      title: 'Lowerbody Workout'),
+  LastWorkout(
+      desc: '180 Calories Burn | 20minutes',
+      image: '',
+      progress: 0.4,
+      title: 'Lowerbody Workout'),
+  LastWorkout(
+      desc: '180 Calories Burn | 20minutes',
+      image: '',
+      progress: 0.2,
+      title: 'Lowerbody Workout'),
+  LastWorkout(
+      desc: '180 Calories Burn | 20minutes',
+      image: '',
+      progress: 0.1,
+      title: 'Lowerbody Workout')
+];
