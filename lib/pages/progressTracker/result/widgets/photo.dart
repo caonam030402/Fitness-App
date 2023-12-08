@@ -67,7 +67,6 @@ List<GridListItems> gridListItems = [
     AppIcons.im_jogging,
     AppIcons.im_weightlifting,
     AppIcons.im_muscle_relaxants,
-    AppIcons.im_jogging,
   ], title: 'Front Facing'),
   GridListItems(items: [
     AppIcons.im_weightlifting,
