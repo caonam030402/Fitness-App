@@ -1,5 +1,5 @@
 import 'package:fitness_app/components/button.dart';
-import 'package:fitness_app/pages/progressTracker/comparison/widgets/comparison_item.dart';
+import 'package:fitness_app/components/month_card.dart';
 import 'package:fitness_app/components/tool_bar.dart';
 import 'package:fitness_app/styles/app_styles.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +36,7 @@ class _ComparisonPageState extends State<ComparisonPage> {
                     itemCount: comparisonItems.length,
                     itemBuilder: (context, index) {
                       final item = comparisonItems[index];
-                      return ComparisonItem(
+                      return MonthCard(
                         title: item.title,
                       );
                     },
@@ -49,65 +49,70 @@ class _ComparisonPageState extends State<ComparisonPage> {
   }
 }
 
+class ComparisonItem {
+  String title;
+  ComparisonItem({required this.title});
+}
+
 List<ComparisonItem> comparisonItems = [
-  const ComparisonItem(
+  ComparisonItem(
     title: 'Select Month 1',
   ),
-  const ComparisonItem(
+  ComparisonItem(
     title: 'Select Month 2',
   ),
-  const ComparisonItem(
+  ComparisonItem(
     title: 'Select Month 2',
   ),
-  const ComparisonItem(
+  ComparisonItem(
     title: 'Select Month 2',
   ),
-  const ComparisonItem(
+  ComparisonItem(
     title: 'Select Month 1',
   ),
-  const ComparisonItem(
+  ComparisonItem(
     title: 'Select Month 2',
   ),
-  const ComparisonItem(
+  ComparisonItem(
     title: 'Select Month 2',
   ),
-  const ComparisonItem(
+  ComparisonItem(
     title: 'Select Month 2',
   ),
-  const ComparisonItem(
+  ComparisonItem(
     title: 'Select Month 1',
   ),
-  const ComparisonItem(
+  ComparisonItem(
     title: 'Select Month 2',
   ),
-  const ComparisonItem(
+  ComparisonItem(
     title: 'Select Month 2',
   ),
-  const ComparisonItem(
+  ComparisonItem(
     title: 'Select Month 2',
   ),
-  const ComparisonItem(
+  ComparisonItem(
     title: 'Select Month 1',
   ),
-  const ComparisonItem(
+  ComparisonItem(
     title: 'Select Month 2',
   ),
-  const ComparisonItem(
+  ComparisonItem(
     title: 'Select Month 2',
   ),
-  const ComparisonItem(
+  ComparisonItem(
     title: 'Select Month 2',
   ),
-  const ComparisonItem(
+  ComparisonItem(
     title: 'Select Month 1',
   ),
-  const ComparisonItem(
+  ComparisonItem(
     title: 'Select Month 2',
   ),
-  const ComparisonItem(
+  ComparisonItem(
     title: 'Select Month 2',
   ),
-  const ComparisonItem(
+  ComparisonItem(
     title: 'Select Month 2',
   ),
 ];

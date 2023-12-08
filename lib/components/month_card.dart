@@ -5,15 +5,15 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class ComparisonItem extends StatefulWidget {
+class MonthCard extends StatefulWidget {
   final String title;
-  const ComparisonItem({super.key, required this.title});
+  const MonthCard({super.key, required this.title});
 
   @override
-  State<ComparisonItem> createState() => _ComparisonItemState();
+  State<MonthCard> createState() => _MonthCardState();
 }
 
-class _ComparisonItemState extends State<ComparisonItem> {
+class _MonthCardState extends State<MonthCard> {
   late var label;
   DateTime date = DateTime.now();
   @override
