@@ -5,11 +5,19 @@ import 'package:fitness_app/configs/app_routes.dart';
 import 'package:fitness_app/styles/app_colors.dart';
 import 'package:fitness_app/styles/app_styles.dart';
 import 'package:fitness_app/styles/app_text.dart';
+import 'package:fitness_app/utils/rules.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -47,18 +55,31 @@ class LoginPage extends StatelessWidget {
               SizedBox(
                 height: 30,
               ),
-              InputText(
-                  lable: 'Email',
-                  icon: AppIcons.ic_message,
-                  keyboardType: TextInputType.emailAddress),
-              SizedBox(
-                height: 17,
-              ),
-              InputText(
-                hiddenValue: true,
-                lable: 'Password',
-                icon: AppIcons.ic_lock,
-              ),
+              Form(
+                  key: _formKey,
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  child: Column(
+                    children: [
+                      InputText(
+                          lable: 'Email',
+                          icon: AppIcons.ic_message,
+                          validator: (value) {
+                            return RulesValidator.validatorEmail(value);
+                          },
+                          keyboardType: TextInputType.emailAddress),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      InputText(
+                        hiddenValue: true,
+                        validator: (value) {
+                          return RulesValidator.validatorPassword(value);
+                        },
+                        lable: 'Password',
+                        icon: AppIcons.ic_lock,
+                      ),
+                    ],
+                  )),
               SizedBox(
                 height: 7,
               ),
@@ -87,8 +108,10 @@ class LoginPage extends StatelessWidget {
               Button(
                   text: 'Login',
                   onPressed: () {
-                    Navigator.of(context)
-                        .pushReplacementNamed(AppRoutes.wellcome);
+                    if (_formKey.currentState!.validate()) {
+                      Navigator.of(context)
+                          .pushReplacementNamed(AppRoutes.wellcome);
+                    }
                   }),
               SizedBox(
                 height: 15,
