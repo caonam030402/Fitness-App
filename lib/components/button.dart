@@ -30,7 +30,11 @@ class Button extends StatelessWidget {
             35, null, 8, AppText.caption.copyWith(fontWeight: FontWeight.w700));
       } else {
         resultSize = SizeButton(
-            30, null, 4, AppText.medium.copyWith(fontWeight: FontWeight.w400));
+            30,
+            null,
+            4,
+            AppText.medium
+                .copyWith(fontWeight: FontWeight.w400, color: AppColors.white));
       }
 
       return resultSize;
@@ -62,6 +66,7 @@ class Button extends StatelessWidget {
             backgroundColor: Colors.transparent,
             foregroundColor: AppColors.white,
             shadowColor: Colors.transparent,
+            elevation: 0,
             shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(99)))),
         child: Text(text, style: sizeButton.textStyle),

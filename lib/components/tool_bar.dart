@@ -18,7 +18,7 @@ class ToolBar extends StatelessWidget implements PreferredSizeWidget {
           horizontal: AppStyles.paddingBothSidesPage),
       child: Column(
         children: [
-          Spacer(),
+          const Spacer(),
           Container(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -26,11 +26,12 @@ class ToolBar extends StatelessWidget implements PreferredSizeWidget {
                 GestureDetector(
                   onTap: () => {Navigator.pop(context)},
                   child: Container(
-                    padding: EdgeInsets.all(7),
+                    padding: const EdgeInsets.all(7),
                     width: 32,
                     height: 32,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(5)),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(5)),
                         color: AppColors.gray_3.withOpacity(0.4)),
                     child: SvgPicture.asset(
                       AppIcons.ic_back,
@@ -44,11 +45,11 @@ class ToolBar extends StatelessWidget implements PreferredSizeWidget {
                       fontWeight: FontWeight.w700, color: AppColors.black),
                 ),
                 Container(
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   width: 32,
                   height: 32,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(5)),
+                      borderRadius: const BorderRadius.all(Radius.circular(5)),
                       color: AppColors.gray_3.withOpacity(0.4)),
                   child: SvgPicture.asset(
                     AppIcons.ic_menu,
