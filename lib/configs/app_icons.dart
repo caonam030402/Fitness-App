@@ -37,6 +37,8 @@ class AppIcons {
   static const vt_rope_skipping = '${_svg}vt_rope_skipping.svg';
   static const vt_jogging = '${_svg}vt_jogging.svg';
   static const vt_lady = '${_svg}vt_lady.svg';
+  static const vt_moon = '${_svg}vt_moon.svg';
+  static const vt_sleep_graph = '${_svg}vt_sleep_graph.svg';
   static const vt_man_1 = '${_svg}vt_man_1.svg';
   static const vt_light_weight_training = '${_svg}vt_light_weight_training.svg';
   static const vt_woman = '${_svg}vt_woman.svg';

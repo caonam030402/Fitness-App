@@ -4,6 +4,8 @@ import 'package:fitness_app/components/tool_bar.dart';
 import 'package:fitness_app/configs/app_icons.dart';
 import 'package:fitness_app/components/schedule.dart';
 import 'package:fitness_app/configs/app_routes.dart';
+import 'package:fitness_app/pages/sleepTracker/sleepTrackerPage/widgets/banner_sleep.dart';
+import 'package:fitness_app/pages/sleepTracker/sleepTrackerPage/widgets/graph_section.dart';
 import 'package:fitness_app/styles/app_styles.dart';
 import 'package:flutter/material.dart';
 
@@ -14,46 +16,56 @@ class SleepTrackerPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const ToolBar(title: 'Sleep Tracker'),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(
-            horizontal: AppStyles.paddingBothSidesPage),
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 20,
-            ),
-            DailyAction(
-              title: 'Daily Sleep Schedule',
-              textAction: 'Check',
-              onPressed: () {
-                Navigator.of(context).pushNamed(AppRoutes.sleepSchedule);
-              },
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            const TitleSection(
-              title: 'Today Schedule',
-              hiddenAction: true,
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            SizedBox(
-              height: 108 * scheduleItem.length.toDouble(),
-              child: ListView.builder(
-                  itemCount: scheduleItem.length,
-                  itemBuilder: (context, index) {
-                    final item = scheduleItem[index];
-                    return Schedule(
-                      hour: item.hour,
-                      icon: item.icon,
-                      label: item.label,
-                      time: item.time,
-                    );
-                  }),
-            )
-          ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+              horizontal: AppStyles.paddingBothSidesPage),
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 15,
+              ),
+              const GraphSection(),
+              const SizedBox(
+                height: 15,
+              ),
+              const BannerSleep(),
+              const SizedBox(
+                height: 30,
+              ),
+              DailyAction(
+                title: 'Daily Sleep Schedule',
+                textAction: 'Check',
+                onPressed: () {
+                  Navigator.of(context).pushNamed(AppRoutes.sleepSchedule);
+                },
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              const TitleSection(
+                title: 'Today Schedule',
+                hiddenAction: true,
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              SizedBox(
+                height: 108 * scheduleItem.length.toDouble(),
+                child: ListView.builder(
+                    itemCount: scheduleItem.length,
+                    itemBuilder: (context, index) {
+                      final item = scheduleItem[index];
+                      return Schedule(
+                        hour: item.hour,
+                        icon: item.icon,
+                        label: item.label,
+                        time: item.time,
+                      );
+                    }),
+              )
+            ],
+          ),
         ),
       ),
     );
