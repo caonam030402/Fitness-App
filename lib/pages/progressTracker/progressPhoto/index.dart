@@ -38,8 +38,10 @@ class ProgressPhotoPage extends StatelessWidget {
                           height: 25,
                         ),
                         const BannerBig(
-                          content: 'Track Your Progress Each Month With ',
+                          text: 'Track Your Progress Each',
+                          content: 'Month With ',
                           contentColor: 'Photo',
+                          icon: AppIcons.vt_write_calendar,
                         ),
                         const SizedBox(
                           height: 25,

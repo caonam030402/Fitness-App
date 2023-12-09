@@ -1,5 +1,4 @@
 import 'package:fitness_app/components/button.dart';
-import 'package:fitness_app/configs/app_icons.dart';
 import 'package:fitness_app/styles/app_colors.dart';
 import 'package:fitness_app/styles/app_styles.dart';
 import 'package:fitness_app/styles/app_text.dart';
@@ -7,10 +6,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class BannerBig extends StatelessWidget {
-  final String content;
+  final String icon;
+  final String text;
+  final String? content;
   final String contentColor;
   const BannerBig(
-      {super.key, required this.content, required this.contentColor});
+      {super.key,
+      this.content,
+      required this.contentColor,
+      required this.icon,
+      required this.text});
 
   @override
   Widget build(BuildContext context) {
@@ -32,21 +37,33 @@ class BannerBig extends StatelessWidget {
             children: [
               SizedBox(
                 width: 170,
-                child: RichText(
-                  text: TextSpan(
-                    text: content,
-                    style: AppText.small.copyWith(
-                        fontWeight: FontWeight.w500,
-                        color: AppColors.black,
-                        height: 1.8),
-                    children: [
-                      TextSpan(
-                          text: contentColor,
-                          style: const TextStyle(
-                              fontWeight: FontWeight.w600,
-                              color: AppColors.primary)),
-                    ],
-                  ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      text,
+                      style: AppText.small.copyWith(
+                          fontWeight: FontWeight.w500,
+                          color: AppColors.black,
+                          height: 1.8),
+                    ),
+                    RichText(
+                      text: TextSpan(
+                        text: content,
+                        style: AppText.small.copyWith(
+                          fontWeight: FontWeight.w500,
+                          color: AppColors.black,
+                        ),
+                        children: [
+                          TextSpan(
+                              text: contentColor,
+                              style: const TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  color: AppColors.primary)),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
               ),
               Button(
@@ -56,7 +73,7 @@ class BannerBig extends StatelessWidget {
               )
             ],
           ),
-          SvgPicture.asset(AppIcons.vt_write_calendar)
+          SvgPicture.asset(icon)
         ],
       ),
     );
