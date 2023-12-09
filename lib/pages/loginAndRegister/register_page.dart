@@ -5,6 +5,7 @@ import 'package:fitness_app/configs/app_routes.dart';
 import 'package:fitness_app/styles/app_colors.dart';
 import 'package:fitness_app/styles/app_styles.dart';
 import 'package:fitness_app/styles/app_text.dart';
+import 'package:fitness_app/utils/rules.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -16,6 +17,10 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  final _formKey = GlobalKey<FormState>();
+
+  String? valuePassword;
+
   bool? isChecked = false;
   @override
   Widget build(BuildContext context) {
@@ -58,33 +63,59 @@ class _RegisterPageState extends State<RegisterPage> {
                 SizedBox(
                   height: 30,
                 ),
-                InputText(
-                  lable: 'First Name',
-                  icon: AppIcons.ic_profile,
-                ),
-                SizedBox(
-                  height: 17,
-                ),
-                InputText(
-                  lable: 'Last Name',
-                  icon: AppIcons.ic_profile,
-                ),
-                SizedBox(
-                  height: 17,
-                ),
-                InputText(
-                  lable: 'Email',
-                  icon: AppIcons.ic_message,
-                  keyboardType: TextInputType.emailAddress,
-                ),
-                SizedBox(
-                  height: 17,
-                ),
-                InputText(
-                  hiddenValue: true,
-                  lable: 'Password',
-                  icon: AppIcons.ic_lock,
-                ),
+                Form(
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    key: _formKey,
+                    child: Column(
+                      children: [
+                        InputText(
+                          lable: 'Name',
+                          icon: AppIcons.ic_profile,
+                          validator: (value) {
+                            return RulesValidator.validatorName(value);
+                          },
+                        ),
+                        SizedBox(
+                          height: 17,
+                        ),
+                        InputText(
+                          validator: (value) {
+                            return RulesValidator.validatorEmail(value);
+                          },
+                          lable: 'Email',
+                          icon: AppIcons.ic_message,
+                          keyboardType: TextInputType.emailAddress,
+                        ),
+                        SizedBox(
+                          height: 17,
+                        ),
+                        InputText(
+                          onChanged: (value) => {
+                            setState(() {
+                              valuePassword = value;
+                            })
+                          },
+                          hiddenValue: true,
+                          lable: 'Password',
+                          icon: AppIcons.ic_lock,
+                          validator: (value) {
+                            return RulesValidator.validatorPassword(value);
+                          },
+                        ),
+                        SizedBox(
+                          height: 17,
+                        ),
+                        InputText(
+                          validator: (value) {
+                            return RulesValidator.validatorConfirmPassword(
+                                value, valuePassword);
+                          },
+                          hiddenValue: true,
+                          lable: 'Confirm Password',
+                          icon: AppIcons.ic_lock,
+                        ),
+                      ],
+                    )),
                 SizedBox(
                   height: 17,
                 ),
@@ -114,8 +145,10 @@ class _RegisterPageState extends State<RegisterPage> {
                 Button(
                     text: 'Register',
                     onPressed: () {
-                      Navigator.of(context)
-                          .pushReplacementNamed(AppRoutes.information);
+                      if (_formKey.currentState!.validate()) {
+                        Navigator.of(context)
+                            .pushReplacementNamed(AppRoutes.wellcome);
+                      }
                     }),
                 SizedBox(
                   height: 15,

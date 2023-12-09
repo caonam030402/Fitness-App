@@ -57,7 +57,6 @@ class _LoginPageState extends State<LoginPage> {
               ),
               Form(
                   key: _formKey,
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
                   child: Column(
                     children: [
                       InputText(

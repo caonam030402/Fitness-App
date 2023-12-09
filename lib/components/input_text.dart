@@ -12,6 +12,7 @@ class InputText extends StatefulWidget {
   final TextInputType? keyboardType;
   final String icon;
   final String lable;
+  final void Function(String)? onChanged;
   final String? Function(String?)? validator;
   final bool hiddenValue;
   final bool? containerWidth;
@@ -23,6 +24,7 @@ class InputText extends StatefulWidget {
     this.hiddenValue = false,
     this.containerWidth = false,
     this.validator,
+    this.onChanged,
   });
 
   @override
@@ -51,8 +53,10 @@ class _InputTextState extends State<InputText> {
                       (AppStyles.paddingBothSidesPage * 2) -
                       58),
               decoration: BoxDecoration(
-                  border:
-                      Border.all(color: _error ? Colors.red : AppColors.white),
+                  border: Border.all(
+                      color: _error
+                          ? Colors.red.withOpacity(0.4)
+                          : AppColors.white),
                   color:
                       _error ? Colors.red.withOpacity(0.1) : AppColors.border,
                   borderRadius: BorderRadius.circular(14)),
@@ -65,6 +69,7 @@ class _InputTextState extends State<InputText> {
                   ),
                   Expanded(
                       child: TextFormField(
+                    onChanged: widget.onChanged,
                     validator: (value) {
                       final error = widget.validator?.call(value);
 

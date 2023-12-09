@@ -23,6 +23,12 @@ class Rules {
     }
   }
 
+  static isConfirmPassword(String? value, String? valuePassword) {
+    if (value != valuePassword) {
+      return 'Password incorrect';
+    }
+  }
+
   static isCheckLength(String? value, int minLength, int maxLength) {
     if ((value != null ? value.length : 0) < minLength) {
       return 'You need to enter more than $minLength characters';
@@ -49,5 +55,10 @@ class RulesValidator {
     return Rules.isRequired(value) ??
         Rules.isCheckLength(value, 6, 30) ??
         Rules.isPassword(value);
+  }
+
+  static validatorConfirmPassword(String? value, String? valuePassword) {
+    return Rules.isRequired(value) ??
+        Rules.isConfirmPassword(value, valuePassword);
   }
 }
