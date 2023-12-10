@@ -2,6 +2,7 @@ import 'package:fitness_app/components/button.dart';
 import 'package:fitness_app/components/input_text.dart';
 import 'package:fitness_app/configs/app_icons.dart';
 import 'package:fitness_app/configs/app_routes.dart';
+import 'package:fitness_app/pages/loginAndRegister/services/auth_services.dart';
 import 'package:fitness_app/styles/app_colors.dart';
 import 'package:fitness_app/styles/app_styles.dart';
 import 'package:fitness_app/styles/app_text.dart';
@@ -17,7 +18,20 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  @override
+  void dispose() {
+    super.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+    _nameController.dispose();
+  }
+
   final _formKey = GlobalKey<FormState>();
+  final AuthService authService = AuthService();
+
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
 
   String? valuePassword;
 
@@ -64,11 +78,11 @@ class _RegisterPageState extends State<RegisterPage> {
                   height: 30,
                 ),
                 Form(
-                    autovalidateMode: AutovalidateMode.onUserInteraction,
                     key: _formKey,
                     child: Column(
                       children: [
                         InputText(
+                          controller: _nameController,
                           lable: 'Name',
                           icon: AppIcons.ic_profile,
                           validator: (value) {
@@ -79,6 +93,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           height: 17,
                         ),
                         InputText(
+                          controller: _emailController,
                           validator: (value) {
                             return RulesValidator.validatorEmail(value);
                           },
@@ -90,6 +105,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           height: 17,
                         ),
                         InputText(
+                          controller: _passwordController,
                           onChanged: (value) => {
                             setState(() {
                               valuePassword = value;
@@ -146,8 +162,12 @@ class _RegisterPageState extends State<RegisterPage> {
                     text: 'Register',
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        Navigator.of(context)
-                            .pushReplacementNamed(AppRoutes.wellcome);
+                        authService.register(
+                          context: context,
+                          name: _nameController.text,
+                          email: _emailController.text,
+                          password: _passwordController.text,
+                        );
                       }
                     }),
                 SizedBox(
