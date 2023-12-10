@@ -1,13 +1,17 @@
+import 'dart:convert';
+
 import 'package:fitness_app/components/button.dart';
 import 'package:fitness_app/components/input_text.dart';
 import 'package:fitness_app/configs/app_icons.dart';
 import 'package:fitness_app/configs/app_routes.dart';
+import 'package:fitness_app/pages/loginAndRegister/services/auth_services.dart';
 import 'package:fitness_app/styles/app_colors.dart';
 import 'package:fitness_app/styles/app_styles.dart';
 import 'package:fitness_app/styles/app_text.dart';
 import 'package:fitness_app/utils/rules.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:http/http.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -17,7 +21,18 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  @override
+  void dispose() {
+    super.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+  }
+
+  final AuthService authService = AuthService();
   final _formKey = GlobalKey<FormState>();
+
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -57,9 +72,11 @@ class _LoginPageState extends State<LoginPage> {
               ),
               Form(
                   key: _formKey,
+                  autovalidateMode: AutovalidateMode.disabled,
                   child: Column(
                     children: [
                       InputText(
+                          controller: _emailController,
                           lable: 'Email',
                           icon: AppIcons.ic_message,
                           validator: (value) {
@@ -70,6 +87,7 @@ class _LoginPageState extends State<LoginPage> {
                         height: 10,
                       ),
                       InputText(
+                        controller: _passwordController,
                         hiddenValue: true,
                         validator: (value) {
                           return RulesValidator.validatorPassword(value);
@@ -108,8 +126,11 @@ class _LoginPageState extends State<LoginPage> {
                   text: 'Login',
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      Navigator.of(context)
-                          .pushReplacementNamed(AppRoutes.wellcome);
+                      authService.login(
+                        context: context,
+                        email: _emailController.text,
+                        password: _passwordController.text,
+                      );
                     }
                   }),
               SizedBox(

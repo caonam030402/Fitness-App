@@ -6,7 +6,7 @@ class RegExps {
 class Rules {
   static isRequired(String? value) {
     if (value == null || value.isEmpty) {
-      return 'Please enter some text';
+      return 'Information cannot be left blank';
     }
     return null;
   }

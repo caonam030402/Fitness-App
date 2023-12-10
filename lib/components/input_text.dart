@@ -13,6 +13,9 @@ class InputText extends StatefulWidget {
   final String icon;
   final String lable;
   final void Function(String)? onChanged;
+  final void Function(String?)? onSaved;
+  final TextEditingController? controller;
+
   final String? Function(String?)? validator;
   final bool hiddenValue;
   final bool? containerWidth;
@@ -25,6 +28,8 @@ class InputText extends StatefulWidget {
     this.containerWidth = false,
     this.validator,
     this.onChanged,
+    this.onSaved,
+    this.controller,
   });
 
   @override
@@ -80,6 +85,8 @@ class _InputTextState extends State<InputText> {
                       return error;
                     },
                     style: AppText.small,
+                    controller: widget.controller,
+                    onSaved: widget.onSaved,
                     obscureText: widget.hiddenValue,
                     keyboardType: widget.keyboardType,
                     textInputAction: TextInputAction.next,
