@@ -25,9 +25,16 @@ class AppIcons {
   static const ic_user_stroke = '${_svg}ic_user_stroke.svg';
   static const ic_back = '${_svg}ic_back.svg';
   static const ic_menu = '${_svg}ic_menu.svg';
+  static const ic_more = '${_svg}ic_more.svg';
   static const ic_down = '${_svg}ic_down.svg';
+  static const ic_notifications = '${_svg}ic_notifications.svg';
+  static const ic_turn_off_notifications =
+      '${_svg}ic_turn_off_notifications.svg';
 
   static const vt_weightlifting = '${_svg}vt_weightlifting.svg';
+  static const vt_glass = '${_svg}vt_glass.svg';
+  static const vt_cake = '${_svg}vt_cake.svg';
+  static const vt_sushi = '${_svg}vt_sushi.svg';
   static const vt_rope_skipping = '${_svg}vt_rope_skipping.svg';
   static const vt_jogging = '${_svg}vt_jogging.svg';
   static const vt_lady = '${_svg}vt_lady.svg';

@@ -4,6 +4,7 @@ import 'package:fitness_app/pages/loginAndRegister/personal_information_page.dar
 import 'package:fitness_app/pages/loginAndRegister/register_page.dart';
 import 'package:fitness_app/pages/loginAndRegister/wellcome_page.dart';
 import 'package:fitness_app/pages/main_page.dart';
+import 'package:fitness_app/pages/mealPlanner/mealPlannerPage/index.dart';
 import 'package:fitness_app/pages/onboarding/onboarding_page.dart';
 import 'package:fitness_app/pages/onboarding/splash_page.dart';
 
@@ -16,9 +17,11 @@ class AppRoutes {
     '/wellcome': (context) => WellcomePage(),
     '/information': (context) => PersonalInformationPage(),
     '/splash': (context) => SplashPage(),
-    '/onboarding': (context) => OnboardingPage()
+    '/onboarding': (context) => OnboardingPage(),
+    '/mealPlanner': (context) => MealPlannerPage(),
   };
   static const login = '/login';
+  static const mealPlanner = '/mealPlanner';
   static const register = '/register';
   static const main = '/main';
   static const intro = '/intro';
