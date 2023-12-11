@@ -1,3 +1,5 @@
+import 'package:fitness_app/pages/dashboard/activityTracker/index.dart';
+import 'package:fitness_app/pages/dashboard/notification/index.dart';
 import 'package:fitness_app/pages/loginAndRegister/list_register_intro_page.dart';
 import 'package:fitness_app/pages/loginAndRegister/login_page.dart';
 import 'package:fitness_app/pages/loginAndRegister/personal_information_page.dart';
@@ -19,8 +21,10 @@ class AppRoutes {
     '/wellcome': (context) => WellcomePage(),
     '/information': (context) => PersonalInformationPage(),
     '/splash': (context) => SplashPage(),
-    '/camera': (context) => ProgressPhotoPage(),
     '/onboarding': (context) => OnboardingPage(),
+    '/notification': (context) => Notification(),
+    '/activity_tracker': (context) => ActivityTracker(),
+    '/camera': (context) => ProgressPhotoPage(),
     '/comparison': (context) => ComparisonPage(),
     '/result': (context) => ResultPage(),
   };
@@ -32,6 +36,8 @@ class AppRoutes {
   static const information = '/information';
   static const splash = '/splash';
   static const onboarding = '/onboarding';
+  static const notification = '/notification';
+  static const activity_tracker = '/activity_tracker';
   static const camera = '/camera';
   static const comparison = '/comparison';
   static const result = '/result';
