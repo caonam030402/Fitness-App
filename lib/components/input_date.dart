@@ -8,40 +8,61 @@ import 'package:intl/intl.dart';
 class InputDate extends StatefulWidget {
   final icon;
   final label;
-  const InputDate({super.key, this.icon, this.label});
+  final controller;
+  final String? Function(String?)? validator;
+  const InputDate(
+      {super.key, this.icon, this.label, this.validator, this.controller});
 
   @override
   State<InputDate> createState() => _InputDateState();
 }
 
 class _InputDateState extends State<InputDate> {
-  TextEditingController _date = TextEditingController();
+  String? _errorMessage;
   @override
   Widget build(BuildContext context) {
+    final _error = _errorMessage != null;
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
               height: 48,
               width: MediaQuery.of(context).size.width -
                   (AppStyles.paddingBothSidesPage * 2),
               decoration: BoxDecoration(
-                  color: AppColors.border,
+                  border: Border.all(
+                      color: _error
+                          ? Colors.red.withOpacity(0.4)
+                          : AppColors.white),
+                  color:
+                      _error ? Colors.red.withOpacity(0.1) : AppColors.border,
                   borderRadius: BorderRadius.circular(14)),
               child: Row(
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(left: 15, right: 10),
-                    child: SvgPicture.asset(widget.icon),
+                    child: SvgPicture.asset(widget.icon,
+                        color: _error ? Colors.red : AppColors.gray_1),
                   ),
                   Expanded(
-                      child: TextField(
+                      child: TextFormField(
+                    validator: (value) {
+                      final error = widget.validator?.call(value);
+
+                      setState(() {
+                        _errorMessage = error;
+                      });
+
+                      return error;
+                    },
                     style: AppText.small,
                     readOnly: true,
-                    controller: _date,
+                    initialValue: null,
+                    controller: widget.controller,
                     onTap: () async {
                       DateTime? pickeddate = await showDatePicker(
                           context: context,
@@ -50,13 +71,14 @@ class _InputDateState extends State<InputDate> {
                           lastDate: DateTime(2040));
                       if (pickeddate != null) {
                         setState(() {
-                          _date.text =
+                          widget.controller.text =
                               DateFormat('yyyy-MM-dd').format(pickeddate);
                         });
                       }
                     },
                     decoration: InputDecoration(
-                        hintText: widget.label,
+                        hintText: _error ? null : widget.label,
+                        errorStyle: const TextStyle(fontSize: 0.1, height: 0),
                         hintStyle: AppText.small.copyWith(
                             height: 2,
                             fontWeight: FontWeight.w400,
@@ -64,6 +86,16 @@ class _InputDateState extends State<InputDate> {
                         border: InputBorder.none),
                   )),
                 ],
+              ),
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            SizedBox(
+              height: 14,
+              child: Text(
+                _error ? _errorMessage! : '',
+                style: TextStyle(fontSize: _error ? 12 : 0, color: Colors.red),
               ),
             )
           ],

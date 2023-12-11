@@ -26,9 +26,12 @@ class AuthService {
       if (res.statusCode == 201) {
         Map<String, dynamic> responseBody = json.decode(res.body);
         String accessToken = responseBody['data']['access_token'];
+        String userId = responseBody['data']['user']['_id'];
 
         SharedPreferences prefs = await SharedPreferences.getInstance();
         await prefs.setString('x-auth-token', accessToken);
+        await prefs.setString('user-id', userId);
+
         Navigator.of(context).pushReplacementNamed(AppRoutes.main);
       } else {
         throw jsonDecode(res.body)["message"];

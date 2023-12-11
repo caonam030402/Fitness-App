@@ -1,6 +1,9 @@
+import 'package:intl/intl.dart';
+
 class RegExps {
   static RegExp password = RegExp(r"(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W)");
   static RegExp email = RegExp(r'\S+@\S+\.\S+');
+  static RegExp number = RegExp(r'^[0-9]+$');
 }
 
 class Rules {
@@ -38,9 +41,33 @@ class Rules {
     }
     return null;
   }
+
+  static isCheckWeight(String? value) {
+    if (value == null ||
+        !RegExps.number.hasMatch(value) ||
+        !(int.parse(value) > 0 && int.parse(value) < 150)) {
+      return 'Please enter correct height';
+    }
+  }
+
+  static isCheckHeight(String? value) {
+    if (value == null ||
+        !RegExps.number.hasMatch(value) ||
+        !(double.parse(value) > 0 && double.parse(value) < 250)) {
+      return 'Please enter correct height';
+    }
+  }
 }
 
 class RulesValidator {
+  static validatorWeight(String? value) {
+    return Rules.isCheckWeight(value);
+  }
+
+  static validatorHeight(String? value) {
+    return Rules.isCheckHeight(value);
+  }
+
   static validatorName(String? value) {
     return Rules.isRequired(value) ?? Rules.isCheckLength(value, 6, 15);
   }

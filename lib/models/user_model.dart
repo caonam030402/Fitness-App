@@ -1,42 +1,43 @@
 import 'dart:convert';
 
 class User {
-  final String id;
-  final String name;
-  final String email;
-  final double weight;
-  final String password;
-  final double height;
-  final String token;
-  final String gender;
-  final String avatar;
-  final DateTime date_of_birth;
+  final String? id;
+  final String? name;
+  final String? email;
+  final double? weight;
+  final String? password;
+  final double? height;
+  final String? token;
+  final String? gender;
+  final String? avatar;
+  final DateTime? date_of_birth;
 
   User(
-      {required this.id,
-      required this.name,
-      required this.email,
-      required this.weight,
-      required this.password,
-      required this.height,
-      required this.avatar,
-      required this.date_of_birth,
-      required this.gender,
-      required this.token});
+      {this.id,
+      this.name,
+      this.email,
+      this.weight,
+      this.password,
+      this.height,
+      this.avatar,
+      this.date_of_birth,
+      this.gender,
+      this.token});
 
   Map<String, dynamic> toMap() {
-    return {
-      "id": id,
+    Map<String, dynamic> map = {
       "name": name,
       "email": email,
-      "password": password,
+      "height": height,
+      "weight": weight,
       "avatar": avatar,
       "date_of_birth": date_of_birth,
-      "token": token,
       "gender": gender,
-      "height": height,
-      "weight": weight
     };
+
+    map.removeWhere((key, value) => value == null);
+
+    return map;
   }
 
   factory User.fromMap(Map<String, dynamic> map) {
