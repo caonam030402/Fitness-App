@@ -109,7 +109,7 @@ class RegisterIntroPage extends StatelessWidget {
                   onPressed: () {
                     if (indexPage == listRegisterIntroItem.length) {
                       Navigator.of(context)
-                          .pushReplacementNamed(AppRoutes.register);
+                          .pushReplacementNamed(AppRoutes.login);
                     }
                     if (controller.hasClients) {
                       controller.jumpToPage(
