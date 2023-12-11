@@ -10,12 +10,13 @@ class TitleSection extends StatelessWidget {
   final bool hiddenAction;
   final void Function()? onPressed;
   final TypeAction typeAction;
-  const TitleSection(
-      {super.key,
-      required this.title,
-      this.onPressed,
-      this.hiddenAction = false,
-      this.typeAction = TypeAction.seeMore});
+  const TitleSection({
+    super.key,
+    required this.title,
+    this.onPressed,
+    this.hiddenAction = false,
+    this.typeAction = TypeAction.seeMore,
+  });
 
   @override
   Widget build(BuildContext context) {

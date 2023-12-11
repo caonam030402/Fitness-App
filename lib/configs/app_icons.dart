@@ -22,7 +22,9 @@ class AppIcons {
   static const ic_message_fill = '${_svg}ic_message_fill.svg';
   static const ic_search_stroke = '${_svg}ic_search_stroke.svg';
   static const ic_user_fill = '${_svg}ic_user_fill.svg';
+  static const ic_clock_and_calendar = '${_svg}ic_clock_and_calendar.svg';
   static const ic_user_stroke = '${_svg}ic_user_stroke.svg';
+  static const ic_close = '${_svg}ic_close.svg';
   static const ic_back = '${_svg}ic_back.svg';
   static const ic_menu = '${_svg}ic_menu.svg';
   static const ic_down = '${_svg}ic_down.svg';
@@ -43,8 +45,13 @@ class AppIcons {
   static const vt_man = '${_svg}vt_man.svg';
   static const vt_runner_2 = '${_svg}vt_runner_2.svg';
   static const vt_sit = '${_svg}vt_sit.svg';
+  static const vt_write_calendar = '${_svg}vt_write_calendar.svg';
 
   static const sp_shape_3 = '${_svg}sp_shape_3.svg';
   static const sp_shape_2 = '${_svg}sp_shape_2.svg';
   static const sp_shape_1 = '${_svg}sp_shape_1.svg';
+
+  static const im_jogging = '${_png}im_jogging.png';
+  static const im_muscle_relaxants = '${_png}im_muscle_relaxants.png';
+  static const im_weightlifting = '${_png}im_weightlifting.png';
 }
