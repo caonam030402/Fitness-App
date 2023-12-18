@@ -31,12 +31,17 @@ class AppIcons {
   static const ic_bell = '${_svg}ic_bell.svg';
   static const ic_more = '${_svg}ic_more.svg';
   static const ic_plus = '${_svg}ic_plus.svg';
+  static const ic_pause = '${_svg}ic_pause.svg';
+  static const ic_next = '${_svg}ic_next.svg';
+  static const ic_prev = '${_svg}ic_prev.svg';
 
   static const im_glass = '${_svg}im_glass.svg';
   static const im_boots = '${_svg}im_boots.svg';
 
   static const vt_weightlifting = '${_svg}vt_weightlifting.svg';
   static const vt_rope_skipping = '${_svg}vt_rope_skipping.svg';
+  static const vt_rope_skipping_blue = '${_svg}vt_rope_skipping_blue.svg';
+
   static const vt_jogging = '${_svg}vt_jogging.svg';
   static const vt_lady = '${_svg}vt_lady.svg';
   static const vt_man_1 = '${_svg}vt_man_1.svg';
@@ -54,4 +59,5 @@ class AppIcons {
   static const im_jogging = '${_png}im_jogging.png';
   static const im_muscle_relaxants = '${_png}im_muscle_relaxants.png';
   static const im_weightlifting = '${_png}im_weightlifting.png';
+  static const im_girl_fitness = '${_png}im_girl_fitness.jpg';
 }

@@ -1,6 +1,7 @@
 import 'package:fitness_app/components/banner_big.dart';
 import 'package:fitness_app/components/button_floating.dart';
 import 'package:fitness_app/components/daily_action.dart';
+import 'package:fitness_app/components/tool_bar.dart';
 import 'package:fitness_app/pages/progressTracker/progressPhoto/widgets/list_item_photo.dart';
 import 'package:fitness_app/components/title_section.dart';
 import 'package:fitness_app/configs/app_icons.dart';
@@ -18,6 +19,7 @@ class ProgressPhotoPage extends StatelessWidget {
     return Stack(
       children: [
         Scaffold(
+          appBar: ToolBar(title: 'Progress Photo', isBackHome: true),
           body: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.only(
@@ -25,7 +27,7 @@ class ProgressPhotoPage extends StatelessWidget {
               child: Column(
                 children: [
                   const SizedBox(
-                    height: 80,
+                    height: 15,
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(

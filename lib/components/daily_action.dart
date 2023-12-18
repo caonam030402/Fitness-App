@@ -21,7 +21,7 @@ class DailyAction extends StatelessWidget {
         borderRadius: AppStyles.borderRadiusCard,
         color: AppColors.primary.withOpacity(0.3),
       ),
-      padding: AppStyles.paddingCard,
+      padding: EdgeInsets.symmetric(vertical: 14, horizontal: 20),
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
         Text(title,
             style: AppText.medium.copyWith(fontWeight: FontWeight.w600)),

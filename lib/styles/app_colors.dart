@@ -9,6 +9,10 @@ class AppColors {
       LinearGradient(colors: [Color(0xff92A3FD), Color(0xff9DCEFF)]);
   static const secondaryGradiant =
       LinearGradient(colors: [Color(0xffC58BF2), Color(0xffEEA4CE)]);
+  static const whiteGradiant = LinearGradient(colors: [
+    Color.fromARGB(255, 255, 255, 255),
+    Color.fromARGB(255, 255, 255, 255)
+  ]);
   static const progressBarGradiant =
       LinearGradient(colors: [Color(0xff92A3FD), Color(0xffC58BF2)]);
   static const border = Color(0xffF7F8F8);
