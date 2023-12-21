@@ -1,5 +1,5 @@
-import 'package:fitness_app/pages/dashboard/activityTracker/index.dart';
-import 'package:fitness_app/pages/dashboard/notification/index.dart';
+import 'package:fitness_app/pages/activityTracker/index.dart';
+import 'package:fitness_app/pages/notification/index.dart';
 import 'package:fitness_app/pages/loginAndRegister/list_register_intro_page.dart';
 import 'package:fitness_app/pages/loginAndRegister/login_page.dart';
 import 'package:fitness_app/pages/loginAndRegister/personal_information_page.dart';
@@ -11,6 +11,9 @@ import 'package:fitness_app/pages/onboarding/splash_page.dart';
 import 'package:fitness_app/pages/progressTracker/comparison/index.dart';
 import 'package:fitness_app/pages/progressTracker/progressPhoto/index.dart';
 import 'package:fitness_app/pages/progressTracker/result/index.dart';
+import 'package:fitness_app/pages/workout/startWorkout/index.dart';
+import 'package:fitness_app/pages/workout/workoutDetail/index.dart';
+import 'package:fitness_app/pages/workout/workoutDetailInfo/index.dart';
 
 class AppRoutes {
   static final pages = {
@@ -27,6 +30,9 @@ class AppRoutes {
     '/camera': (context) => ProgressPhotoPage(),
     '/comparison': (context) => ComparisonPage(),
     '/result': (context) => ResultPage(),
+    '/workout_tracker_detail': (context) => WorkupTrackerDetail(),
+    '/workout_detail_info': (context) => WorkupDetailInfo(),
+    '/start_workout': (context) => StartWorkout(),
   };
   static const login = '/login';
   static const register = '/register';
@@ -38,7 +44,10 @@ class AppRoutes {
   static const onboarding = '/onboarding';
   static const notification = '/notification';
   static const activity_tracker = '/activity_tracker';
+  static const workout_tracker_detail = '/workout_tracker_detail';
   static const camera = '/camera';
   static const comparison = '/comparison';
   static const result = '/result';
+  static const workout_detail_info = '/workout_detail_info';
+  static const start_workout = '/start_workout';
 }
