@@ -19,13 +19,13 @@ class WorkupTrackerDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     final Workout workout =
         ModalRoute.of(context)!.settings.arguments as Workout;
-
+    print(workout);
     total(Type type) {
       int total = 0;
-      for (var i = 0; i < workout.workoutDetail.length; i++) {
+      for (var i = 0; i < workout.details.length; i++) {
         total = type == Type.totalSeconds
-            ? total + workout.workoutDetail[i].timeSeconds
-            : total + workout.workoutDetail[i].colories;
+            ? total + workout.details[i].timeSeconds
+            : (workout.details[i].calories as int);
       }
       return total;
     }
@@ -37,7 +37,7 @@ class WorkupTrackerDetail extends StatelessWidget {
         Container(
           height: 500,
           width: MediaQuery.of(context).size.width,
-          child: Image.network(workout.mainImage, fit: BoxFit.cover),
+          child: Image.network(workout.imageUrl, fit: BoxFit.cover),
           decoration: const BoxDecoration(),
         ),
         Positioned(
@@ -93,7 +93,7 @@ class WorkupTrackerDetail extends StatelessWidget {
                               height: 5,
                             ),
                             Text(
-                              '${workout.workoutDetail.length} Exercises | ${totalTime.inMinutes} mins | ${total(Type.totalCalories)} Calories Burn',
+                              '${workout.details.length} Exercises | ${totalTime.inMinutes} mins | ${total(Type.totalCalories)} Calories Burn',
                               style: AppText.small
                                   .copyWith(color: AppColors.gray_1),
                             )
@@ -119,7 +119,7 @@ class WorkupTrackerDetail extends StatelessWidget {
                               .copyWith(fontWeight: FontWeight.w700),
                         ),
                         Text(
-                          '${workout.workoutDetail.length.toString()} Set',
+                          '${workout.details.length.toString()} Set',
                           style:
                               AppText.small.copyWith(color: AppColors.gray_1),
                         )
@@ -133,17 +133,17 @@ class WorkupTrackerDetail extends StatelessWidget {
                   ),
                   SliverList.separated(
                     itemBuilder: (context, index) {
-                      final workoutDetailItem = workout.workoutDetail[index];
+                      final detailsItem = workout.details[index];
                       return GestureDetector(
                         onTap: () {
                           Navigator.of(context).pushNamed(
                               AppRoutes.workout_detail_info,
-                              arguments: workoutDetailItem);
+                              arguments: detailsItem);
                         },
-                        child: ExerciseItem(workoutDetail: workoutDetailItem),
+                        child: ExerciseItem(workoutDetail: detailsItem),
                       );
                     },
-                    itemCount: workout.workoutDetail.length,
+                    itemCount: workout.details.length,
                     separatorBuilder: (context, index) {
                       return SizedBox(
                         height: 15,
@@ -164,7 +164,7 @@ class WorkupTrackerDetail extends StatelessWidget {
             child: Button(
               onPressed: () {
                 Navigator.of(context).pushNamed(AppRoutes.start_workout,
-                    arguments: workout.workoutDetail);
+                    arguments: workout.details);
               },
               text: 'Start Workout',
             ),

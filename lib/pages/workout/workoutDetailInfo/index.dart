@@ -73,7 +73,7 @@ class _WorkupDetailInfoState extends State<WorkupDetailInfo> {
                     height: 7,
                   ),
                   Text(
-                    '${workoutDetail.colories} Calories Burn',
+                    '${workoutDetail.calories} Calories Burn',
                     style: AppText.medium.copyWith(color: AppColors.gray_1),
                   )
                 ],
@@ -87,7 +87,7 @@ class _WorkupDetailInfoState extends State<WorkupDetailInfo> {
                 height: 15,
               ),
               ReadMoreText(
-                workoutDetail.desciption,
+                workoutDetail.description,
                 trimLines: 2,
                 style: AppText.medium.copyWith(color: AppColors.gray_1),
                 trimMode: TrimMode.Line,

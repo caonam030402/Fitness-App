@@ -1,17 +1,73 @@
+import 'dart:convert';
+
 class Workout {
-  String mainName;
-  String mainImage;
-  List<WorkoutDetail> workoutDetail;
-  Workout(this.mainImage, this.mainName, this.workoutDetail);
+  String name;
+  String imageUrl;
+  List<WorkoutDetail> details;
+
+  Workout(this.imageUrl, this.name, this.details);
+
+  Map<String, dynamic> toMap() {
+    return {
+      'name': name,
+      'imageUrl': imageUrl,
+      'details': details.map((detail) => detail.toMap()).toList(),
+    };
+  }
+
+  factory Workout.fromMap(Map<String, dynamic> map) {
+    return Workout(
+      map['imageUrl'] ?? '',
+      map['name'] ?? '',
+      (map['details'] as List<dynamic>?)
+              ?.map((detail) => WorkoutDetail.fromMap(detail))
+              .toList() ??
+          [],
+    );
+  }
+
+  String toJson() => json.encode(toMap());
+
+  factory Workout.fromJson(String source) =>
+      Workout.fromMap(json.decode(source));
 }
 
 class WorkoutDetail {
-  String image;
+  String imageUrl;
   String name;
   int timeSeconds;
-  String desciption;
-  String video;
-  int colories;
-  WorkoutDetail(this.image, this.name, this.timeSeconds, this.desciption,
-      this.video, this.colories);
+  String description;
+  String videoUrl;
+  int calories;
+
+  WorkoutDetail(
+    this.imageUrl,
+    this.name,
+    this.timeSeconds,
+    this.description,
+    this.videoUrl,
+    this.calories,
+  );
+
+  Map<String, dynamic> toMap() {
+    return {
+      'image': imageUrl,
+      'name': name,
+      'timeSeconds': timeSeconds,
+      'description': description,
+      'videoUrl': videoUrl,
+      'calories': calories,
+    };
+  }
+
+  factory WorkoutDetail.fromMap(Map<String, dynamic> map) {
+    return WorkoutDetail(
+      map['imageUrl'] ?? '',
+      map['name'] ?? '',
+      map['timeSeconds'] ?? 0,
+      map['description'] ?? '',
+      map['videoUrl'] ?? '',
+      map['calories'] ?? 0,
+    );
+  }
 }

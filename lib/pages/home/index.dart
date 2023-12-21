@@ -3,17 +3,31 @@ import 'package:fitness_app/components/title_section.dart';
 import 'package:fitness_app/configs/app_icons.dart';
 import 'package:fitness_app/configs/app_routes.dart';
 import 'package:fitness_app/dataExample/workout_data.dart';
+import 'package:fitness_app/models/workout_model.dart';
 import 'package:fitness_app/pages/home/widgets/banner_home.dart';
 import 'package:fitness_app/pages/home/widgets/lasted_workout_card.dart';
 import 'package:fitness_app/pages/home/widgets/workout_card.dart';
+import 'package:fitness_app/services/workout_services.dart';
 import 'package:fitness_app/styles/app_colors.dart';
 import 'package:fitness_app/styles/app_styles.dart';
 import 'package:fitness_app/styles/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  late Future<List<Workout>> workoutData;
+  WorkoutService workoutService = WorkoutService();
+  void initState() {
+    super.initState();
+    workoutData = workoutService.getAllWorkout();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -107,20 +121,36 @@ class HomePage extends StatelessWidget {
               SliverToBoxAdapter(
                 child: Container(
                     height: 140,
-                    child: ListView.separated(
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (context, index) {
-                          final workoutItem = workout[index];
-                          return WorkoutCard(
-                            workout: workoutItem,
-                          );
-                        },
-                        separatorBuilder: (context, index) {
-                          return SizedBox(
-                            width: 20,
-                          );
-                        },
-                        itemCount: workout.length)),
+                    child: FutureBuilder(
+                      future: workoutData,
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return CircularProgressIndicator();
+                        }
+                        if (snapshot.hasError) {
+                          return Text('Error: ${snapshot.error}');
+                        }
+                        if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                          return Text('No workout data available.');
+                        }
+                        return ListView.separated(
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (context, index) {
+                            final workoutItem = snapshot.data![index];
+                            return WorkoutCard(
+                              workout: workoutItem,
+                            );
+                          },
+                          separatorBuilder: (context, index) {
+                            return SizedBox(
+                              width: 20,
+                            );
+                          },
+                          itemCount: snapshot.data!.length,
+                        );
+                      },
+                    )),
               ),
               SliverToBoxAdapter(
                 child: const SizedBox(

@@ -20,7 +20,7 @@ class ExerciseItem extends StatelessWidget {
             height: 70,
             child: ClipRRect(
               borderRadius: BorderRadius.all(Radius.circular(20)),
-              child: Image.network(workoutDetail.image, fit: BoxFit.cover),
+              child: Image.network(workoutDetail.imageUrl, fit: BoxFit.cover),
             ),
             decoration: BoxDecoration(
               color: AppColors.gray_3,

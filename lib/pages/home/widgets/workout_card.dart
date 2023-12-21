@@ -15,8 +15,9 @@ class WorkoutCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(workout);
     return Container(
-      width: 270,
+      width: 300,
       padding: AppStyles.paddingCard,
       decoration: BoxDecoration(
           borderRadius: AppStyles.borderRadiusCard,
@@ -28,14 +29,14 @@ class WorkoutCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                workout.mainName,
+                workout.name,
                 style: AppText.medium.copyWith(fontWeight: FontWeight.w600),
               ),
               SizedBox(
                 height: 5,
               ),
               Text(
-                '${workout.workoutDetail.length} Exercises | ${workout.workoutDetail[0].timeSeconds} mins',
+                '${workout.details.length} Exercises | ${workout.details[0].timeSeconds} mins',
                 style: AppText.small.copyWith(color: AppColors.gray_1),
               ),
               SizedBox(
@@ -67,8 +68,7 @@ class WorkoutCard extends StatelessWidget {
                     height: 90,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(200),
-                      child:
-                          Image.network(workout.mainImage, fit: BoxFit.cover),
+                      child: Image.network(workout.imageUrl, fit: BoxFit.cover),
                     ),
                     decoration: BoxDecoration(
                         color: AppColors.white, shape: BoxShape.circle),
