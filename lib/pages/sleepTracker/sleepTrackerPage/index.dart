@@ -4,7 +4,6 @@ import 'package:fitness_app/components/tool_bar.dart';
 import 'package:fitness_app/configs/app_icons.dart';
 import 'package:fitness_app/components/schedule.dart';
 import 'package:fitness_app/configs/app_routes.dart';
-import 'package:fitness_app/pages/sleepTracker/sleepTrackerPage/widgets/banner_sleep.dart';
 import 'package:fitness_app/pages/sleepTracker/sleepTrackerPage/widgets/graph_section.dart';
 import 'package:fitness_app/styles/app_styles.dart';
 import 'package:flutter/material.dart';
@@ -15,57 +14,75 @@ class SleepTrackerPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const ToolBar(title: 'Sleep Tracker'),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(
-              horizontal: AppStyles.paddingBothSidesPage),
-          child: Column(
-            children: [
-              const SizedBox(
+      appBar: const ToolBar(title: 'Sleep Tracker', isBackHome: true),
+      body: Padding(
+        padding: const EdgeInsets.only(
+            bottom: AppStyles.heightBottomNavigation,
+            left: AppStyles.paddingBothSidesPage,
+            right: AppStyles.paddingBothSidesPage),
+        child: CustomScrollView(
+          slivers: [
+            const SliverToBoxAdapter(
+              child: SizedBox(
                 height: 15,
               ),
-              const GraphSection(),
-              const SizedBox(
-                height: 15,
-              ),
-              const BannerSleep(),
-              const SizedBox(
-                height: 30,
-              ),
-              DailyAction(
+            ),
+            SliverToBoxAdapter(
+              child: DailyAction(
                 title: 'Daily Sleep Schedule',
                 textAction: 'Check',
                 onPressed: () {
                   Navigator.of(context).pushNamed(AppRoutes.sleepSchedule);
                 },
               ),
-              const SizedBox(
+            ),
+            // SliverToBoxAdapter(child: const BannerSleep()),
+            const SliverToBoxAdapter(child: GraphSection()),
+            const SliverToBoxAdapter(
+              child: SizedBox(
                 height: 15,
               ),
-              const TitleSection(
+            ),
+            // const SliverToBoxAdapter(
+            //   child: SizedBox(
+            //     height: 30,
+            //   ),
+            // ),
+
+            const SliverToBoxAdapter(
+              child: SizedBox(
+                height: 20,
+              ),
+            ),
+            const SliverToBoxAdapter(
+              child: TitleSection(
                 title: 'Today Schedule',
                 hiddenAction: true,
               ),
-              const SizedBox(
-                height: 15,
+            ),
+            const SliverToBoxAdapter(
+              child: SizedBox(
+                height: 10,
               ),
-              SizedBox(
-                height: 108 * scheduleItem.length.toDouble(),
-                child: ListView.builder(
-                    itemCount: scheduleItem.length,
-                    itemBuilder: (context, index) {
-                      final item = scheduleItem[index];
-                      return Schedule(
-                        hour: item.hour,
-                        icon: item.icon,
-                        label: item.label,
-                        time: item.time,
-                      );
-                    }),
-              )
-            ],
-          ),
+            ),
+            SliverList.separated(
+              itemCount: scheduleItem.length,
+              itemBuilder: (context, index) {
+                final item = scheduleItem[index];
+                return Schedule(
+                  hour: item.hour,
+                  icon: item.icon,
+                  label: item.label,
+                  time: item.time,
+                );
+              },
+              separatorBuilder: (context, index) {
+                return const SizedBox(
+                  height: 4,
+                );
+              },
+            )
+          ],
         ),
       ),
     );

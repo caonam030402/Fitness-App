@@ -30,7 +30,7 @@ class AppRoutes {
     '/onboarding': (context) => OnboardingPage(),
     '/sleepSchedule': (context) => SleepSchedulePage(),
     '/addAlarm': (context) => AddAlarmPage(),
-    '/sleep': (context) => SleepTrackerPage()
+    '/sleep': (context) => SleepTrackerPage(),
     '/notification': (context) => Notification(),
     '/activity_tracker': (context) => ActivityTracker(),
     '/camera': (context) => ProgressPhotoPage(),
