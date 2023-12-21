@@ -1,5 +1,5 @@
-import 'package:audioplayers/audioplayers.dart';
 import 'package:fitness_app/components/button.dart';
+import 'package:fitness_app/models/workout_model.dart';
 import 'package:fitness_app/styles/app_colors.dart';
 import 'package:fitness_app/styles/app_styles.dart';
 import 'package:fitness_app/styles/app_text.dart';
@@ -7,8 +7,13 @@ import 'package:flutter/material.dart';
 
 class IntroWorkup extends StatelessWidget {
   final durationIntro;
+  final WorkoutDetail workoutDetail;
   final void Function()? onPressedButtonStart;
-  const IntroWorkup({super.key, this.durationIntro, this.onPressedButtonStart});
+  const IntroWorkup(
+      {super.key,
+      this.durationIntro,
+      this.onPressedButtonStart,
+      required this.workoutDetail});
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +44,7 @@ class IntroWorkup extends StatelessWidget {
               'Exercise 1/16',
               style: AppText.medium.copyWith(color: AppColors.white),
             ),
-            Text('JUMPING JACKS',
+            Text(workoutDetail.name.toUpperCase(),
                 style: AppText.heading4.copyWith(
                     color: AppColors.white, fontWeight: FontWeight.w700)),
             SizedBox(

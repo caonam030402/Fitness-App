@@ -1,20 +1,21 @@
 import 'package:fitness_app/components/button.dart';
 import 'package:fitness_app/components/tool_bar.dart';
+import 'package:fitness_app/configs/app_routes.dart';
+import 'package:fitness_app/models/workout_model.dart';
 import 'package:fitness_app/styles/app_colors.dart';
 import 'package:fitness_app/styles/app_styles.dart';
 import 'package:fitness_app/styles/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:readmore/readmore.dart';
-import 'package:video_player/video_player.dart';
 
-class WorkupDetailMore extends StatefulWidget {
-  const WorkupDetailMore({super.key});
+class WorkupDetailInfo extends StatefulWidget {
+  const WorkupDetailInfo({super.key});
 
   @override
-  State<WorkupDetailMore> createState() => _WorkupDetailMoreState();
+  State<WorkupDetailInfo> createState() => _WorkupDetailInfoState();
 }
 
-class _WorkupDetailMoreState extends State<WorkupDetailMore> {
+class _WorkupDetailInfoState extends State<WorkupDetailInfo> {
   // late VideoPlayerController controller;
 
   // loadVideoPlayer() {
@@ -37,8 +38,8 @@ class _WorkupDetailMoreState extends State<WorkupDetailMore> {
 
   @override
   Widget build(BuildContext context) {
-    final workoutDetail = ModalRoute.of(context)!.settings.arguments;
-    print(workoutDetail);
+    final WorkoutDetail workoutDetail =
+        ModalRoute.of(context)!.settings.arguments as WorkoutDetail;
 
     return Scaffold(
       appBar: ToolBar(title: ''),
@@ -49,12 +50,12 @@ class _WorkupDetailMoreState extends State<WorkupDetailMore> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                decoration:
-                    BoxDecoration(borderRadius: AppStyles.borderRadiusCard),
-                height: 200,
-                // child: VideoPlayer(controller),
-              ),
+              // Container(
+              //   decoration:
+              //       BoxDecoration(borderRadius: AppStyles.borderRadiusCard),
+              //   height: 200,
+              //   // child: VideoPlayer(controller),
+              // ),
               Container(
                 height: 200,
                 decoration: BoxDecoration(
@@ -67,14 +68,14 @@ class _WorkupDetailMoreState extends State<WorkupDetailMore> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Jumping Jack',
+                  Text(workoutDetail.name,
                       style: AppText.heading4
                           .copyWith(fontWeight: FontWeight.w600)),
                   SizedBox(
                     height: 7,
                   ),
                   Text(
-                    'Easy | 390 Calories Burn',
+                    '${workoutDetail.colories} Calories Burn',
                     style: AppText.medium.copyWith(color: AppColors.gray_1),
                   )
                 ],
@@ -88,7 +89,7 @@ class _WorkupDetailMoreState extends State<WorkupDetailMore> {
                 height: 15,
               ),
               ReadMoreText(
-                'Flutter is Google’s mobile UI open source framework to build high-quality native (super fast) interfaces for iOS and Android apps with the unified codebase.',
+                workoutDetail.desciption,
                 trimLines: 2,
                 style: AppText.medium.copyWith(color: AppColors.gray_1),
                 trimMode: TrimMode.Line,
@@ -106,19 +107,22 @@ class _WorkupDetailMoreState extends State<WorkupDetailMore> {
                   style: AppText.large.copyWith(fontWeight: FontWeight.w600)),
             ],
           ),
-          Positioned(
-            bottom: 0,
-            right: 0,
-            left: 0,
-            child: Container(
-              margin:
-                  const EdgeInsets.only(bottom: AppStyles.paddingBothSidesPage),
-              child: Button(
-                onPressed: () {},
-                text: 'Start Workout',
-              ),
-            ),
-          ),
+          // Positioned(
+          //   bottom: 0,
+          //   right: 0,
+          //   left: 0,
+          //   child: Container(
+          //     margin:
+          //         const EdgeInsets.only(bottom: AppStyles.paddingBothSidesPage),
+          //     child: Button(
+          //       onPressed: () {
+          //         Navigator.of(context).pushNamed(AppRoutes.start_workout,
+          //             arguments: workoutDetail);
+          //       },
+          //       text: 'Start Workout',
+          //     ),
+          //   ),
+          // ),
         ]),
       ),
     );

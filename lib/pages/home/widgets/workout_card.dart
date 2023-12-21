@@ -1,13 +1,17 @@
 import 'package:fitness_app/components/button.dart';
-import 'package:fitness_app/configs/app_icons.dart';
+import 'package:fitness_app/configs/app_routes.dart';
+import 'package:fitness_app/models/workout_model.dart';
 import 'package:fitness_app/styles/app_colors.dart';
 import 'package:fitness_app/styles/app_styles.dart';
 import 'package:fitness_app/styles/app_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class WorkoutCard extends StatelessWidget {
-  const WorkoutCard({super.key});
+  final Workout workout;
+  const WorkoutCard({
+    super.key,
+    required this.workout,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -24,14 +28,14 @@ class WorkoutCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Fullbody Workout',
+                workout.mainName,
                 style: AppText.medium.copyWith(fontWeight: FontWeight.w600),
               ),
               SizedBox(
                 height: 5,
               ),
               Text(
-                '11 Exercises | 32mins',
+                '${workout.workoutDetail.length} Exercises | ${workout.workoutDetail[0].timeSeconds} mins',
                 style: AppText.small.copyWith(color: AppColors.gray_1),
               ),
               SizedBox(
@@ -42,7 +46,11 @@ class WorkoutCard extends StatelessWidget {
                 color: AppColors.whiteGradiant,
                 text: 'View more',
                 size: Size.medium,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pushNamed(
+                      AppRoutes.workout_tracker_detail,
+                      arguments: workout);
+                },
               )
             ],
           ),
@@ -57,19 +65,22 @@ class WorkoutCard extends StatelessWidget {
                   Container(
                     width: 90,
                     height: 90,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(200),
+                      child:
+                          Image.network(workout.mainImage, fit: BoxFit.cover),
+                    ),
                     decoration: BoxDecoration(
                         color: AppColors.white, shape: BoxShape.circle),
                   ),
                 ],
               ),
-              Positioned(
-                  top: 0,
-                  right: 0,
-                  bottom: 0,
-                  left: 0,
-                  child: SvgPicture.asset(
-                    AppIcons.vt_rope_skipping_blue,
-                  ))
+              // Positioned(
+              //     top: 0,
+              //     right: 0,
+              //     bottom: 0,
+              //     left: 0,
+              //     child: SvgPicture.network(image))
             ],
           )
         ],

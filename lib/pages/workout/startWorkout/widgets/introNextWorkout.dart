@@ -1,19 +1,26 @@
 import 'package:fitness_app/components/button.dart';
+import 'package:fitness_app/models/workout_model.dart';
 import 'package:fitness_app/styles/app_colors.dart';
 import 'package:fitness_app/styles/app_styles.dart';
 import 'package:fitness_app/styles/app_text.dart';
 import 'package:flutter/material.dart';
 
-class IntroNextWork extends StatelessWidget {
-  final durationIntro;
+class IntroNextWorkout extends StatelessWidget {
+  final int indexWorkout;
+  final int totalPartWorkout;
+  final Duration durationIntro;
+  final WorkoutDetail workoutDetail;
   final void Function()? onPressedButtonAddTime;
   final void Function()? onPressedButtonSkip;
 
-  const IntroNextWork(
+  const IntroNextWorkout(
       {super.key,
-      this.durationIntro,
+      required this.durationIntro,
       this.onPressedButtonAddTime,
-      this.onPressedButtonSkip});
+      this.onPressedButtonSkip,
+      required this.workoutDetail,
+      required this.indexWorkout,
+      required this.totalPartWorkout});
 
   @override
   Widget build(BuildContext context) {
@@ -73,11 +80,11 @@ class IntroNextWork extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'NEXT 3/16',
+                        'NEXT ${indexWorkout + 1}/${totalPartWorkout}',
                         style: AppText.medium.copyWith(color: AppColors.white),
                       ),
                       Text(
-                        'RUSSIAN TWIST',
+                        workoutDetail.name.toUpperCase(),
                         style: AppText.large.copyWith(
                             color: AppColors.white,
                             fontWeight: FontWeight.w700),

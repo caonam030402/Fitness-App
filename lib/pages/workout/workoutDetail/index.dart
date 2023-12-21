@@ -2,6 +2,7 @@ import 'package:fitness_app/components/button.dart';
 import 'package:fitness_app/components/tool_bar.dart';
 import 'package:fitness_app/configs/app_icons.dart';
 import 'package:fitness_app/configs/app_routes.dart';
+import 'package:fitness_app/models/workout_model.dart';
 import 'package:fitness_app/pages/workout/workoutDetail/widgets/exercise_item.dart';
 import 'package:fitness_app/styles/app_colors.dart';
 import 'package:fitness_app/styles/app_styles.dart';
@@ -9,22 +10,35 @@ import 'package:fitness_app/styles/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+enum Type { totalSeconds, totalCalories }
+
 class WorkupTrackerDetail extends StatelessWidget {
   const WorkupTrackerDetail({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // backgroundColor: AppColors.primary,
+    final Workout workout =
+        ModalRoute.of(context)!.settings.arguments as Workout;
 
+    total(Type type) {
+      int total = 0;
+      for (var i = 0; i < workout.workoutDetail.length; i++) {
+        total = type == Type.totalSeconds
+            ? total + workout.workoutDetail[i].timeSeconds
+            : total + workout.workoutDetail[i].colories;
+      }
+      return total;
+    }
+
+    Duration totalTime = Duration(seconds: total(Type.totalSeconds));
+
+    return Scaffold(
       body: Stack(children: [
         Container(
           height: 500,
           width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage(AppIcons.im_girl_fitness),
-                  fit: BoxFit.cover)),
+          child: Image.network(workout.mainImage, fit: BoxFit.cover),
+          decoration: const BoxDecoration(),
         ),
         Positioned(
           top: 45,
@@ -79,7 +93,7 @@ class WorkupTrackerDetail extends StatelessWidget {
                               height: 5,
                             ),
                             Text(
-                              '11 Exercises | 32mins | 320 Calories Burn',
+                              '${workout.workoutDetail.length} Exercises | ${totalTime.inMinutes} mins | ${total(Type.totalCalories)} Calories Burn',
                               style: AppText.small
                                   .copyWith(color: AppColors.gray_1),
                             )
@@ -105,7 +119,7 @@ class WorkupTrackerDetail extends StatelessWidget {
                               .copyWith(fontWeight: FontWeight.w700),
                         ),
                         Text(
-                          '3 set',
+                          '${workout.workoutDetail.length.toString()} Set',
                           style:
                               AppText.small.copyWith(color: AppColors.gray_1),
                         )
@@ -119,14 +133,17 @@ class WorkupTrackerDetail extends StatelessWidget {
                   ),
                   SliverList.separated(
                     itemBuilder: (context, index) {
+                      final workoutDetailItem = workout.workoutDetail[index];
                       return GestureDetector(
                         onTap: () {
-                          Navigator.of(context)
-                              .pushNamed(AppRoutes.workout_detail_more);
+                          Navigator.of(context).pushNamed(
+                              AppRoutes.workout_detail_info,
+                              arguments: workoutDetailItem);
                         },
-                        child: ExerciseItem(),
+                        child: ExerciseItem(workoutDetail: workoutDetailItem),
                       );
                     },
+                    itemCount: workout.workoutDetail.length,
                     separatorBuilder: (context, index) {
                       return SizedBox(
                         height: 15,
@@ -146,7 +163,8 @@ class WorkupTrackerDetail extends StatelessWidget {
             margin: const EdgeInsets.all(AppStyles.paddingBothSidesPage),
             child: Button(
               onPressed: () {
-                Navigator.of(context).pushNamed(AppRoutes.start_workout);
+                Navigator.of(context).pushNamed(AppRoutes.start_workout,
+                    arguments: workout.workoutDetail);
               },
               text: 'Start Workout',
             ),

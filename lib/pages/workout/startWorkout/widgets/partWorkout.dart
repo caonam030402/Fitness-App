@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'package:fitness_app/configs/app_icons.dart';
 import 'package:fitness_app/configs/app_routes.dart';
+import 'package:fitness_app/dataExample/workout_data.dart';
+import 'package:fitness_app/models/workout_model.dart';
 import 'package:fitness_app/pages/workout/startWorkout/index.dart';
 import 'package:fitness_app/pages/workout/startWorkout/widgets/introNextWorkout.dart';
 import 'package:fitness_app/pages/workout/startWorkout/widgets/introWorkout.dart';
@@ -16,17 +18,17 @@ import 'package:video_player/video_player.dart';
 enum CountDownType { countDownExercise, countDownIntro }
 
 class PartWorkout extends StatefulWidget {
-  final indexWorkout;
-  final nameWorkout;
-  final int? timeWorkout;
-
+  final int indexWorkout;
+  final int totalPartWorkout;
+  final WorkoutDetail workoutDetail;
   final PageController controllerPage;
+
   const PartWorkout(
       {super.key,
       required this.controllerPage,
-      this.nameWorkout,
-      this.timeWorkout,
-      this.indexWorkout});
+      required this.indexWorkout,
+      required this.workoutDetail,
+      required this.totalPartWorkout});
 
   @override
   State<PartWorkout> createState() => _PartWorkoutState();
@@ -49,15 +51,16 @@ class _PartWorkoutState extends State<PartWorkout> {
     });
   }
 
-  Duration durationIntro = Duration(seconds: 5);
+  late Duration durationIntro;
 
   bool isModalPause = false;
 
   @override
   void initState() {
     super.initState();
-
-    durationExercise = Duration(seconds: widget.timeWorkout ?? 10);
+    durationIntro = Duration(seconds: widget.indexWorkout == 0 ? 5 : 15);
+    durationExercise =
+        Duration(seconds: widget.workoutDetail.timeSeconds ?? 10);
     startTime(CountDownType.countDownIntro);
   }
 
@@ -119,6 +122,8 @@ class _PartWorkoutState extends State<PartWorkout> {
 
   @override
   Widget build(BuildContext context) {
+    Duration timePartWorkout =
+        Duration(seconds: widget.workoutDetail.timeSeconds);
     final convertTimeToInt = int.parse(durationIntro.inSeconds.toString());
     return Stack(
       children: [
@@ -135,7 +140,7 @@ class _PartWorkoutState extends State<PartWorkout> {
                 Container(
                     child: SmoothPageIndicator(
                   controller: widget.controllerPage,
-                  count: 10,
+                  count: widget.totalPartWorkout,
                   effect: SlideEffect(
                       dotHeight: 4,
                       dotColor: AppColors.gray_1,
@@ -166,11 +171,12 @@ class _PartWorkoutState extends State<PartWorkout> {
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         Text(
-                          'Exercises 2/16',
+                          'Exercises ${widget.indexWorkout + 1}/${widget.totalPartWorkout}',
                           style: AppText.large
                               .copyWith(fontWeight: FontWeight.w700),
                         ),
-                        Text('00:38',
+                        Text(
+                            '${timePartWorkout.inMinutes.toString().padLeft(2, '0')}:${timePartWorkout.inSeconds.toString().padLeft(2, '0')}',
                             style: AppText.medium.copyWith(
                                 fontWeight: FontWeight.w400,
                                 color: AppColors.gray_1))
@@ -196,7 +202,7 @@ class _PartWorkoutState extends State<PartWorkout> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          widget.nameWorkout,
+                          widget.workoutDetail.name,
                           style: AppText.heading4
                               .copyWith(fontWeight: FontWeight.w600),
                         ),
@@ -206,8 +212,8 @@ class _PartWorkoutState extends State<PartWorkout> {
                         GestureDetector(
                           onTap: () {
                             Navigator.of(context).pushNamed(
-                                AppRoutes.workout_detail_more,
-                                arguments: widget.nameWorkout);
+                                AppRoutes.workout_detail_info,
+                                arguments: widget.workoutDetail);
                           },
                           child: Container(
                             alignment: Alignment.center,
@@ -320,6 +326,7 @@ class _PartWorkoutState extends State<PartWorkout> {
             left: 0,
             child: widget.indexWorkout == 0
                 ? IntroWorkup(
+                    workoutDetail: widget.workoutDetail,
                     durationIntro: durationIntro,
                     onPressedButtonStart: () {
                       setState(() {
@@ -327,7 +334,10 @@ class _PartWorkoutState extends State<PartWorkout> {
                       });
                     },
                   )
-                : IntroNextWork(
+                : IntroNextWorkout(
+                    indexWorkout: widget.indexWorkout,
+                    totalPartWorkout: widget.totalPartWorkout,
+                    workoutDetail: widget.workoutDetail,
                     durationIntro: durationIntro,
                     onPressedButtonAddTime: () {
                       setState(() {
@@ -354,7 +364,8 @@ class _PartWorkoutState extends State<PartWorkout> {
               },
               onPressedRestart: () {
                 setState(() {
-                  durationExercise = Duration(seconds: 10);
+                  durationExercise =
+                      Duration(seconds: widget.workoutDetail.timeSeconds);
                   isModalPause = false;
                 });
               },

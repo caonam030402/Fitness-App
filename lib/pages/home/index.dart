@@ -2,6 +2,7 @@ import 'package:fitness_app/components/daily_action.dart';
 import 'package:fitness_app/components/title_section.dart';
 import 'package:fitness_app/configs/app_icons.dart';
 import 'package:fitness_app/configs/app_routes.dart';
+import 'package:fitness_app/dataExample/workout_data.dart';
 import 'package:fitness_app/pages/home/widgets/banner_home.dart';
 import 'package:fitness_app/pages/home/widgets/lasted_workout_card.dart';
 import 'package:fitness_app/pages/home/widgets/workout_card.dart';
@@ -109,28 +110,18 @@ class HomePage extends StatelessWidget {
                     child: ListView.separated(
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {
-                          final lastWorkout = listLastWorkout[index];
-                          return WorkoutCard();
+                          final workoutItem = workout[index];
+                          return WorkoutCard(
+                            workout: workoutItem,
+                          );
                         },
                         separatorBuilder: (context, index) {
                           return SizedBox(
                             width: 20,
                           );
                         },
-                        itemCount: listLastWorkout.length)),
+                        itemCount: workout.length)),
               ),
-              // SliverList.separated(
-              //   itemCount: 3,
-              //   separatorBuilder: (context, index) {
-              //     return SizedBox(
-              //       height: 15,
-              //     );
-              //   },
-              //   itemBuilder: (context, index) {
-              //     final lastWorkout = listLastWorkout[index];
-              //     return WorkoutCard();
-              //   },
-              // ),
               SliverToBoxAdapter(
                 child: const SizedBox(
                   height: 10,

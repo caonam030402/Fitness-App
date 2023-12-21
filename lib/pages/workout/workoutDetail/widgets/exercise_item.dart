@@ -1,27 +1,29 @@
 import 'package:fitness_app/configs/app_icons.dart';
+import 'package:fitness_app/models/workout_model.dart';
 import 'package:fitness_app/styles/app_colors.dart';
 import 'package:fitness_app/styles/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class ExerciseItem extends StatelessWidget {
-  const ExerciseItem({super.key});
+  final WorkoutDetail workoutDetail;
+  const ExerciseItem({super.key, required this.workoutDetail});
 
   @override
   Widget build(BuildContext context) {
+    Duration time = Duration(seconds: workoutDetail.timeSeconds);
     return Container(
       child: Row(
         children: [
           Container(
             width: 70,
             height: 70,
+            child: ClipRRect(
+              borderRadius: BorderRadius.all(Radius.circular(20)),
+              child: Image.network(workoutDetail.image, fit: BoxFit.cover),
+            ),
             decoration: BoxDecoration(
               color: AppColors.gray_3,
-              borderRadius: BorderRadius.all(Radius.circular(20)),
-              // image: DecorationImage(
-              //     fit: BoxFit.cover,
-              //     image: AssetImage(AppIcons.im_girl_fitness)
-              //     )
             ),
           ),
           SizedBox(
@@ -31,11 +33,11 @@ class ExerciseItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Warm Up',
+                workoutDetail.name,
                 style: AppText.medium.copyWith(fontWeight: FontWeight.w600),
               ),
               Text(
-                '05:00',
+                '${time.inMinutes.toString().padLeft(2, '0')}:${time.inSeconds.toString().padLeft(2, '0')}',
                 style: AppText.small.copyWith(color: AppColors.gray_1),
               )
             ],

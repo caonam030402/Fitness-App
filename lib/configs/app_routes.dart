@@ -31,7 +31,7 @@ class AppRoutes {
     '/comparison': (context) => ComparisonPage(),
     '/result': (context) => ResultPage(),
     '/workout_tracker_detail': (context) => WorkupTrackerDetail(),
-    '/workout_detail_more': (context) => WorkupDetailMore(),
+    '/workout_detail_info': (context) => WorkupDetailInfo(),
     '/start_workout': (context) => StartWorkout(),
   };
   static const login = '/login';
@@ -48,6 +48,6 @@ class AppRoutes {
   static const camera = '/camera';
   static const comparison = '/comparison';
   static const result = '/result';
-  static const workout_detail_more = '/workout_detail_more';
+  static const workout_detail_info = '/workout_detail_info';
   static const start_workout = '/start_workout';
 }
