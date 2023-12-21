@@ -10,13 +10,12 @@ class TitleSection extends StatelessWidget {
   final bool hiddenAction;
   final void Function()? onPressed;
   final TypeAction typeAction;
-  const TitleSection({
-    super.key,
-    required this.title,
-    this.onPressed,
-    this.hiddenAction = false,
-    this.typeAction = TypeAction.seeMore,
-  });
+  const TitleSection(
+      {super.key,
+      required this.title,
+      this.onPressed,
+      this.hiddenAction = false,
+      this.typeAction = TypeAction.seeMore});
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +37,7 @@ class TitleSection extends StatelessWidget {
                       style: AppText.small.copyWith(
                           fontWeight: FontWeight.w500, color: AppColors.gray_2),
                     )
-                  : DropDownButton(
+                  : const DropDownButton(
                       listItem: list,
                     )),
         )

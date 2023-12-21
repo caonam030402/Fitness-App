@@ -1,5 +1,4 @@
 import 'package:fitness_app/configs/app_icons.dart';
-import 'package:fitness_app/pages/dashboard/home/index.dart';
 import 'package:fitness_app/pages/main_page.dart';
 import 'package:fitness_app/pages/onboarding/onboarding_page.dart';
 import 'package:fitness_app/styles/app_colors.dart';

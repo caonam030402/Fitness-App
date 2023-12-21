@@ -4,7 +4,6 @@ import 'package:fitness_app/configs/app_config.dart';
 import 'package:fitness_app/configs/app_icons.dart';
 import 'package:fitness_app/configs/app_routes.dart';
 import 'package:fitness_app/styles/app_text.dart';
-import 'package:fitness_app/utils/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:shared_preferences/shared_preferences.dart';

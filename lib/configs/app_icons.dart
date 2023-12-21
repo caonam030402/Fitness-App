@@ -29,21 +29,34 @@ class AppIcons {
   static const ic_menu = '${_svg}ic_menu.svg';
   static const ic_down = '${_svg}ic_down.svg';
   static const ic_error = '${_svg}ic_error.svg';
+  static const ic_vibrate = '${_svg}ic_vibrate.svg';
+  static const ic_repeat = '${_svg}ic_repeat.svg';
+  static const ic_time = '${_svg}ic_time.svg';
+  static const ic_bed = '${_svg}ic_bed.svg';
   static const ic_bell = '${_svg}ic_bell.svg';
   static const ic_more = '${_svg}ic_more.svg';
   static const ic_plus = '${_svg}ic_plus.svg';
+  static const ic_pause = '${_svg}ic_pause.svg';
+  static const ic_next = '${_svg}ic_next.svg';
+  static const ic_prev = '${_svg}ic_prev.svg';
 
   static const im_glass = '${_svg}im_glass.svg';
   static const im_boots = '${_svg}im_boots.svg';
 
   static const vt_weightlifting = '${_svg}vt_weightlifting.svg';
   static const vt_rope_skipping = '${_svg}vt_rope_skipping.svg';
+  static const vt_rope_skipping_blue = '${_svg}vt_rope_skipping_blue.svg';
+
   static const vt_jogging = '${_svg}vt_jogging.svg';
   static const vt_lady = '${_svg}vt_lady.svg';
+  static const vt_moon = '${_svg}vt_moon.svg';
+  static const vt_sleep_graph = '${_svg}vt_sleep_graph.svg';
   static const vt_man_1 = '${_svg}vt_man_1.svg';
   static const vt_light_weight_training = '${_svg}vt_light_weight_training.svg';
   static const vt_woman = '${_svg}vt_woman.svg';
   static const vt_man = '${_svg}vt_man.svg';
+  static const vt_bed = '${_svg}vt_bed.svg';
+  static const vt_clock = '${_svg}vt_clock.svg';
   static const vt_runner_2 = '${_svg}vt_runner_2.svg';
   static const vt_sit = '${_svg}vt_sit.svg';
   static const vt_write_calendar = '${_svg}vt_write_calendar.svg';
@@ -55,4 +68,5 @@ class AppIcons {
   static const im_jogging = '${_png}im_jogging.png';
   static const im_muscle_relaxants = '${_png}im_muscle_relaxants.png';
   static const im_weightlifting = '${_png}im_weightlifting.png';
+  static const im_girl_fitness = '${_png}im_girl_fitness.jpg';
 }

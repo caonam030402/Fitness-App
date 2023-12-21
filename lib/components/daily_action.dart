@@ -26,7 +26,7 @@ class DailyAction extends StatelessWidget {
         Text(title,
             style: AppText.medium.copyWith(fontWeight: FontWeight.w600)),
         Button(
-          text: textAction,
+          text: (textAction),
           onPressed: onPressed,
           size: Size.small,
         )
@@ -34,3 +34,4 @@ class DailyAction extends StatelessWidget {
     );
   }
 }
+
