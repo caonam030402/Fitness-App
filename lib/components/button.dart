@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class Button extends StatelessWidget {
   final Size size;
   final color;
-  final TextStyle textSize;
+  final TextStyle? textStyle;
   final String text;
   final void Function()? onPressed;
   final EdgeInsetsGeometry? padding;
@@ -15,7 +15,7 @@ class Button extends StatelessWidget {
       required this.onPressed,
       this.size = Size.large,
       this.color = AppColors.primaryGradiant,
-      this.textSize = AppText.large,
+      this.textStyle,
       this.padding = EdgeInsets.zero});
 
   @override
@@ -27,7 +27,7 @@ class Button extends StatelessWidget {
             AppText.large.copyWith(fontWeight: FontWeight.w700));
       } else if (size == Size.medium) {
         resultSize = SizeButton(
-            35, null, 8, AppText.caption.copyWith(fontWeight: FontWeight.w700));
+            35, null, 8, AppText.caption.copyWith(fontWeight: FontWeight.w600));
       } else {
         resultSize = SizeButton(
             30,
@@ -69,7 +69,7 @@ class Button extends StatelessWidget {
             elevation: 0,
             shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(99)))),
-        child: Text(text, style: sizeButton.textStyle),
+        child: Text(text, style: textStyle ?? sizeButton.textStyle),
       ),
     );
   }

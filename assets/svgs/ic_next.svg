@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="191" height="192" viewBox="0 0 191 192">
+  <defs>
+    <style>
+      .cls-1 {
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="Triangle_1" data-name="Triangle 1" class="cls-1" d="M137.95,84.883a14,14,0,0,1,0,24.267l-105.965,61A14,14,0,0,1,11,158.017v-122A14,14,0,0,1,31.985,23.881Z"/>
+  <rect x="149" y="26" width="31" height="143" rx="10" ry="10"/>
+</svg>
