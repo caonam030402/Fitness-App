@@ -7,6 +7,7 @@ class BarIndicator extends StatefulWidget {
   const BarIndicator({
     Key? key,
     this.isLabelPercent = false,
+    this.isSizeTextPercentSmall = false,
     this.height,
     this.width,
     required this.percent,
@@ -25,6 +26,8 @@ class BarIndicator extends StatefulWidget {
   final Color? color;
 
   final bool isLabelPercent;
+
+  final bool isSizeTextPercentSmall;
 
   final bool isBorderRadiusCenter;
 
@@ -157,8 +160,11 @@ class _BarIndicatorState extends State<BarIndicator> {
                         child: widget.isLabelPercent && widget.percent > 0.05
                             ? Text(
                                 '${((widget.percent * 100).toInt()).toString()}%',
-                                style: const TextStyle(
-                                    color: AppColors.white, fontSize: 12),
+                                style: widget.isSizeTextPercentSmall == false
+                                    ? const TextStyle(
+                                        color: AppColors.white, fontSize: 12)
+                                    : const TextStyle(
+                                        color: AppColors.white, fontSize: 10),
                               )
                             : const SizedBox.shrink(),
                       ))

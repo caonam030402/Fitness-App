@@ -21,12 +21,12 @@ class DailyAction extends StatelessWidget {
         borderRadius: AppStyles.borderRadiusCard,
         color: AppColors.primary.withOpacity(0.3),
       ),
-      padding: EdgeInsets.symmetric(vertical: 14, horizontal: 20),
+      padding: AppStyles.paddingCard,
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
         Text(title,
             style: AppText.medium.copyWith(fontWeight: FontWeight.w600)),
         Button(
-          text: textAction,
+          text: (textAction),
           onPressed: onPressed,
           size: Size.small,
         )
@@ -34,3 +34,4 @@ class DailyAction extends StatelessWidget {
     );
   }
 }
+
