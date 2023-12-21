@@ -10,6 +10,7 @@ class BreakfastCard extends StatelessWidget {
   final String content;
   final String title;
   final String label;
+  final Function() onPressed;
   final bool isColorSecondary;
   const BreakfastCard({
     super.key,
@@ -17,6 +18,7 @@ class BreakfastCard extends StatelessWidget {
     required this.title,
     required this.label,
     this.isColorSecondary = false,
+    required this.onPressed,
   });
 
   @override
@@ -32,7 +34,7 @@ class BreakfastCard extends StatelessWidget {
                   color: isColorSecondary == false
                       ? AppColors.primary.withOpacity(0.3)
                       : AppColors.secondary.withOpacity(0.3),
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(20),
                       bottomRight: Radius.circular(20),
                       bottomLeft: Radius.circular(20),
@@ -55,7 +57,7 @@ class BreakfastCard extends StatelessWidget {
                       style: AppText.small.copyWith(
                           fontWeight: FontWeight.w400, color: AppColors.gray_1),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Button(
@@ -64,7 +66,7 @@ class BreakfastCard extends StatelessWidget {
                             ? AppColors.primaryGradiant
                             : AppColors.secondaryGradiant,
                         size: Size.small,
-                        onPressed: () {})
+                        onPressed: onPressed)
                   ],
                 ),
               ),

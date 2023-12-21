@@ -24,8 +24,11 @@ class AppIcons {
   static const ic_user_fill = '${_svg}ic_user_fill.svg';
   static const ic_user_stroke = '${_svg}ic_user_stroke.svg';
   static const ic_back = '${_svg}ic_back.svg';
+  static const ic_heart = '${_svg}ic_heart.svg';
   static const ic_menu = '${_svg}ic_menu.svg';
   static const ic_more = '${_svg}ic_more.svg';
+  static const ic_fire = '${_svg}ic_fire.svg';
+  static const ic_filter = '${_svg}ic_filter.svg';
   static const ic_down = '${_svg}ic_down.svg';
   static const ic_notifications = '${_svg}ic_notifications.svg';
   static const ic_turn_off_notifications =
@@ -33,7 +36,10 @@ class AppIcons {
 
   static const vt_weightlifting = '${_svg}vt_weightlifting.svg';
   static const vt_glass = '${_svg}vt_glass.svg';
+  static const vt_salat = '${_svg}vt_salat.svg';
+  static const vt_flour = '${_svg}vt_flour.svg';
   static const vt_cake = '${_svg}vt_cake.svg';
+  static const vt_cake_1 = '${_svg}vt_cake_1.svg';
   static const vt_sushi = '${_svg}vt_sushi.svg';
   static const vt_rope_skipping = '${_svg}vt_rope_skipping.svg';
   static const vt_jogging = '${_svg}vt_jogging.svg';

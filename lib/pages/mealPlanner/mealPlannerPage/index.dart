@@ -1,4 +1,5 @@
 import 'package:fitness_app/components/daily_action.dart';
+import 'package:fitness_app/configs/app_routes.dart';
 import 'package:fitness_app/pages/mealPlanner/mealPlannerPage/widgets/breakfast_card.dart';
 import 'package:fitness_app/pages/mealPlanner/mealPlannerPage/widgets/graph_section.dart';
 import 'package:fitness_app/pages/mealPlanner/mealPlannerPage/widgets/meal_card.dart';
@@ -13,6 +14,23 @@ class MealPlannerPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<BreakfastCardItem> breakfastCardItem = [
+      BreakfastCardItem(
+        content: '120+ Foods',
+        title: 'Breakfast',
+        label: 'Select',
+        onPressed: () {
+          Navigator.of(context).pushNamed(AppRoutes.breakfast);
+        },
+      ),
+      BreakfastCardItem(
+          content: '120+ Foods',
+          title: 'Breakfast',
+          label: 'Select',
+          onPressed: () {},
+          isColorSecondary: true),
+    ];
+
     return Scaffold(
       appBar: const ToolBar(title: 'Meal Planner'),
       body: SingleChildScrollView(
@@ -83,11 +101,12 @@ class MealPlannerPage extends StatelessWidget {
                         content: item.content,
                         title: item.title,
                         label: item.label,
+                        onPressed: item.onPressed,
                         isColorSecondary: item.isColorSecondary,
                       ),
                     );
                   }),
-            )
+            ),
           ],
         ),
       )),
@@ -100,21 +119,14 @@ class BreakfastCardItem {
   String title;
   String label;
   bool isColorSecondary;
+  final Function() onPressed;
   BreakfastCardItem(
       {required this.content,
       required this.title,
       required this.label,
+      required this.onPressed,
       this.isColorSecondary = false});
 }
-
-List<BreakfastCardItem> breakfastCardItem = [
-  BreakfastCardItem(content: '120+ Foods', title: 'Breakfast', label: 'Select'),
-  BreakfastCardItem(
-      content: '120+ Foods',
-      title: 'Breakfast',
-      label: 'Select',
-      isColorSecondary: true),
-];
 
 class MealCardItem {
   String icon;
