@@ -7,6 +7,7 @@ import 'package:fitness_app/pages/main_page.dart';
 import 'package:fitness_app/pages/mealPlanner/breakfast/index.dart';
 import 'package:fitness_app/pages/mealPlanner/mealDetails/index.dart';
 import 'package:fitness_app/pages/mealPlanner/mealPlannerPage/index.dart';
+import 'package:fitness_app/pages/mealPlanner/mealSchedule/index.dart';
 import 'package:fitness_app/pages/onboarding/onboarding_page.dart';
 import 'package:fitness_app/pages/onboarding/splash_page.dart';
 
@@ -23,8 +24,10 @@ class AppRoutes {
     '/mealPlanner': (context) => MealPlannerPage(),
     '/mealDetails': (context) => MealDetails(),
     '/breakfast': (context) => Breakfast(),
+    '/mealSchedule': (context) => MealSchedule(),
   };
   static const login = '/login';
+  static const mealSchedule = '/mealSchedule';
   static const breakfast = '/breakfast';
   static const mealDetails = '/mealDetails';
   static const register = '/register';

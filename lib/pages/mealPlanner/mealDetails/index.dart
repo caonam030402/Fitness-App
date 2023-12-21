@@ -1,6 +1,8 @@
+import 'package:fitness_app/components/button.dart';
 import 'package:fitness_app/components/title_section.dart';
 import 'package:fitness_app/components/tool_bar.dart';
 import 'package:fitness_app/configs/app_icons.dart';
+import 'package:fitness_app/configs/app_routes.dart';
 import 'package:fitness_app/pages/mealPlanner/mealDetails/widgets/custom_step.dart';
 import 'package:fitness_app/pages/mealPlanner/mealDetails/widgets/ingredients_card.dart';
 import 'package:fitness_app/pages/mealPlanner/mealDetails/widgets/nutriotions_card.dart';
@@ -232,7 +234,7 @@ class MealDetails extends StatelessWidget {
                               ),
                             ),
                             const SizedBox(
-                              height: 15,
+                              height: 100,
                             ),
                           ],
                         ),
@@ -244,6 +246,21 @@ class MealDetails extends StatelessWidget {
             ],
           ),
         ),
+        Positioned(
+          bottom: 25,
+          left: 0,
+          right: 0,
+          child: Container(
+            margin: EdgeInsets.symmetric(
+                horizontal: AppStyles.paddingBothSidesPage),
+            child: Button(
+              text: 'Add to Breakfast Meal',
+              onPressed: () {
+                Navigator.of(context).pushNamed(AppRoutes.mealSchedule);
+              },
+            ),
+          ),
+        )
       ],
     );
   }
