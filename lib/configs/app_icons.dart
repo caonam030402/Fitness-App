@@ -3,6 +3,14 @@ class AppIcons {
   static const _svg = 'assets/svgs/';
 
   static const ic_logo = '${_svg}ic_logo.svg';
+  static const ic_workout_blue = '${_svg}ic_workout_blue.svg';
+  static const ic_setting_blue = '${_svg}ic_setting_blue.svg';
+  static const ic_profile_blue = '${_svg}ic_profile_blue.svg';
+  static const ic_privacy_blue = '${_svg}ic_privacy_blue.svg';
+  static const ic_notification_blue = '${_svg}ic_notification_blue.svg';
+  static const ic_message_blue = '${_svg}ic_message_blue.svg';
+  static const ic_activity_blue = '${_svg}ic_activity_blue.svg';
+  static const ic_achievement_blue = '${_svg}ic_achievement_blue.svg';
   static const ic_arrow_right = '${_svg}ic_arrow_right.svg';
   static const ic_lock = '${_svg}ic_lock.svg';
   static const ic_message = '${_svg}ic_message.svg';

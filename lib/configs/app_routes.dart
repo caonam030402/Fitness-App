@@ -12,6 +12,7 @@ import 'package:fitness_app/pages/mealPlanner/mealPlannerPage/index.dart';
 import 'package:fitness_app/pages/mealPlanner/mealSchedule/index.dart';
 import 'package:fitness_app/pages/onboarding/onboarding_page.dart';
 import 'package:fitness_app/pages/onboarding/splash_page.dart';
+import 'package:fitness_app/pages/profile/index.dart';
 import 'package:fitness_app/pages/sleepTracker/addAlarm/index.dart';
 import 'package:fitness_app/pages/sleepTracker/sleepSchedule/index.dart';
 import 'package:fitness_app/pages/sleepTracker/sleepTrackerPage/index.dart';
@@ -47,9 +48,11 @@ class AppRoutes {
     '/workout_tracker_detail': (context) => WorkupTrackerDetail(),
     '/workout_detail_info': (context) => WorkupDetailInfo(),
     '/start_workout': (context) => StartWorkout(),
+    '/profile': (context) => Profile(),
   };
 
   static const sleepSchedule = '/sleepSchedule';
+  static const profile = '/profile';
   static const addAlarm = '/addAlarm';
   static const login = '/login';
   static const mealSchedule = '/mealSchedule';
