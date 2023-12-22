@@ -1,6 +1,7 @@
 import 'package:fitness_app/components/bottom_navigation_item.dart';
 import 'package:fitness_app/configs/app_icons.dart';
 import 'package:fitness_app/pages/home/index.dart';
+import 'package:fitness_app/pages/mealPlanner/mealPlannerPage/index.dart';
 import 'package:fitness_app/pages/profile/index.dart';
 import 'package:fitness_app/pages/progressTracker/progressPhoto/index.dart';
 import 'package:fitness_app/pages/sleepTracker/sleepTrackerPage/index.dart';
@@ -36,7 +37,7 @@ class _MainPageState extends State<MainPage> {
     HomePage(),
     SleepTrackerPage(),
     const ProgressPhotoPage(),
-    const Center(child: Text('Add')),
+    MealPlannerPage(),
     Profile(),
   ];
 }

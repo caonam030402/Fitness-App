@@ -35,8 +35,10 @@ class MealPlannerPage extends StatelessWidget {
       appBar: const ToolBar(title: 'Meal Planner'),
       body: SingleChildScrollView(
           child: Padding(
-        padding: const EdgeInsets.symmetric(
-            horizontal: AppStyles.paddingBothSidesPage),
+        padding: const EdgeInsets.only(
+            left: AppStyles.paddingBothSidesPage,
+            right: AppStyles.paddingBothSidesPage,
+            bottom: AppStyles.heightBottomNavigation * 2),
         child: Column(
           children: [
             const SizedBox(
