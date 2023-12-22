@@ -37,7 +37,7 @@ class TitleSection extends StatelessWidget {
                       style: AppText.small.copyWith(
                           fontWeight: FontWeight.w500, color: AppColors.gray_2),
                     )
-                  : DropDownButton(
+                  : const DropDownButton(
                       listItem: list,
                     )),
         )

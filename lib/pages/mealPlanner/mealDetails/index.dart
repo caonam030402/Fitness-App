@@ -6,7 +6,7 @@ import 'package:fitness_app/configs/app_routes.dart';
 import 'package:fitness_app/pages/mealPlanner/mealDetails/widgets/custom_step.dart';
 import 'package:fitness_app/pages/mealPlanner/mealDetails/widgets/ingredients_card.dart';
 import 'package:fitness_app/pages/mealPlanner/mealDetails/widgets/nutriotions_card.dart';
-import 'package:fitness_app/pages/mealPlanner/mealDetails/widgets/title_item.dart';
+import 'package:fitness_app/components/title_item.dart';
 import 'package:fitness_app/styles/app_colors.dart';
 import 'package:fitness_app/styles/app_styles.dart';
 import 'package:fitness_app/styles/app_text.dart';
@@ -53,7 +53,7 @@ class MealDetails extends StatelessWidget {
                     child: SizedBox(
                         width: MediaQuery.of(context).size.width,
                         height: 65,
-                        child: ToolBar(title: '')),
+                        child: const ToolBar(title: '')),
                   )
                 ],
               ),
@@ -218,8 +218,8 @@ class MealDetails extends StatelessWidget {
                             SizedBox(
                               height: 100 * customStepItem.length.toDouble(),
                               child: ListView.builder(
-                                physics: NeverScrollableScrollPhysics(),
-                                padding: EdgeInsets.all(0),
+                                physics: const NeverScrollableScrollPhysics(),
+                                padding: const EdgeInsets.all(0),
                                 itemCount: customStepItem.length,
                                 itemBuilder: (context, index) {
                                   final item = customStepItem[index];
@@ -251,12 +251,12 @@ class MealDetails extends StatelessWidget {
           left: 0,
           right: 0,
           child: Container(
-            margin: EdgeInsets.symmetric(
+            margin: const EdgeInsets.symmetric(
                 horizontal: AppStyles.paddingBothSidesPage),
             child: Button(
               text: 'Add to Breakfast Meal',
               onPressed: () {
-                Navigator.of(context).pushNamed(AppRoutes.mealSchedule);
+                Navigator.of(context).pop();
               },
             ),
           ),

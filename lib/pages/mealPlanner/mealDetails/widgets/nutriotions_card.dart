@@ -1,4 +1,3 @@
-import 'package:fitness_app/configs/app_icons.dart';
 import 'package:fitness_app/styles/app_colors.dart';
 import 'package:fitness_app/styles/app_text.dart';
 import 'package:flutter/material.dart';

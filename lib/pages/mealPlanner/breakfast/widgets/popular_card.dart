@@ -22,7 +22,7 @@ class PopularCard extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ButtonStyle(
-        elevation: MaterialStatePropertyAll(0),
+        elevation: const MaterialStatePropertyAll(0),
         padding: MaterialStateProperty.all(const EdgeInsets.all(0)),
         backgroundColor: const MaterialStatePropertyAll(Colors.transparent),
         shape: MaterialStatePropertyAll(

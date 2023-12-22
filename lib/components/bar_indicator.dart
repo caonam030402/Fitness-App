@@ -7,6 +7,7 @@ class BarIndicator extends StatefulWidget {
   const BarIndicator({
     Key? key,
     this.isLabelPercent = false,
+    this.isSizeTextPercentSmall = false,
     this.height,
     this.width,
     required this.percent,
@@ -18,9 +19,17 @@ class BarIndicator extends StatefulWidget {
     this.animationDuration,
     this.gradient,
     this.direction = Direction.vertical,
+    this.isBorderRadiusCenter = true,
+    this.color,
   }) : super(key: key);
 
+  final Color? color;
+
   final bool isLabelPercent;
+
+  final bool isSizeTextPercentSmall;
+
+  final bool isBorderRadiusCenter;
 
   ///Height of the indicator. Default is 120.
   final double? height;
@@ -105,7 +114,7 @@ class _BarIndicatorState extends State<BarIndicator> {
                   height: widget.height ?? 120,
                   width: widget.width ?? 20,
                   decoration: BoxDecoration(
-                    color: AppColors.gray_3.withOpacity(0.4),
+                    color: widget.color ?? AppColors.gray_3.withOpacity(0.4),
                     borderRadius: BorderRadius.all(
                       Radius.circular(
                         widget.circularRadius ?? 20,
@@ -114,44 +123,53 @@ class _BarIndicatorState extends State<BarIndicator> {
                   ),
                 ),
               ),
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: AnimatedContainer(
-                  curve: Curves.linear,
-                  duration: widget.animationDuration ??
-                      const Duration(
-                        seconds: 2,
-                      ),
-                  width: widget.direction != Direction.vertical
-                      ? widget.width ?? 20
-                      : _width,
-                  height: widget.direction != Direction.horizontal
-                      ? widget.width ?? 20
-                      : _height,
-                  decoration: BoxDecoration(
-                    gradient: widget.gradient,
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(
-                        widget.circularRadius ?? 20,
+              Stack(
+                children: [
+                  Align(
+                    alignment: Alignment.bottomCenter,
+                    child: AnimatedContainer(
+                      curve: Curves.linear,
+                      duration: widget.animationDuration ??
+                          const Duration(
+                            seconds: 2,
+                          ),
+                      width: widget.direction != Direction.vertical
+                          ? widget.width ?? 20
+                          : _width,
+                      height: widget.direction != Direction.horizontal
+                          ? widget.width ?? 20
+                          : _height,
+                      decoration: BoxDecoration(
+                        gradient: widget.gradient,
+                        borderRadius: widget.isBorderRadiusCenter == true
+                            ? BorderRadius.circular(
+                                widget.circularRadius ?? 20,
+                              )
+                            : const BorderRadius.only(
+                                topLeft: Radius.circular(20),
+                                bottomLeft: Radius.circular(20)),
                       ),
                     ),
                   ),
-                ),
+                  Positioned(
+                      left: 0,
+                      right: 0,
+                      top: 0,
+                      bottom: 0,
+                      child: Center(
+                        child: widget.isLabelPercent && widget.percent > 0.05
+                            ? Text(
+                                '${((widget.percent * 100).toInt()).toString()}%',
+                                style: widget.isSizeTextPercentSmall == false
+                                    ? const TextStyle(
+                                        color: AppColors.white, fontSize: 12)
+                                    : const TextStyle(
+                                        color: AppColors.white, fontSize: 10),
+                              )
+                            : const SizedBox.shrink(),
+                      ))
+                ],
               ),
-              Positioned(
-                  left: 0,
-                  right: 0,
-                  top: 0,
-                  bottom: 0,
-                  child: Center(
-                    child: widget.isLabelPercent
-                        ? Text(
-                            '${((widget.percent * 100).toInt()).toString()}%',
-                            style:
-                                TextStyle(color: AppColors.white, fontSize: 7),
-                          )
-                        : const SizedBox.shrink(),
-                  ))
             ],
           ),
         ),

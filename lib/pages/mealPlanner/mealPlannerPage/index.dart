@@ -50,9 +50,12 @@ class MealPlannerPage extends StatelessWidget {
             const SizedBox(
               height: 15,
             ),
-            const DailyAction(
+            DailyAction(
               textAction: 'Check',
               title: 'Daily Meal Schedule',
+              onPressed: () {
+                Navigator.of(context).pushNamed(AppRoutes.mealSchedule);
+              },
             ),
             const SizedBox(
               height: 15,

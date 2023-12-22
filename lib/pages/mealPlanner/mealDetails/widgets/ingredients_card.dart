@@ -18,7 +18,7 @@ class IngredientsCard extends StatelessWidget {
         Container(
           height: 80,
           width: 80,
-          padding: EdgeInsets.symmetric(horizontal: 18),
+          padding: const EdgeInsets.symmetric(horizontal: 18),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),
             color: AppColors.border,
