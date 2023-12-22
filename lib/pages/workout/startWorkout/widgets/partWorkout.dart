@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:fitness_app/configs/app_icons.dart';
 import 'package:fitness_app/configs/app_routes.dart';
-import 'package:fitness_app/dataExample/workout_data.dart';
 import 'package:fitness_app/models/workout_model.dart';
 import 'package:fitness_app/pages/workout/startWorkout/index.dart';
 import 'package:fitness_app/pages/workout/startWorkout/widgets/introNextWorkout.dart';

@@ -5,7 +5,7 @@ import 'package:fitness_app/components/title_section.dart';
 import 'package:fitness_app/components/tool_bar.dart';
 import 'package:fitness_app/configs/app_icons.dart';
 import 'package:fitness_app/configs/app_routes.dart';
-import 'package:fitness_app/pages/sleepTracker/sleepSchedule/widgets/date.dart';
+import 'package:fitness_app/components/date.dart';
 import 'package:fitness_app/pages/sleepTracker/sleepSchedule/widgets/progress_bar_card.dart';
 import 'package:fitness_app/styles/app_styles.dart';
 import 'package:flutter/material.dart';
