@@ -1,6 +1,6 @@
 import 'package:fitness_app/components/bar_indicator.dart';
 import 'package:fitness_app/configs/app_icons.dart';
-import 'package:fitness_app/pages/home/index.dart';
+import 'package:fitness_app/models/workout_model.dart';
 import 'package:fitness_app/styles/app_colors.dart';
 import 'package:fitness_app/styles/app_shadows.dart';
 import 'package:fitness_app/styles/app_styles.dart';
@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class LastedWorkoutCard extends StatelessWidget {
-  final LastWorkout lastWorkout;
+  final WorkoutProgress lastWorkout;
   const LastedWorkoutCard({
     super.key,
     required this.lastWorkout,
@@ -42,18 +42,19 @@ class LastedWorkoutCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    lastWorkout.title,
+                    lastWorkout.workout!.name,
                     style: AppText.medium.copyWith(fontWeight: FontWeight.w600),
                   ),
                   SizedBox(
                     height: 3,
                   ),
                   Text(
-                    lastWorkout.desc,
+                    lastWorkout.workout!.name,
                     style: AppText.caption.copyWith(color: AppColors.gray_1),
                   ),
                   BarIndicator(
-                    percent: lastWorkout.progress,
+                    percent: double.parse(
+                        ((lastWorkout.progress ?? 0) / 100).toString()),
                     direction: Direction.vertical,
                     height: 10,
                     width: MediaQuery.of(context).size.width * 0.5,

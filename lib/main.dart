@@ -2,6 +2,7 @@ import 'package:fitness_app/configs/app_routes.dart';
 import 'package:fitness_app/styles/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:fitness_app/utils/auth.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,7 +25,8 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: AppColors.white,
           brightness: Brightness.light),
       routes: AppRoutes.pages,
-      initialRoute: AppRoutes.splash,
+      builder: EasyLoading.init(),
+      initialRoute: AppRoutes.main,
     );
   }
 }

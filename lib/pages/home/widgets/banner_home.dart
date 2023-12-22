@@ -1,4 +1,5 @@
 import 'package:fitness_app/components/button.dart';
+import 'package:fitness_app/configs/app_routes.dart';
 import 'package:fitness_app/services/workout_services.dart';
 import 'package:fitness_app/styles/app_colors.dart';
 import 'package:fitness_app/styles/app_styles.dart';
@@ -39,8 +40,8 @@ class BannerHome extends StatelessWidget {
                 size: Size.medium,
                 color: AppColors.secondaryGradiant,
                 onPressed: () async {
-                  await WorkoutService().getAllWorkout();
-                  // await auth.clearSP();
+                  await auth.clearSP();
+                  Navigator.of(context).pushNamed(AppRoutes.splash);
                 },
               )
             ],

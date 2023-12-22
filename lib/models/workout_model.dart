@@ -71,3 +71,24 @@ class WorkoutDetail {
     );
   }
 }
+
+class WorkoutProgress {
+  final int? progress;
+  final Workout? workout;
+
+  WorkoutProgress({this.progress, this.workout});
+
+  factory WorkoutProgress.fromMap(Map<String, dynamic> map) {
+    return WorkoutProgress(
+      progress: map['progress'] ?? 0,
+      workout: map['workout'] != null ? Workout.fromMap(map['workout']) : null,
+    );
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'progress': progress,
+      'workout': workout?.toMap(),
+    };
+  }
+}

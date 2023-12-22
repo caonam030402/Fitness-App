@@ -169,10 +169,10 @@ class _PersonalInformationPageState extends State<PersonalInformationPage> {
                                   if (_formKey.currentState!.validate()) {
                                     userService.updateUser(
                                         body: User(
-                                          height: double.parse(
-                                              _heightController.text),
-                                          weight: double.parse(
-                                              _weightController.text),
+                                          height:
+                                              int.parse(_heightController.text),
+                                          weight:
+                                              int.parse(_weightController.text),
                                         ),
                                         context: context);
                                   }

@@ -6,6 +6,7 @@ import 'package:fitness_app/configs/app_routes.dart';
 import 'package:fitness_app/styles/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthService {
@@ -32,6 +33,10 @@ class AuthService {
         await prefs.setString('x-auth-token', accessToken);
         await prefs.setString('user-id', userId);
 
+        await EasyLoading.showSuccess('Great Success!',
+            duration: Duration(seconds: 2),
+            maskType: EasyLoadingMaskType.black,
+            dismissOnTap: true);
         Navigator.of(context).pushReplacementNamed(AppRoutes.main);
       } else {
         throw jsonDecode(res.body)["message"];
