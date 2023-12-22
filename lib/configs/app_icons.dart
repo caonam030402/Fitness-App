@@ -26,15 +26,21 @@ class AppIcons {
   static const ic_user_stroke = '${_svg}ic_user_stroke.svg';
   static const ic_close = '${_svg}ic_close.svg';
   static const ic_back = '${_svg}ic_back.svg';
+  static const ic_heart = '${_svg}ic_heart.svg';
   static const ic_menu = '${_svg}ic_menu.svg';
+  static const ic_more = '${_svg}ic_more.svg';
+  static const ic_fire = '${_svg}ic_fire.svg';
+  static const ic_filter = '${_svg}ic_filter.svg';
   static const ic_down = '${_svg}ic_down.svg';
   static const ic_error = '${_svg}ic_error.svg';
+  static const ic_notifications = '${_svg}ic_notifications.svg';
+  static const ic_turn_off_notifications =
+      '${_svg}ic_turn_off_notifications.svg';
   static const ic_vibrate = '${_svg}ic_vibrate.svg';
   static const ic_repeat = '${_svg}ic_repeat.svg';
   static const ic_time = '${_svg}ic_time.svg';
   static const ic_bed = '${_svg}ic_bed.svg';
   static const ic_bell = '${_svg}ic_bell.svg';
-  static const ic_more = '${_svg}ic_more.svg';
   static const ic_plus = '${_svg}ic_plus.svg';
   static const ic_pause = '${_svg}ic_pause.svg';
   static const ic_next = '${_svg}ic_next.svg';
@@ -44,6 +50,12 @@ class AppIcons {
   static const im_boots = '${_svg}im_boots.svg';
 
   static const vt_weightlifting = '${_svg}vt_weightlifting.svg';
+  static const vt_glass = '${_svg}vt_glass.svg';
+  static const vt_salat = '${_svg}vt_salat.svg';
+  static const vt_flour = '${_svg}vt_flour.svg';
+  static const vt_cake = '${_svg}vt_cake.svg';
+  static const vt_cake_1 = '${_svg}vt_cake_1.svg';
+  static const vt_sushi = '${_svg}vt_sushi.svg';
   static const vt_rope_skipping = '${_svg}vt_rope_skipping.svg';
   static const vt_rope_skipping_blue = '${_svg}vt_rope_skipping_blue.svg';
 
