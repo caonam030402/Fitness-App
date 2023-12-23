@@ -32,15 +32,14 @@ class AppIcons {
   static const ic_fire = '${_svg}ic_fire.svg';
   static const ic_filter = '${_svg}ic_filter.svg';
   static const ic_down = '${_svg}ic_down.svg';
+  static const ic_error = '${_svg}ic_error.svg';
   static const ic_notifications = '${_svg}ic_notifications.svg';
   static const ic_turn_off_notifications =
       '${_svg}ic_turn_off_notifications.svg';
-
   static const ic_vibrate = '${_svg}ic_vibrate.svg';
   static const ic_repeat = '${_svg}ic_repeat.svg';
   static const ic_time = '${_svg}ic_time.svg';
   static const ic_bed = '${_svg}ic_bed.svg';
-
   static const ic_bell = '${_svg}ic_bell.svg';
   static const ic_plus = '${_svg}ic_plus.svg';
   static const ic_pause = '${_svg}ic_pause.svg';

@@ -1,7 +1,10 @@
 import 'package:fitness_app/components/button.dart';
+import 'package:fitness_app/configs/app_routes.dart';
+import 'package:fitness_app/services/workout_services.dart';
 import 'package:fitness_app/styles/app_colors.dart';
 import 'package:fitness_app/styles/app_styles.dart';
 import 'package:fitness_app/styles/app_text.dart';
+import 'package:fitness_app/utils/auth.dart';
 import 'package:flutter/material.dart';
 
 class BannerHome extends StatelessWidget {
@@ -9,6 +12,7 @@ class BannerHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Auth auth = Auth();
     final widthScreen = MediaQuery.of(context).size.width;
     return Container(
       padding: AppStyles.paddingCard,
@@ -35,7 +39,10 @@ class BannerHome extends StatelessWidget {
                 text: 'View More',
                 size: Size.medium,
                 color: AppColors.secondaryGradiant,
-                onPressed: () {},
+                onPressed: () async {
+                  await auth.clearSP();
+                  Navigator.of(context).pushNamed(AppRoutes.splash);
+                },
               )
             ],
           ),

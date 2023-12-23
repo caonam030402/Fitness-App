@@ -1,15 +1,37 @@
+import 'dart:convert';
+
 import 'package:fitness_app/components/button.dart';
 import 'package:fitness_app/components/input_text.dart';
 import 'package:fitness_app/configs/app_icons.dart';
 import 'package:fitness_app/configs/app_routes.dart';
+import 'package:fitness_app/services/auth_services.dart';
 import 'package:fitness_app/styles/app_colors.dart';
 import 'package:fitness_app/styles/app_styles.dart';
 import 'package:fitness_app/styles/app_text.dart';
+import 'package:fitness_app/utils/rules.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  @override
+  void dispose() {
+    super.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+  }
+
+  final AuthService authService = AuthService();
+  final _formKey = GlobalKey<FormState>();
+
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -47,18 +69,33 @@ class LoginPage extends StatelessWidget {
               SizedBox(
                 height: 30,
               ),
-              InputText(
-                  lable: 'Email',
-                  icon: AppIcons.ic_message,
-                  keyboardType: TextInputType.emailAddress),
-              SizedBox(
-                height: 17,
-              ),
-              InputText(
-                hiddenValue: true,
-                lable: 'Password',
-                icon: AppIcons.ic_lock,
-              ),
+              Form(
+                  key: _formKey,
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  child: Column(
+                    children: [
+                      InputText(
+                          controller: _emailController,
+                          lable: 'Email',
+                          icon: AppIcons.ic_message,
+                          validator: (value) {
+                            return RulesValidator.validatorEmail(value);
+                          },
+                          keyboardType: TextInputType.emailAddress),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      InputText(
+                        controller: _passwordController,
+                        hiddenValue: true,
+                        validator: (value) {
+                          return RulesValidator.validatorPassword(value);
+                        },
+                        lable: 'Password',
+                        icon: AppIcons.ic_lock,
+                      ),
+                    ],
+                  )),
               SizedBox(
                 height: 7,
               ),
@@ -87,8 +124,13 @@ class LoginPage extends StatelessWidget {
               Button(
                   text: 'Login',
                   onPressed: () {
-                    Navigator.of(context)
-                        .pushReplacementNamed(AppRoutes.wellcome);
+                    if (_formKey.currentState!.validate()) {
+                      authService.login(
+                        context: context,
+                        email: _emailController.text,
+                        password: _passwordController.text,
+                      );
+                    }
                   }),
               SizedBox(
                 height: 15,

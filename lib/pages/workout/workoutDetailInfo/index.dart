@@ -1,6 +1,4 @@
-import 'package:fitness_app/components/button.dart';
 import 'package:fitness_app/components/tool_bar.dart';
-import 'package:fitness_app/configs/app_routes.dart';
 import 'package:fitness_app/models/workout_model.dart';
 import 'package:fitness_app/styles/app_colors.dart';
 import 'package:fitness_app/styles/app_styles.dart';
@@ -75,7 +73,7 @@ class _WorkupDetailInfoState extends State<WorkupDetailInfo> {
                     height: 7,
                   ),
                   Text(
-                    '${workoutDetail.colories} Calories Burn',
+                    '${workoutDetail.calories} Calories Burn',
                     style: AppText.medium.copyWith(color: AppColors.gray_1),
                   )
                 ],
@@ -89,7 +87,7 @@ class _WorkupDetailInfoState extends State<WorkupDetailInfo> {
                 height: 15,
               ),
               ReadMoreText(
-                workoutDetail.desciption,
+                workoutDetail.description,
                 trimLines: 2,
                 style: AppText.medium.copyWith(color: AppColors.gray_1),
                 trimMode: TrimMode.Line,

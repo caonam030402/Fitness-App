@@ -34,4 +34,3 @@ class DailyAction extends StatelessWidget {
     );
   }
 }
-

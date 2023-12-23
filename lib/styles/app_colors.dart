@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   static const white = (Color(0xffffffff));
-  static const black = (Color(0xff1D1617));
-  static const primary = (Color(0xff92A3FD));
-  static const secondary = (Color(0xffEEA4CE));
-  static const primaryGradiant =
-      LinearGradient(colors: [Color(0xff92A3FD), Color(0xff9DCEFF)]);
+  static const black = (Color(0xff1F212C));
+  static const primary = (Color(0xff6A67E8));
+  static const secondary = (Color(0xffC58BF2));
+  static const primaryGradiant = LinearGradient(
+      colors: [Color.fromARGB(255, 114, 111, 240), Color(0xff6A67E8)]);
   static const secondaryGradiant =
-      LinearGradient(colors: [Color(0xffC58BF2), Color(0xffEEA4CE)]);
+      LinearGradient(colors: [Color(0xffC58BF2), Color(0xffC58BF2)]);
   static const whiteGradiant = LinearGradient(colors: [
     Color.fromARGB(255, 255, 255, 255),
     Color.fromARGB(255, 255, 255, 255)

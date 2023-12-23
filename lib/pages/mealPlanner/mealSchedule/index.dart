@@ -16,7 +16,7 @@ class MealSchedule extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: ToolBar(title: 'Meal Schedule'),
+      appBar: ToolBar(title: 'Meal Schedule', isBackHome: true),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(

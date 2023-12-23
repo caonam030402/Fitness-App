@@ -2,9 +2,11 @@ import 'package:fitness_app/components/button.dart';
 import 'package:fitness_app/components/input_text.dart';
 import 'package:fitness_app/configs/app_icons.dart';
 import 'package:fitness_app/configs/app_routes.dart';
+import 'package:fitness_app/services/auth_services.dart';
 import 'package:fitness_app/styles/app_colors.dart';
 import 'package:fitness_app/styles/app_styles.dart';
 import 'package:fitness_app/styles/app_text.dart';
+import 'package:fitness_app/utils/rules.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -16,6 +18,23 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  @override
+  void dispose() {
+    super.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+    _nameController.dispose();
+  }
+
+  final _formKey = GlobalKey<FormState>();
+  final AuthService authService = AuthService();
+
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
+
+  String? valuePassword;
+
   bool? isChecked = false;
   @override
   Widget build(BuildContext context) {
@@ -58,33 +77,61 @@ class _RegisterPageState extends State<RegisterPage> {
                 SizedBox(
                   height: 30,
                 ),
-                InputText(
-                  lable: 'First Name',
-                  icon: AppIcons.ic_profile,
-                ),
-                SizedBox(
-                  height: 17,
-                ),
-                InputText(
-                  lable: 'Last Name',
-                  icon: AppIcons.ic_profile,
-                ),
-                SizedBox(
-                  height: 17,
-                ),
-                InputText(
-                  lable: 'Email',
-                  icon: AppIcons.ic_message,
-                  keyboardType: TextInputType.emailAddress,
-                ),
-                SizedBox(
-                  height: 17,
-                ),
-                InputText(
-                  hiddenValue: true,
-                  lable: 'Password',
-                  icon: AppIcons.ic_lock,
-                ),
+                Form(
+                    key: _formKey,
+                    child: Column(
+                      children: [
+                        InputText(
+                          controller: _nameController,
+                          lable: 'Name',
+                          icon: AppIcons.ic_profile,
+                          validator: (value) {
+                            return RulesValidator.validatorName(value);
+                          },
+                        ),
+                        SizedBox(
+                          height: 17,
+                        ),
+                        InputText(
+                          controller: _emailController,
+                          validator: (value) {
+                            return RulesValidator.validatorEmail(value);
+                          },
+                          lable: 'Email',
+                          icon: AppIcons.ic_message,
+                          keyboardType: TextInputType.emailAddress,
+                        ),
+                        SizedBox(
+                          height: 17,
+                        ),
+                        InputText(
+                          controller: _passwordController,
+                          onChanged: (value) => {
+                            setState(() {
+                              valuePassword = value;
+                            })
+                          },
+                          hiddenValue: true,
+                          lable: 'Password',
+                          icon: AppIcons.ic_lock,
+                          validator: (value) {
+                            return RulesValidator.validatorPassword(value);
+                          },
+                        ),
+                        SizedBox(
+                          height: 17,
+                        ),
+                        InputText(
+                          validator: (value) {
+                            return RulesValidator.validatorConfirmPassword(
+                                value, valuePassword);
+                          },
+                          hiddenValue: true,
+                          lable: 'Confirm Password',
+                          icon: AppIcons.ic_lock,
+                        ),
+                      ],
+                    )),
                 SizedBox(
                   height: 17,
                 ),
@@ -114,8 +161,14 @@ class _RegisterPageState extends State<RegisterPage> {
                 Button(
                     text: 'Register',
                     onPressed: () {
-                      Navigator.of(context)
-                          .pushReplacementNamed(AppRoutes.information);
+                      if (_formKey.currentState!.validate()) {
+                        authService.register(
+                          context: context,
+                          name: _nameController.text,
+                          email: _emailController.text,
+                          password: _passwordController.text,
+                        );
+                      }
                     }),
                 SizedBox(
                   height: 15,
