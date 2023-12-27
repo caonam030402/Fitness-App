@@ -33,9 +33,9 @@ class _ScheduleState extends State<Schedule> {
           Stack(
             children: [
               Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     borderRadius: AppStyles.borderRadiusCard,
-                    boxShadow: const [
+                    boxShadow: [
                       BoxShadow(
                         color: Color.fromARGB(20, 0, 0, 0),
                         spreadRadius: 0,
@@ -47,7 +47,7 @@ class _ScheduleState extends State<Schedule> {
                   height: 93,
                   width: MediaQuery.of(context).size.width,
                   padding: AppStyles.paddingCard,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       color: AppColors.white,
                       borderRadius: AppStyles.borderRadiusCard),
                   child: Row(

@@ -52,7 +52,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 horizontal: AppStyles.paddingBothSidesPage),
             child: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 70,
                 ),
                 Row(
@@ -74,7 +74,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 Form(
@@ -89,7 +89,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             return RulesValidator.validatorName(value);
                           },
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 17,
                         ),
                         InputText(
@@ -101,7 +101,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           icon: AppIcons.ic_message,
                           keyboardType: TextInputType.emailAddress,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 17,
                         ),
                         InputText(
@@ -118,7 +118,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             return RulesValidator.validatorPassword(value);
                           },
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 17,
                         ),
                         InputText(
@@ -132,7 +132,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                       ],
                     )),
-                SizedBox(
+                const SizedBox(
                   height: 17,
                 ),
                 Row(
@@ -146,7 +146,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             isChecked = value!;
                           });
                         }),
-                    Container(
+                    SizedBox(
                       width: 244,
                       child: Text(
                         'By continuing you accept our Privacy Policy and Term of Use',
@@ -157,7 +157,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                   ],
                 ),
-                Spacer(),
+                const Spacer(),
                 Button(
                     text: 'Register',
                     onPressed: () {
@@ -170,14 +170,14 @@ class _RegisterPageState extends State<RegisterPage> {
                         );
                       }
                     }),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
-                Container(
+                SizedBox(
                   width: MediaQuery.of(context).size.width,
                   child: Row(
                     children: [
-                      Expanded(
+                      const Expanded(
                         child: Divider(thickness: 1, color: AppColors.gray_3),
                       ),
                       Padding(
@@ -189,13 +189,13 @@ class _RegisterPageState extends State<RegisterPage> {
                               color: AppColors.black),
                         ),
                       ),
-                      Expanded(
+                      const Expanded(
                         child: Divider(thickness: 1, color: AppColors.gray_3),
                       ),
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 Row(
@@ -218,7 +218,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         child: SvgPicture.asset(AppIcons.ic_google),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 30,
                     ),
                     Container(
@@ -240,7 +240,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 Row(
@@ -265,7 +265,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     )
                   ],
                 ),
-                Spacer(),
+                const Spacer(),
               ],
             ),
           ),

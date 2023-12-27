@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:fitness_app/components/button.dart';
 import 'package:fitness_app/components/input_text.dart';
 import 'package:fitness_app/configs/app_icons.dart';
@@ -44,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
               horizontal: AppStyles.paddingBothSidesPage),
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 70,
               ),
               Row(
@@ -66,7 +64,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               Form(
@@ -82,7 +80,7 @@ class _LoginPageState extends State<LoginPage> {
                             return RulesValidator.validatorEmail(value);
                           },
                           keyboardType: TextInputType.emailAddress),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       InputText(
@@ -96,7 +94,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ],
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 7,
               ),
               Row(
@@ -107,7 +105,7 @@ class _LoginPageState extends State<LoginPage> {
                       Navigator.of(context)
                           .pushReplacementNamed(AppRoutes.main);
                     },
-                    child: Container(
+                    child: SizedBox(
                       width: 160,
                       child: Text(
                         'Forgot your password?',
@@ -120,7 +118,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ],
               ),
-              Spacer(),
+              const Spacer(),
               Button(
                   text: 'Login',
                   onPressed: () {
@@ -132,14 +130,14 @@ class _LoginPageState extends State<LoginPage> {
                       );
                     }
                   }),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
-              Container(
+              SizedBox(
                 width: MediaQuery.of(context).size.width,
                 child: Row(
                   children: [
-                    Expanded(
+                    const Expanded(
                       child: Divider(thickness: 1, color: AppColors.gray_3),
                     ),
                     Padding(
@@ -151,13 +149,13 @@ class _LoginPageState extends State<LoginPage> {
                             color: AppColors.black),
                       ),
                     ),
-                    Expanded(
+                    const Expanded(
                       child: Divider(thickness: 1, color: AppColors.gray_3),
                     ),
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               Row(
@@ -180,7 +178,7 @@ class _LoginPageState extends State<LoginPage> {
                       child: SvgPicture.asset(AppIcons.ic_google),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 30,
                   ),
                   Container(
@@ -202,7 +200,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               Row(
@@ -227,7 +225,7 @@ class _LoginPageState extends State<LoginPage> {
                   )
                 ],
               ),
-              Spacer()
+              const Spacer()
             ],
           ),
         ),

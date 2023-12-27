@@ -1,10 +1,12 @@
 import 'package:fitness_app/components/tool_bar.dart';
+import 'package:fitness_app/components/video_item.dart';
 import 'package:fitness_app/models/workout_model.dart';
 import 'package:fitness_app/styles/app_colors.dart';
 import 'package:fitness_app/styles/app_styles.dart';
 import 'package:fitness_app/styles/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:readmore/readmore.dart';
+import 'package:video_player/video_player.dart';
 
 class WorkupDetailInfo extends StatefulWidget {
   const WorkupDetailInfo({super.key});
@@ -14,24 +16,9 @@ class WorkupDetailInfo extends StatefulWidget {
 }
 
 class _WorkupDetailInfoState extends State<WorkupDetailInfo> {
-  // late VideoPlayerController controller;
-
-  // loadVideoPlayer() {
-  //   controller = VideoPlayerController.networkUrl(Uri.parse(
-  //       'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4'));
-  //   controller.addListener(() {
-  //     setState(() {});
-  //   });
-  //   controller.initialize().then((value) {
-  //     setState(() {});
-  //   });
-  // }
-
   @override
   void initState() {
     super.initState();
-    // loadVideoPlayer();
-    // controller.play();
   }
 
   @override
@@ -40,27 +27,31 @@ class _WorkupDetailInfoState extends State<WorkupDetailInfo> {
         ModalRoute.of(context)!.settings.arguments as WorkoutDetail;
 
     return Scaffold(
-      appBar: ToolBar(title: ''),
+      appBar: const ToolBar(title: ''),
       body: Padding(
-        padding:
-            EdgeInsets.symmetric(horizontal: AppStyles.paddingBothSidesPage),
+        padding: const EdgeInsets.symmetric(
+            horizontal: AppStyles.paddingBothSidesPage),
         child: Stack(children: [
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Container(
-              //   decoration:
-              //       BoxDecoration(borderRadius: AppStyles.borderRadiusCard),
-              //   height: 200,
-              //   // child: VideoPlayer(controller),
-              // ),
-              Container(
-                height: 200,
-                decoration: BoxDecoration(
-                    color: AppColors.primary,
-                    borderRadius: AppStyles.borderRadiusCard),
-              ),
               SizedBox(
+                height: 200,
+                width: MediaQuery.of(context).size.width,
+                child: VideoItem(
+                  videoPlayerController: VideoPlayerController.networkUrl(Uri.parse(
+                      'https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4')),
+                  looping: false,
+                  autoplay: true,
+                ),
+              ),
+              // Container(
+              //   height: 200,
+              //   decoration: BoxDecoration(
+              //       color: AppColors.primary,
+              //       borderRadius: AppStyles.borderRadiusCard),
+              // ),
+              const SizedBox(
                 height: 15,
               ),
               Column(
@@ -69,7 +60,7 @@ class _WorkupDetailInfoState extends State<WorkupDetailInfo> {
                   Text(workoutDetail.name,
                       style: AppText.heading4
                           .copyWith(fontWeight: FontWeight.w600)),
-                  SizedBox(
+                  const SizedBox(
                     height: 7,
                   ),
                   Text(
@@ -78,12 +69,12 @@ class _WorkupDetailInfoState extends State<WorkupDetailInfo> {
                   )
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Text('Descriptions',
                   style: AppText.large.copyWith(fontWeight: FontWeight.w600)),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               ReadMoreText(
@@ -98,7 +89,7 @@ class _WorkupDetailInfoState extends State<WorkupDetailInfo> {
                 moreStyle: AppText.medium.copyWith(
                     color: AppColors.primary, fontWeight: FontWeight.bold),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Text('Custom Repetitions',

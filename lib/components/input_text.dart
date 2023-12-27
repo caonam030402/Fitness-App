@@ -1,4 +1,3 @@
-import 'dart:math';
 import 'package:fitness_app/styles/app_colors.dart';
 import 'package:fitness_app/styles/app_styles.dart';
 import 'package:fitness_app/styles/app_text.dart';
@@ -40,7 +39,7 @@ class _InputTextState extends State<InputText> {
 
   @override
   Widget build(BuildContext context) {
-    final _error = _errorMessage != null;
+    final error0 = _errorMessage != null;
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -58,18 +57,18 @@ class _InputTextState extends State<InputText> {
                       58),
               decoration: BoxDecoration(
                   border: Border.all(
-                      color: _error
+                      color: error0
                           ? Colors.red.withOpacity(0.4)
                           : AppColors.white),
                   color:
-                      _error ? Colors.red.withOpacity(0.1) : AppColors.border,
+                      error0 ? Colors.red.withOpacity(0.1) : AppColors.border,
                   borderRadius: BorderRadius.circular(14)),
               child: Row(
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(left: 15, right: 10),
                     child: SvgPicture.asset(widget.icon,
-                        color: _error ? Colors.red : AppColors.gray_1),
+                        color: error0 ? Colors.red : AppColors.gray_1),
                   ),
                   Expanded(
                       child: TextFormField(
@@ -90,7 +89,7 @@ class _InputTextState extends State<InputText> {
                     keyboardType: widget.keyboardType,
                     textInputAction: TextInputAction.next,
                     decoration: InputDecoration(
-                        hintText: _error ? null : widget.lable,
+                        hintText: error0 ? null : widget.lable,
                         errorStyle: const TextStyle(fontSize: 0.1, height: 0),
                         hintStyle: AppText.small.copyWith(
                             height: 2,
@@ -101,14 +100,14 @@ class _InputTextState extends State<InputText> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             SizedBox(
               height: 14,
               child: Text(
-                _error ? _errorMessage! : '',
-                style: TextStyle(fontSize: _error ? 12 : 0, color: Colors.red),
+                error0 ? _errorMessage! : '',
+                style: TextStyle(fontSize: error0 ? 12 : 0, color: Colors.red),
               ),
             )
           ],

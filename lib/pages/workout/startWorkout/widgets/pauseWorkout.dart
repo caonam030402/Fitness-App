@@ -27,15 +27,15 @@ class PauseWorkout extends StatelessWidget {
                   end: Alignment.topCenter,
                   begin: Alignment.bottomCenter,
                   colors: [
-                Color.fromARGB(255, 255, 255, 255),
-                Color.fromARGB(255, 255, 255, 255),
+                const Color.fromARGB(255, 255, 255, 255),
+                const Color.fromARGB(255, 255, 255, 255),
                 AppColors.white.withOpacity(0.2)
               ])),
-          child: Container(
+          child: SizedBox(
             height: MediaQuery.of(context).size.height,
             child: Column(
               children: [
-                Spacer(),
+                const Spacer(),
                 Text(
                   'Hold on!',
                   style: AppText.heading1.copyWith(fontWeight: FontWeight.w700),
@@ -43,7 +43,7 @@ class PauseWorkout extends StatelessWidget {
                 Text('You can do it!',
                     style:
                         AppText.heading1.copyWith(fontWeight: FontWeight.w700)),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Text('You have finished 0%',
@@ -53,13 +53,14 @@ class PauseWorkout extends StatelessWidget {
                     style:
                         AppText.medium.copyWith(fontWeight: FontWeight.w500)),
                 Padding(
-                  padding: EdgeInsets.all(AppStyles.paddingBothSidesPage + 20),
+                  padding:
+                      const EdgeInsets.all(AppStyles.paddingBothSidesPage + 20),
                   child: Column(children: [
                     Button(
                       text: 'Resume',
                       onPressed: onPressedResume,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 15,
                     ),
                     Button(
@@ -69,7 +70,7 @@ class PauseWorkout extends StatelessWidget {
                       text: 'Restart this exercise',
                       onPressed: onPressedRestart,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 15,
                     ),
                     GestureDetector(

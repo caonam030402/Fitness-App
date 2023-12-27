@@ -19,13 +19,12 @@ class WorkupTrackerDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     final Workout workout =
         ModalRoute.of(context)!.settings.arguments as Workout;
-    print(workout);
     total(Type type) {
       int total = 0;
       for (var i = 0; i < workout.details.length; i++) {
         total = type == Type.totalSeconds
             ? total + workout.details[i].timeSeconds
-            : (workout.details[i].calories as int);
+            : workout.details[i].calories;
       }
       return total;
     }
@@ -37,12 +36,12 @@ class WorkupTrackerDetail extends StatelessWidget {
         Container(
           height: 500,
           width: MediaQuery.of(context).size.width,
-          child: Image.network(workout.imageUrl, fit: BoxFit.cover),
           decoration: const BoxDecoration(),
+          child: Image.network(workout.imageUrl, fit: BoxFit.cover),
         ),
         Positioned(
           top: 45,
-          child: Container(
+          child: SizedBox(
               height: 60,
               width: MediaQuery.of(context).size.width,
               child: const ToolBar(title: '')),
@@ -145,7 +144,7 @@ class WorkupTrackerDetail extends StatelessWidget {
                     },
                     itemCount: workout.details.length,
                     separatorBuilder: (context, index) {
-                      return SizedBox(
+                      return const SizedBox(
                         height: 15,
                       );
                     },

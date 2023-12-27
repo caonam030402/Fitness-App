@@ -1,6 +1,5 @@
 import 'package:fitness_app/components/button.dart';
 import 'package:fitness_app/configs/app_routes.dart';
-import 'package:fitness_app/services/workout_services.dart';
 import 'package:fitness_app/styles/app_colors.dart';
 import 'package:fitness_app/styles/app_styles.dart';
 import 'package:fitness_app/styles/app_text.dart';
@@ -16,6 +15,9 @@ class BannerHome extends StatelessWidget {
     final widthScreen = MediaQuery.of(context).size.width;
     return Container(
       padding: AppStyles.paddingCard,
+      decoration: const BoxDecoration(
+          borderRadius: AppStyles.borderRadiusCard,
+          gradient: AppColors.primaryGradiant),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -32,7 +34,7 @@ class BannerHome extends StatelessWidget {
                 style: AppText.small.copyWith(
                     fontWeight: FontWeight.w400, color: AppColors.white),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               Button(
@@ -55,14 +57,14 @@ class BannerHome extends StatelessWidget {
                 child: Container(
                   width: widthScreen * 0.25,
                   height: widthScreen * 0.25,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       color: AppColors.white, shape: BoxShape.circle),
                 ),
               ),
               Container(
                 width: widthScreen * 0.15,
                 height: widthScreen * 0.15,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     color: AppColors.secondary,
                     borderRadius:
                         BorderRadius.only(topRight: Radius.circular(100))),
@@ -79,9 +81,6 @@ class BannerHome extends StatelessWidget {
           )
         ],
       ),
-      decoration: BoxDecoration(
-          borderRadius: AppStyles.borderRadiusCard,
-          gradient: AppColors.primaryGradiant),
     );
   }
 }

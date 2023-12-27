@@ -15,7 +15,6 @@ class WorkoutCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(workout);
     return Container(
       width: 300,
       padding: AppStyles.paddingCard,
@@ -32,14 +31,14 @@ class WorkoutCard extends StatelessWidget {
                 workout.name,
                 style: AppText.medium.copyWith(fontWeight: FontWeight.w600),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
               Text(
                 '${workout.details.length} Exercises | ${workout.details[0].timeSeconds} mins',
                 style: AppText.small.copyWith(color: AppColors.gray_1),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 17,
               ),
               Button(
@@ -55,7 +54,7 @@ class WorkoutCard extends StatelessWidget {
               )
             ],
           ),
-          Spacer(),
+          const Spacer(),
           Stack(
             children: [
               Row(
@@ -66,12 +65,12 @@ class WorkoutCard extends StatelessWidget {
                   Container(
                     width: 90,
                     height: 90,
+                    decoration: const BoxDecoration(
+                        color: AppColors.white, shape: BoxShape.circle),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(200),
                       child: Image.network(workout.imageUrl, fit: BoxFit.cover),
                     ),
-                    decoration: BoxDecoration(
-                        color: AppColors.white, shape: BoxShape.circle),
                   ),
                 ],
               ),

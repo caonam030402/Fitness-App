@@ -21,7 +21,7 @@ class _InputDateState extends State<InputDate> {
   String? _errorMessage;
   @override
   Widget build(BuildContext context) {
-    final _error = _errorMessage != null;
+    final error0 = _errorMessage != null;
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -35,18 +35,18 @@ class _InputDateState extends State<InputDate> {
                   (AppStyles.paddingBothSidesPage * 2),
               decoration: BoxDecoration(
                   border: Border.all(
-                      color: _error
+                      color: error0
                           ? Colors.red.withOpacity(0.4)
                           : AppColors.white),
                   color:
-                      _error ? Colors.red.withOpacity(0.1) : AppColors.border,
+                      error0 ? Colors.red.withOpacity(0.1) : AppColors.border,
                   borderRadius: BorderRadius.circular(14)),
               child: Row(
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(left: 15, right: 10),
                     child: SvgPicture.asset(widget.icon,
-                        color: _error ? Colors.red : AppColors.gray_1),
+                        color: error0 ? Colors.red : AppColors.gray_1),
                   ),
                   Expanded(
                       child: TextFormField(
@@ -77,7 +77,7 @@ class _InputDateState extends State<InputDate> {
                       }
                     },
                     decoration: InputDecoration(
-                        hintText: _error ? null : widget.label,
+                        hintText: error0 ? null : widget.label,
                         errorStyle: const TextStyle(fontSize: 0.1, height: 0),
                         hintStyle: AppText.small.copyWith(
                             height: 2,
@@ -88,14 +88,14 @@ class _InputDateState extends State<InputDate> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             SizedBox(
               height: 14,
               child: Text(
-                _error ? _errorMessage! : '',
-                style: TextStyle(fontSize: _error ? 12 : 0, color: Colors.red),
+                error0 ? _errorMessage! : '',
+                style: TextStyle(fontSize: error0 ? 12 : 0, color: Colors.red),
               ),
             )
           ],

@@ -25,11 +25,11 @@ class NutritionCard extends StatelessWidget {
     return Container(
       height: 78,
       width: MediaQuery.of(context).size.width,
-      padding: EdgeInsets.all(15),
+      padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
           color: Colors.white,
-          boxShadow: [
+          boxShadow: const [
             AppShadows.shadowCard,
           ]),
       child: Column(

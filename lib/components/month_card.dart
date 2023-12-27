@@ -110,9 +110,9 @@ class _MonthCardState extends State<MonthCard> {
                               ],
                             ),
                           )
-                        : Row(
+                        : const Row(
                             children: [
-                              const ToggleSwitch(),
+                              ToggleSwitch(),
                               SizedBox(
                                 width: 20,
                               )

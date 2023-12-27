@@ -81,4 +81,5 @@ class AppIcons {
   static const im_muscle_relaxants = '${_png}im_muscle_relaxants.png';
   static const im_weightlifting = '${_png}im_weightlifting.png';
   static const im_girl_fitness = '${_png}im_girl_fitness.jpg';
+  static const im_avatar_default = '${_png}im_avatar_default.jpg';
 }

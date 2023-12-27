@@ -39,7 +39,7 @@ class MealsCard extends StatelessWidget {
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),
             color: Colors.white,
-            boxShadow: [
+            boxShadow: const [
               AppShadows.shadowCard,
             ]),
         child: Row(
@@ -53,8 +53,8 @@ class MealsCard extends StatelessWidget {
                     Container(
                       height: 60,
                       width: 60,
-                      margin: EdgeInsets.only(right: 10),
-                      padding: EdgeInsets.all(9),
+                      margin: const EdgeInsets.only(right: 10),
+                      padding: const EdgeInsets.all(9),
                       decoration: BoxDecoration(
                           color: color,
                           borderRadius: BorderRadius.circular(12)),

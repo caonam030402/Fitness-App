@@ -34,11 +34,11 @@ class _MainPageState extends State<MainPage> {
   }
 
   final pages = <Widget>[
-    HomePage(),
-    SleepTrackerPage(),
+    const HomePage(),
+    const SleepTrackerPage(),
     const ProgressPhotoPage(),
-    MealPlannerPage(),
-    Profile(),
+    const MealPlannerPage(),
+    const Profile(),
   ];
 }
 
@@ -52,7 +52,7 @@ class MyBottomNavigation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 100,
       child: Stack(
         children: [

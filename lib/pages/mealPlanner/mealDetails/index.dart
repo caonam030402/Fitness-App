@@ -2,7 +2,6 @@ import 'package:fitness_app/components/button.dart';
 import 'package:fitness_app/components/title_section.dart';
 import 'package:fitness_app/components/tool_bar.dart';
 import 'package:fitness_app/configs/app_icons.dart';
-import 'package:fitness_app/configs/app_routes.dart';
 import 'package:fitness_app/pages/mealPlanner/mealDetails/widgets/custom_step.dart';
 import 'package:fitness_app/pages/mealPlanner/mealDetails/widgets/ingredients_card.dart';
 import 'package:fitness_app/pages/mealPlanner/mealDetails/widgets/nutriotions_card.dart';

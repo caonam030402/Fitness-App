@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class LastedWorkoutCard extends StatelessWidget {
-  final WorkoutProgress lastWorkout;
+  final WorkoutProgress? lastWorkout;
   const LastedWorkoutCard({
     super.key,
     required this.lastWorkout,
@@ -19,7 +19,7 @@ class LastedWorkoutCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 200,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           boxShadow: [AppShadows.shadowCard],
           color: AppColors.white,
           borderRadius: AppStyles.borderRadiusCard),
@@ -32,29 +32,36 @@ class LastedWorkoutCard extends StatelessWidget {
               Container(
                 width: 60,
                 height: 60,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     color: AppColors.primary, shape: BoxShape.circle),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(200),
+                  child: Image.network(
+                    '${lastWorkout?.workout?.imageUrl}',
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    lastWorkout.workout!.name,
+                    lastWorkout?.workout?.name ?? '',
                     style: AppText.medium.copyWith(fontWeight: FontWeight.w600),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 3,
                   ),
                   Text(
-                    lastWorkout.workout!.name,
+                    lastWorkout?.workout?.name ?? '',
                     style: AppText.caption.copyWith(color: AppColors.gray_1),
                   ),
                   BarIndicator(
                     percent: double.parse(
-                        ((lastWorkout.progress ?? 0) / 100).toString()),
+                        ((lastWorkout?.progress ?? 0) / 100).toString()),
                     direction: Direction.vertical,
                     height: 10,
                     width: MediaQuery.of(context).size.width * 0.5,
@@ -64,19 +71,19 @@ class LastedWorkoutCard extends StatelessWidget {
               )
             ],
           ),
-          Spacer(),
+          const Spacer(),
           Container(
-            padding: EdgeInsets.all(3),
+            padding: const EdgeInsets.all(3),
             width: 24,
             height: 24,
-            child: SvgPicture.asset(AppIcons.ic_arrow_right,
-                color: AppColors.secondary),
             decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 border: Border.all(
                   width: 1,
                   color: AppColors.secondary,
                 )),
+            child: SvgPicture.asset(AppIcons.ic_arrow_right,
+                color: AppColors.secondary),
           )
         ],
       ),

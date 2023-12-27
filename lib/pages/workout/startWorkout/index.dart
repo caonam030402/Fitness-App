@@ -18,6 +18,12 @@ class _StartWorkoutState extends State<StartWorkout> {
     final List<WorkoutDetail> workoutDetail =
         ModalRoute.of(context)!.settings.arguments as List<WorkoutDetail>;
 
+    @override
+    void dispose() {
+      _controller.dispose();
+      super.dispose();
+    }
+
     return Scaffold(
         backgroundColor: AppColors.gray_3,
         body: Stack(
@@ -44,23 +50,3 @@ class _StartWorkoutState extends State<StartWorkout> {
         ));
   }
 }
-
-class StartWorkoutClass {
-  String name;
-  int time;
-  String descriptions;
-  StartWorkoutClass(this.name, this.time, this.descriptions);
-}
-
-List<StartWorkoutClass> startWorkUps = [
-  StartWorkoutClass('Jumping Jack 1', 30,
-      'Flutter is Google’s mobile UI open source framework to build high-quality native (super fast) interfaces for iOS and Android apps with the unified codebase.'),
-  StartWorkoutClass('Jumping Jack 2', 40,
-      'Flutter is Google’s mobile UI open source framework to build high-quality native (super fast) interfaces for iOS and Android apps with the unified codebase.'),
-  StartWorkoutClass('Jumping Jack 3', 34,
-      'Flutter is Google’s mobile UI open source framework to build high-quality native (super fast) interfaces for iOS and Android apps with the unified codebase.'),
-  StartWorkoutClass('Jumping Jack 4', 34,
-      'Flutter is Google’s mobile UI open source framework to build high-quality native (super fast) interfaces for iOS and Android apps with the unified codebase.'),
-  StartWorkoutClass('Jumping Jack 5', 34,
-      'Flutter is Google’s mobile UI open source framework to build high-quality native (super fast) interfaces for iOS and Android apps with the unified codebase.')
-];

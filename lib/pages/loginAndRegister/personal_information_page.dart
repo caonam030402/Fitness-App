@@ -3,7 +3,6 @@ import 'package:fitness_app/components/input_date.dart';
 import 'package:fitness_app/components/input_text.dart';
 import 'package:fitness_app/configs/app_icons.dart';
 import 'package:fitness_app/models/user_model.dart';
-import 'package:fitness_app/services/auth_services.dart';
 import 'package:fitness_app/services/user_services.dart';
 import 'package:fitness_app/styles/app_colors.dart';
 import 'package:fitness_app/styles/app_styles.dart';
@@ -37,13 +36,13 @@ class _PersonalInformationPageState extends State<PersonalInformationPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Spacer(),
+              const Spacer(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Stack(
                     children: [
-                      Container(
+                      SizedBox(
                           width: MediaQuery.of(context).size.width * 0.95,
                           child: SvgPicture.asset(AppIcons.sp_shape_3)),
                       Positioned(
@@ -60,7 +59,7 @@ class _PersonalInformationPageState extends State<PersonalInformationPage> {
                     horizontal: AppStyles.paddingBothSidesPage),
                 child: Column(
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Text('Let’s complete your profile',
@@ -71,12 +70,12 @@ class _PersonalInformationPageState extends State<PersonalInformationPage> {
                         style: AppText.small.copyWith(
                             fontWeight: FontWeight.w400,
                             color: AppColors.gray_1)),
-                    SizedBox(
+                    const SizedBox(
                       height: 25,
                     ),
-                    InputText(
+                    const InputText(
                         lable: 'Choose Gender', icon: AppIcons.ic_two_person),
-                    SizedBox(
+                    const SizedBox(
                       height: 17,
                     ),
                     Form(
@@ -91,7 +90,7 @@ class _PersonalInformationPageState extends State<PersonalInformationPage> {
                               label: 'Date of Birth',
                               icon: AppIcons.ic_calendar,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 17,
                             ),
                             Row(
@@ -108,7 +107,7 @@ class _PersonalInformationPageState extends State<PersonalInformationPage> {
                                   keyboardType: TextInputType.number,
                                   containerWidth: true,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 10,
                                 ),
                                 Container(
@@ -126,7 +125,7 @@ class _PersonalInformationPageState extends State<PersonalInformationPage> {
                                 ),
                               ],
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 17,
                             ),
                             Row(
@@ -142,7 +141,7 @@ class _PersonalInformationPageState extends State<PersonalInformationPage> {
                                     icon: AppIcons.ic_swap,
                                     keyboardType: TextInputType.number,
                                     containerWidth: true),
-                                SizedBox(
+                                const SizedBox(
                                   width: 10,
                                 ),
                                 Container(
@@ -160,7 +159,7 @@ class _PersonalInformationPageState extends State<PersonalInformationPage> {
                                 ),
                               ],
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 25,
                             ),
                             Button(
@@ -179,7 +178,7 @@ class _PersonalInformationPageState extends State<PersonalInformationPage> {
                                 }),
                           ],
                         )),
-                    SizedBox(
+                    const SizedBox(
                       height: AppStyles.paddingBothSidesPage,
                     ),
                   ],

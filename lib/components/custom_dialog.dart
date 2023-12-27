@@ -20,8 +20,9 @@ class CustomDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SimpleDialog(
-        shape: RoundedRectangleBorder(borderRadius: AppStyles.borderRadiusCard),
-        contentPadding: EdgeInsets.all(30),
+        shape: const RoundedRectangleBorder(
+            borderRadius: AppStyles.borderRadiusCard),
+        contentPadding: const EdgeInsets.all(30),
         children: [
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -33,27 +34,27 @@ class CustomDialog extends StatelessWidget {
                   width: 100,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Text(
                 title,
                 style: titleStyle,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
               Text(
                 desc.toString(),
                 style: AppText.medium.copyWith(color: AppColors.gray_1),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Button(
                 text: 'Back',
                 size: Size.medium,
-                padding: EdgeInsetsDirectional.symmetric(horizontal: 50),
+                padding: const EdgeInsetsDirectional.symmetric(horizontal: 50),
                 textStyle: AppText.medium,
                 onPressed: () {
                   Navigator.of(context).pop();

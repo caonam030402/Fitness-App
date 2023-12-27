@@ -17,17 +17,18 @@ class IntroWorkup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final audioPlayer = AudioPlayer();
-
     return Visibility(
       visible:
           int.parse(durationIntro.inSeconds.toString()) == 0 ? false : true,
       child: Container(
+        decoration: BoxDecoration(
+          color: AppColors.black.withOpacity(0.4),
+        ),
         child: SizedBox(
           height: MediaQuery.of(context).size.width,
           child: Column(children: [
-            Spacer(),
-            SizedBox(
+            const Spacer(),
+            const SizedBox(
               height: 30,
             ),
             Text(
@@ -47,10 +48,10 @@ class IntroWorkup extends StatelessWidget {
             Text(workoutDetail.name.toUpperCase(),
                 style: AppText.heading4.copyWith(
                     color: AppColors.white, fontWeight: FontWeight.w700)),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
-            Spacer(),
+            const Spacer(),
             Padding(
               padding: const EdgeInsets.only(
                   left: AppStyles.paddingBothSidesPage,
@@ -63,9 +64,6 @@ class IntroWorkup extends StatelessWidget {
               ),
             )
           ]),
-        ),
-        decoration: BoxDecoration(
-          color: AppColors.black.withOpacity(0.4),
         ),
       ),
     );

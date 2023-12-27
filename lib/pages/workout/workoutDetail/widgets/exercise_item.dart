@@ -12,51 +12,49 @@ class ExerciseItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Duration time = Duration(seconds: workoutDetail.timeSeconds);
-    return Container(
-      child: Row(
-        children: [
-          Container(
-            width: 70,
-            height: 70,
-            child: ClipRRect(
-              borderRadius: BorderRadius.all(Radius.circular(20)),
-              child: Image.network(workoutDetail.imageUrl, fit: BoxFit.cover),
-            ),
-            decoration: BoxDecoration(
-              color: AppColors.gray_3,
-            ),
+    return Row(
+      children: [
+        Container(
+          width: 70,
+          height: 70,
+          decoration: const BoxDecoration(
+            color: AppColors.gray_3,
           ),
-          SizedBox(
-            width: 10,
+          child: ClipRRect(
+            borderRadius: const BorderRadius.all(Radius.circular(20)),
+            child: Image.network(workoutDetail.imageUrl, fit: BoxFit.cover),
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                workoutDetail.name,
-                style: AppText.medium.copyWith(fontWeight: FontWeight.w600),
-              ),
-              Text(
-                '${time.inMinutes.toString().padLeft(2, '0')}:${time.inSeconds.toString().padLeft(2, '0')}',
-                style: AppText.small.copyWith(color: AppColors.gray_1),
-              )
-            ],
-          ),
-          Spacer(),
-          Container(
-            width: 20,
-            height: 20,
-            padding: EdgeInsets.all(2),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                border: Border.all(color: AppColors.gray_1, width: 1)),
-            child: SvgPicture.asset(
-              AppIcons.ic_arrow_right,
-              color: AppColors.gray_1,
+        ),
+        const SizedBox(
+          width: 10,
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              workoutDetail.name,
+              style: AppText.medium.copyWith(fontWeight: FontWeight.w600),
             ),
-          )
-        ],
-      ),
+            Text(
+              '${time.inMinutes.toString().padLeft(2, '0')}:${time.inSeconds.toString().padLeft(2, '0')}',
+              style: AppText.small.copyWith(color: AppColors.gray_1),
+            )
+          ],
+        ),
+        const Spacer(),
+        Container(
+          width: 20,
+          height: 20,
+          padding: const EdgeInsets.all(2),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              border: Border.all(color: AppColors.gray_1, width: 1)),
+          child: SvgPicture.asset(
+            AppIcons.ic_arrow_right,
+            color: AppColors.gray_1,
+          ),
+        )
+      ],
     );
   }
 }

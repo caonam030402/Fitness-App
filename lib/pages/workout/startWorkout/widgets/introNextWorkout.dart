@@ -29,10 +29,10 @@ class IntroNextWorkout extends StatelessWidget {
           int.parse(durationIntro.inSeconds.toString()) == 0 ? false : true,
       child: Scaffold(
         backgroundColor: AppColors.primary,
-        body: Container(
+        body: SizedBox(
           height: MediaQuery.of(context).size.height,
           child: Column(children: [
-            Spacer(),
+            const Spacer(),
             Text(
               'Rest',
               style: AppText.heading4.copyWith(
@@ -49,18 +49,18 @@ class IntroNextWorkout extends StatelessWidget {
               children: [
                 Button(
                   size: Size.medium,
-                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
                   textStyle:
                       AppText.large.copyWith(fontWeight: FontWeight.w700),
                   color: AppColors.secondaryGradiant,
                   text: '+20s',
                   onPressed: onPressedButtonAddTime,
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 20,
                 ),
                 Button(
-                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
                   color: AppColors.whiteGradiant,
                   textStyle: AppText.large.copyWith(
                       fontWeight: FontWeight.w700, color: AppColors.gray_1),
@@ -70,7 +70,7 @@ class IntroNextWorkout extends StatelessWidget {
                 )
               ],
             ),
-            Spacer(),
+            const Spacer(),
             Padding(
               padding: const EdgeInsets.all(AppStyles.paddingBothSidesPage),
               child: Row(
@@ -80,7 +80,7 @@ class IntroNextWorkout extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'NEXT ${indexWorkout + 1}/${totalPartWorkout}',
+                        'NEXT ${indexWorkout + 1}/$totalPartWorkout',
                         style: AppText.medium.copyWith(color: AppColors.white),
                       ),
                       Text(
@@ -91,7 +91,7 @@ class IntroNextWorkout extends StatelessWidget {
                       )
                     ],
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Text('x 20',
                       style: AppText.large.copyWith(
                           color: AppColors.white, fontWeight: FontWeight.w700))
@@ -100,11 +100,24 @@ class IntroNextWorkout extends StatelessWidget {
             ),
             Container(
               height: 320,
-              decoration: BoxDecoration(
-                  color: AppColors.white,
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(30),
-                      topRight: Radius.circular(30))),
+              width: MediaQuery.of(context).size.width,
+              decoration: const BoxDecoration(
+                color: AppColors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(30),
+                  topRight: Radius.circular(30),
+                ),
+              ),
+              child: ClipRRect(
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(30),
+                  topRight: Radius.circular(30),
+                ),
+                child: Image.network(
+                  workoutDetail.imageUrl,
+                  fit: BoxFit.cover,
+                ),
+              ),
             )
           ]),
         ),

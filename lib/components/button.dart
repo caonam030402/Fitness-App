@@ -50,8 +50,8 @@ class Button extends StatelessWidget {
       height: sizeButton.height,
       decoration: BoxDecoration(
         gradient: color,
-        borderRadius: BorderRadius.all(Radius.circular(99)),
-        boxShadow: [
+        borderRadius: const BorderRadius.all(Radius.circular(99)),
+        boxShadow: const [
           BoxShadow(
             color: Color.fromARGB(96, 146, 164, 253),
             spreadRadius: 0,
@@ -83,11 +83,5 @@ class SizeButton {
   late double padding;
   late TextStyle textStyle;
 
-  SizeButton(
-      double height, double? width, double padding, TextStyle textStyle) {
-    this.height = height;
-    this.width = width;
-    this.padding = padding;
-    this.textStyle = textStyle;
-  }
+  SizeButton(this.height, this.width, this.padding, this.textStyle);
 }
