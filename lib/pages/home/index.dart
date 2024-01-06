@@ -6,6 +6,7 @@ import 'package:fitness_app/models/workout_model.dart';
 import 'package:fitness_app/pages/home/widgets/banner_home.dart';
 import 'package:fitness_app/pages/home/widgets/lasted_workout_card.dart';
 import 'package:fitness_app/pages/home/widgets/workout_card.dart';
+import 'package:fitness_app/pages/mealPlanner/mealPlannerPage/widgets/graph_section.dart';
 import 'package:fitness_app/providers/userProvider.dart';
 import 'package:fitness_app/services/user_services.dart';
 import 'package:fitness_app/services/workout_services.dart';
@@ -167,6 +168,14 @@ class _HomePageState extends State<HomePage> {
                             );
                           },
                         )),
+                  ),
+                  const SliverToBoxAdapter(
+                    child: SizedBox(
+                      height: 10,
+                    ),
+                  ),
+                  const SliverToBoxAdapter(
+                    child: GraphSection(),
                   ),
                   const SliverToBoxAdapter(
                     child: SizedBox(

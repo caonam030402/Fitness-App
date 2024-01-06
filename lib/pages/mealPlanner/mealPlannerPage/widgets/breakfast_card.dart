@@ -1,5 +1,4 @@
 import 'package:fitness_app/components/button.dart';
-import 'package:fitness_app/configs/app_icons.dart';
 import 'package:fitness_app/styles/app_colors.dart';
 import 'package:fitness_app/styles/app_styles.dart';
 import 'package:fitness_app/styles/app_text.dart';

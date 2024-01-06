@@ -1,4 +1,3 @@
-import 'package:fitness_app/components/toggle_switch.dart';
 import 'package:fitness_app/configs/app_icons.dart';
 import 'package:fitness_app/styles/app_colors.dart';
 import 'package:fitness_app/styles/app_styles.dart';

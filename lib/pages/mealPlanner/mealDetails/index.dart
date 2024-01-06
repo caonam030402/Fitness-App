@@ -2,6 +2,7 @@ import 'package:fitness_app/components/button.dart';
 import 'package:fitness_app/components/title_section.dart';
 import 'package:fitness_app/components/tool_bar.dart';
 import 'package:fitness_app/configs/app_icons.dart';
+import 'package:fitness_app/models/meal_model.dart';
 import 'package:fitness_app/pages/mealPlanner/mealDetails/widgets/custom_step.dart';
 import 'package:fitness_app/pages/mealPlanner/mealDetails/widgets/ingredients_card.dart';
 import 'package:fitness_app/pages/mealPlanner/mealDetails/widgets/nutriotions_card.dart';
@@ -18,6 +19,7 @@ class MealDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Meal mealDetail = ModalRoute.of(context)!.settings.arguments as Meal;
     return Stack(
       children: [
         Scaffold(
@@ -36,13 +38,15 @@ class MealDetails extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Container(
-                          height: MediaQuery.of(context).size.width * 0.7,
-                          width: MediaQuery.of(context).size.width * 0.7,
-                          padding: const EdgeInsets.only(top: 60),
+                          height: MediaQuery.of(context).size.width * 0.8,
+                          width: MediaQuery.of(context).size.width * 0.8,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(1000),
                               color: AppColors.white.withOpacity(0.3)),
-                          child: SvgPicture.asset(AppIcons.vt_cake_1),
+                          child: SvgPicture.network(
+                            mealDetail.image,
+                            height: 300,
+                          ),
                         ),
                       ],
                     ),
@@ -57,8 +61,8 @@ class MealDetails extends StatelessWidget {
                 ],
               ),
               DraggableScrollableSheet(
-                initialChildSize: 0.6,
-                minChildSize: 0.6,
+                initialChildSize: 0.57,
+                minChildSize: 0.57,
                 builder: (context, controller) {
                   return SingleChildScrollView(
                     controller: controller,
@@ -90,7 +94,7 @@ class MealDetails extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      'Blueberry Pancake',
+                                      mealDetail.name,
                                       style: AppText.large.copyWith(
                                           color: AppColors.black,
                                           fontWeight: FontWeight.w700,
@@ -163,7 +167,7 @@ class MealDetails extends StatelessWidget {
                               height: 15,
                             ),
                             ReadMoreText(
-                              'Flutter is Google’s mobile UI open source framework to build high-quality native (super fast) interfaces for iOS and Android apps with the unified codebase.',
+                              mealDetail.descriptions,
                               trimLines: 2,
                               style: AppText.medium
                                   .copyWith(color: AppColors.gray_1),

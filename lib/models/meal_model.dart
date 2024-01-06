@@ -2,7 +2,7 @@ class Meal {
   String id;
   String name;
   String image;
-  String calories;
+  int calories;
   String descriptions;
   bool popular;
   String timeOfDay;

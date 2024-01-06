@@ -8,13 +8,13 @@ import 'package:flutter_svg/svg.dart';
 class PopularCard extends StatelessWidget {
   final String title;
   final String label;
-  final String icon;
+  final String image;
   final Function()? onPressed;
   const PopularCard(
       {super.key,
       required this.title,
       required this.label,
-      required this.icon,
+      required this.image,
       this.onPressed});
 
   @override
@@ -54,7 +54,7 @@ class PopularCard extends StatelessWidget {
                       ),
                       child: SizedBox(
                         width: 45,
-                        child: SvgPicture.asset(icon),
+                        child: SvgPicture.network(image),
                       ),
                     ),
                     Column(
