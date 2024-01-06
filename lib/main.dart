@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.light),
       routes: AppRoutes.pages,
       builder: EasyLoading.init(),
-      initialRoute: AppRoutes.splash,
+      initialRoute: AppRoutes.mealPlanner,
     );
   }
 }

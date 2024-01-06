@@ -7,17 +7,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class BreakfastCard extends StatelessWidget {
+  final String image;
   final String content;
   final String title;
-  final String label;
+
   final Function() onPressed;
   final bool isColorSecondary;
   const BreakfastCard({
     super.key,
     required this.content,
     required this.title,
-    required this.label,
     this.isColorSecondary = false,
+    required this.image,
     required this.onPressed,
   });
 
@@ -61,18 +62,18 @@ class BreakfastCard extends StatelessWidget {
                       height: 10,
                     ),
                     Button(
-                        text: label,
-                        color: isColorSecondary == false
-                            ? AppColors.primaryGradiant
-                            : AppColors.secondaryGradiant,
-                        size: Size.small,
-                        onPressed: onPressed)
+                      text: 'Select',
+                      color: isColorSecondary == false
+                          ? AppColors.primaryGradiant
+                          : AppColors.secondaryGradiant,
+                      size: Size.small,
+                      onPressed: onPressed,
+                    )
                   ],
                 ),
               ),
             ),
-            Positioned(
-                right: 10, top: 10, child: SvgPicture.asset(AppIcons.vt_cake))
+            Positioned(right: 10, top: 10, child: SvgPicture.network(image))
           ],
         ),
       ],
