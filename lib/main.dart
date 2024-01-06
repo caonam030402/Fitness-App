@@ -1,5 +1,6 @@
 import 'package:fitness_app/configs/app_routes.dart';
-import 'package:fitness_app/providers/userProviders.dart';
+import 'package:fitness_app/providers/musicProvider.dart';
+import 'package:fitness_app/providers/userProvider.dart';
 import 'package:fitness_app/styles/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:fitness_app/utils/auth.dart';
@@ -12,9 +13,12 @@ void main() async {
   final token = await auth.getTokenFromSP();
   Auth.token = token;
   runApp(
-    ChangeNotifierProvider(
-      create: (context) => ProfileProvider(),
-      child: MyApp(),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => ProfileProvider()),
+        ChangeNotifierProvider(create: (context) => MusicProvider()),
+      ],
+      child: const MyApp(),
     ),
   );
 }

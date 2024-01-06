@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:fitness_app/components/video_item.dart';
 import 'package:fitness_app/configs/app_icons.dart';
 import 'package:fitness_app/configs/app_routes.dart';
@@ -368,7 +369,7 @@ class _PartWorkoutState extends State<PartWorkout> {
                   isModalPause = false;
                 });
               },
-              onPressedQuit: () {
+              onPressedQuit: () async {
                 Navigator.of(context).pushReplacementNamed(AppRoutes.main);
               },
             )),

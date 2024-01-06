@@ -18,6 +18,7 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   Menus currentIndex = Menus.home;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

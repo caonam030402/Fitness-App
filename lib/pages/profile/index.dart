@@ -2,7 +2,7 @@ import 'package:fitness_app/components/button.dart';
 import 'package:fitness_app/components/tool_bar.dart';
 import 'package:fitness_app/configs/app_icons.dart';
 import 'package:fitness_app/pages/profile/widgets/personal_card.dart';
-import 'package:fitness_app/providers/userProviders.dart';
+import 'package:fitness_app/providers/userProvider.dart';
 import 'package:fitness_app/styles/app_colors.dart';
 import 'package:fitness_app/styles/app_styles.dart';
 import 'package:fitness_app/styles/app_text.dart';

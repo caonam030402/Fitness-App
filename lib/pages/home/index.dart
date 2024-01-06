@@ -6,7 +6,7 @@ import 'package:fitness_app/models/workout_model.dart';
 import 'package:fitness_app/pages/home/widgets/banner_home.dart';
 import 'package:fitness_app/pages/home/widgets/lasted_workout_card.dart';
 import 'package:fitness_app/pages/home/widgets/workout_card.dart';
-import 'package:fitness_app/providers/userProviders.dart';
+import 'package:fitness_app/providers/userProvider.dart';
 import 'package:fitness_app/services/user_services.dart';
 import 'package:fitness_app/services/workout_services.dart';
 import 'package:fitness_app/styles/app_colors.dart';
