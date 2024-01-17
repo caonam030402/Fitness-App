@@ -13,13 +13,18 @@ class PersonalCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
         child: Container(
+      padding: const EdgeInsets.all(10),
+      decoration: const BoxDecoration(
+          borderRadius: AppStyles.borderRadiusCard,
+          color: AppColors.white,
+          boxShadow: [AppShadows.shadowCard]),
       child: Column(children: [
         Text(
           title,
           style: AppText.medium
               .copyWith(color: AppColors.primary, fontWeight: FontWeight.w600),
         ),
-        SizedBox(
+        const SizedBox(
           height: 6,
         ),
         Text(
@@ -27,11 +32,6 @@ class PersonalCard extends StatelessWidget {
           style: AppText.small.copyWith(color: AppColors.gray_1),
         ),
       ]),
-      padding: EdgeInsets.all(10),
-      decoration: BoxDecoration(
-          borderRadius: AppStyles.borderRadiusCard,
-          color: AppColors.white,
-          boxShadow: [AppShadows.shadowCard]),
     ));
   }
 }

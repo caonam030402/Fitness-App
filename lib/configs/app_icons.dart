@@ -2,6 +2,14 @@ class AppIcons {
   static const _png = 'assets/images/';
   static const _svg = 'assets/svgs/';
 
+  static const ic_workout_blue = '${_svg}ic_workout_blue.svg';
+  static const ic_setting_blue = '${_svg}ic_setting_blue.svg';
+  static const ic_profile_blue = '${_svg}ic_profile_blue.svg';
+  static const ic_privacy_blue = '${_svg}ic_privacy_blue.svg';
+  static const ic_notification_blue = '${_svg}ic_notification_blue.svg';
+  static const ic_message_blue = '${_svg}ic_message_blue.svg';
+  static const ic_activity_blue = '${_svg}ic_activity_blue.svg';
+  static const ic_achievement_blue = '${_svg}ic_achievement_blue.svg';
   static const ic_logo = '${_svg}ic_logo.svg';
   static const ic_arrow_right = '${_svg}ic_arrow_right.svg';
   static const ic_lock = '${_svg}ic_lock.svg';
@@ -81,4 +89,5 @@ class AppIcons {
   static const im_muscle_relaxants = '${_png}im_muscle_relaxants.png';
   static const im_weightlifting = '${_png}im_weightlifting.png';
   static const im_girl_fitness = '${_png}im_girl_fitness.jpg';
+  static const im_avatar_default = '${_png}im_avatar_default.jpg';
 }

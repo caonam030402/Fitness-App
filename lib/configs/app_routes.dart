@@ -18,6 +18,7 @@ import 'package:fitness_app/pages/sleepTracker/sleepTrackerPage/index.dart';
 import 'package:fitness_app/pages/progressTracker/comparison/index.dart';
 import 'package:fitness_app/pages/progressTracker/progressPhoto/index.dart';
 import 'package:fitness_app/pages/progressTracker/result/index.dart';
+import 'package:fitness_app/pages/workout/settingMusic/index.dart';
 import 'package:fitness_app/pages/workout/startWorkout/index.dart';
 import 'package:fitness_app/pages/workout/workoutDetail/index.dart';
 import 'package:fitness_app/pages/workout/workoutDetailInfo/index.dart';
@@ -47,6 +48,7 @@ class AppRoutes {
     '/workout_tracker_detail': (context) => WorkupTrackerDetail(),
     '/workout_detail_info': (context) => WorkupDetailInfo(),
     '/start_workout': (context) => StartWorkout(),
+    '/setting_music': (context) => SettingMusic(),
   };
 
   static const sleepSchedule = '/sleepSchedule';
@@ -72,4 +74,5 @@ class AppRoutes {
   static const result = '/result';
   static const workout_detail_info = '/workout_detail_info';
   static const start_workout = '/start_workout';
+  static const setting_music = '/setting_music';
 }

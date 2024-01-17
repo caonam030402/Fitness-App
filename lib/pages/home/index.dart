@@ -2,16 +2,17 @@ import 'package:fitness_app/components/daily_action.dart';
 import 'package:fitness_app/components/title_section.dart';
 import 'package:fitness_app/configs/app_icons.dart';
 import 'package:fitness_app/configs/app_routes.dart';
-import 'package:fitness_app/models/user_model.dart';
 import 'package:fitness_app/models/workout_model.dart';
 import 'package:fitness_app/pages/home/widgets/banner_home.dart';
 import 'package:fitness_app/pages/home/widgets/lasted_workout_card.dart';
 import 'package:fitness_app/pages/home/widgets/workout_card.dart';
+import 'package:fitness_app/providers/userProvider.dart';
 import 'package:fitness_app/services/user_services.dart';
 import 'package:fitness_app/services/workout_services.dart';
 import 'package:fitness_app/styles/app_colors.dart';
 import 'package:fitness_app/styles/app_styles.dart';
 import 'package:fitness_app/styles/app_text.dart';
+import 'package:fitness_app/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -24,7 +25,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   late Future<List<Workout>> workoutData;
-  late Future<User> userData;
+
+  final getProfileProvider = UserProvider();
 
   WorkoutService workoutService = WorkoutService();
   UserService userService = UserService();
@@ -33,7 +35,6 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     workoutData = workoutService.getAllWorkout();
-    userData = userService.getUser();
   }
 
   @override
@@ -42,12 +43,18 @@ class _HomePageState extends State<HomePage> {
       bottom: false,
       child: Scaffold(
         body: FutureBuilder(
-          future: userData,
+          future: getProfileProvider.getUser(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return CircularProgressIndicator();
+              return const Center(
+                  child: CircularProgressIndicator(
+                strokeWidth: 4,
+                color: AppColors.primary,
+              ));
             }
-            final user = snapshot.data!;
+            final user = getProfileProvider.user;
+            final bmi = Utils.calculateBMI(user!.height ?? 0, user.weight ?? 0);
+            print(bmi);
             return Padding(
               padding: const EdgeInsets.only(
                   bottom: AppStyles.heightBottomNavigation,
@@ -55,8 +62,8 @@ class _HomePageState extends State<HomePage> {
                   left: AppStyles.paddingBothSidesPage),
               child: CustomScrollView(
                 slivers: [
-                  SliverToBoxAdapter(
-                    child: const SizedBox(
+                  const SliverToBoxAdapter(
+                    child: SizedBox(
                       height: 20,
                     ),
                   ),
@@ -65,11 +72,12 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text('Welcome Back,',
                                 style: AppText.small
                                     .copyWith(color: AppColors.gray_2)),
-                            Text(user.name ?? 'Hello',
+                            Text(getProfileProvider.user?.name ?? 'User',
                                 style: AppText.heading4
                                     .copyWith(fontWeight: FontWeight.w800)),
                           ],
@@ -100,14 +108,18 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                   ),
-                  SliverToBoxAdapter(
-                    child: const SizedBox(
+                  const SliverToBoxAdapter(
+                    child: SizedBox(
                       height: 20,
                     ),
                   ),
-                  SliverToBoxAdapter(child: const BannerHome()),
                   SliverToBoxAdapter(
-                    child: const SizedBox(
+                      child: BannerHome(
+                    bmi: bmi,
+                    status: '',
+                  )),
+                  const SliverToBoxAdapter(
+                    child: SizedBox(
                       height: 20,
                     ),
                   ),
@@ -120,29 +132,29 @@ class _HomePageState extends State<HomePage> {
                           .pushNamed(AppRoutes.activity_tracker);
                     },
                   )),
-                  SliverToBoxAdapter(
-                    child: const SizedBox(
+                  const SliverToBoxAdapter(
+                    child: SizedBox(
                       height: 15,
                     ),
                   ),
-                  SliverToBoxAdapter(
+                  const SliverToBoxAdapter(
                       child: TitleSection(
                     title: 'What Do You Want to Train',
                   )),
-                  SliverToBoxAdapter(
-                    child: const SizedBox(
+                  const SliverToBoxAdapter(
+                    child: SizedBox(
                       height: 10,
                     ),
                   ),
                   SliverToBoxAdapter(
-                    child: Container(
+                    child: SizedBox(
                         height: 140,
                         child: FutureBuilder(
                           future: workoutData,
                           builder: (context, snapshot) {
                             if (snapshot.connectionState ==
                                 ConnectionState.waiting) {
-                              return CircularProgressIndicator();
+                              return const CircularProgressIndicator();
                             }
                             return ListView.separated(
                               scrollDirection: Axis.horizontal,
@@ -153,7 +165,7 @@ class _HomePageState extends State<HomePage> {
                                 );
                               },
                               separatorBuilder: (context, index) {
-                                return SizedBox(
+                                return const SizedBox(
                                   width: 20,
                                 );
                               },
@@ -162,23 +174,23 @@ class _HomePageState extends State<HomePage> {
                           },
                         )),
                   ),
-                  SliverToBoxAdapter(
-                    child: const SizedBox(
+                  const SliverToBoxAdapter(
+                    child: SizedBox(
                       height: 10,
                     ),
                   ),
-                  SliverToBoxAdapter(
+                  const SliverToBoxAdapter(
                       child: TitleSection(title: 'Latest Workout')),
                   SliverList.separated(
-                    itemCount: user.workouts!.length,
+                    itemCount: user?.workouts?.length,
                     separatorBuilder: (context, index) {
-                      return SizedBox(
+                      return const SizedBox(
                         height: 10,
                       );
                     },
                     itemBuilder: (context, index) {
-                      if (index < (user.workouts?.length ?? 0)) {
-                        final lastWorkout = user.workouts![index];
+                      if (index < (user?.workouts?.length ?? 0)) {
+                        final lastWorkout = user?.workouts![index];
                         return LastedWorkoutCard(
                           lastWorkout: lastWorkout,
                         );
@@ -196,44 +208,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
-class LastWorkout {
-  String title;
-  String desc;
-  double progress;
-  String image;
-
-  LastWorkout(
-      {required this.title,
-      required this.desc,
-      required this.image,
-      required this.progress});
-}
-
-List<LastWorkout> listLastWorkout = [
-  LastWorkout(
-      desc: '180 Calories Burn | 20minutes',
-      image: '',
-      progress: 0.3,
-      title: 'Fullbody Workout'),
-  LastWorkout(
-      desc: '180 Calories Burn | 20minutes',
-      image: '',
-      progress: 0.5,
-      title: 'Lowerbody Workout'),
-  LastWorkout(
-      desc: '180 Calories Burn | 20minutes',
-      image: '',
-      progress: 0.4,
-      title: 'Lowerbody Workout'),
-  LastWorkout(
-      desc: '180 Calories Burn | 20minutes',
-      image: '',
-      progress: 0.2,
-      title: 'Lowerbody Workout'),
-  LastWorkout(
-      desc: '180 Calories Burn | 20minutes',
-      image: '',
-      progress: 0.1,
-      title: 'Lowerbody Workout')
-];

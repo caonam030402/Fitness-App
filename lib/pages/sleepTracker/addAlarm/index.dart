@@ -11,13 +11,13 @@ class AddAlarmPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: ToolBar(title: 'Add Alarm'),
+      appBar: const ToolBar(title: 'Add Alarm'),
       body: Padding(
         padding: const EdgeInsets.symmetric(
             horizontal: AppStyles.paddingBothSidesPage),
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             SizedBox(
@@ -35,7 +35,7 @@ class AddAlarmPage extends StatelessWidget {
                 },
               ),
             ),
-            MonthCard(
+            const MonthCard(
               title: 'vibrate When Alarm Sound',
               icon: AppIcons.ic_vibrate,
               isHiddenLabelAndIconRight: true,

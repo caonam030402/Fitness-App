@@ -1,8 +1,9 @@
 import 'dart:async';
+import 'package:audioplayers/audioplayers.dart';
+import 'package:fitness_app/components/video_item.dart';
 import 'package:fitness_app/configs/app_icons.dart';
 import 'package:fitness_app/configs/app_routes.dart';
 import 'package:fitness_app/models/workout_model.dart';
-import 'package:fitness_app/pages/workout/startWorkout/index.dart';
 import 'package:fitness_app/pages/workout/startWorkout/widgets/introNextWorkout.dart';
 import 'package:fitness_app/pages/workout/startWorkout/widgets/introWorkout.dart';
 import 'package:fitness_app/pages/workout/startWorkout/widgets/pauseWorkout.dart';
@@ -37,29 +38,14 @@ class _PartWorkoutState extends State<PartWorkout> {
   Timer? countdownTimerIntro;
   Timer? countdownTimerExercise;
   late Duration durationExercise;
-  late VideoPlayerController controller;
-
-  loadVideoPlayer() {
-    controller = VideoPlayerController.networkUrl(Uri.parse(
-        'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4'));
-    controller.addListener(() {
-      setState(() {});
-    });
-    controller.initialize().then((value) {
-      setState(() {});
-    });
-  }
-
   late Duration durationIntro;
-
   bool isModalPause = false;
 
   @override
   void initState() {
     super.initState();
     durationIntro = Duration(seconds: widget.indexWorkout == 0 ? 5 : 15);
-    durationExercise =
-        Duration(seconds: widget.workoutDetail.timeSeconds ?? 10);
+    durationExercise = Duration(seconds: widget.workoutDetail.timeSeconds);
     startTime(CountDownType.countDownIntro);
   }
 
@@ -70,10 +56,10 @@ class _PartWorkoutState extends State<PartWorkout> {
 
   void nextPage() {
     if (widget.controllerPage.hasClients) {
-      if (widget.indexWorkout != startWorkUps.length - 1) {
+      if (widget.indexWorkout != 5 - 1) {
         widget.controllerPage.animateToPage(
           widget.indexWorkout + 1,
-          duration: Duration(milliseconds: 200),
+          duration: const Duration(milliseconds: 200),
           curve: Curves.easeInOut,
         );
       }
@@ -84,7 +70,7 @@ class _PartWorkoutState extends State<PartWorkout> {
     if (widget.controllerPage.hasClients) {
       widget.controllerPage.animateToPage(
         widget.indexWorkout - 1,
-        duration: Duration(milliseconds: 200),
+        duration: const Duration(milliseconds: 200),
         curve: Curves.easeInOut,
       );
     }
@@ -127,25 +113,39 @@ class _PartWorkoutState extends State<PartWorkout> {
     return Stack(
       children: [
         Container(
+          color: const Color(0x00e1dde2),
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+        ),
+        SizedBox(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          child: VideoItem(
+            videoPlayerController:
+                VideoPlayerController.asset('assets/videos/1.mp4'),
+            looping: false,
+            autoplay: true,
+          ),
+        ),
+        SizedBox(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           child: Padding(
             padding: const EdgeInsets.all(AppStyles.paddingBothSidesPage),
             child: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
-                Container(
-                    child: SmoothPageIndicator(
+                SmoothPageIndicator(
                   controller: widget.controllerPage,
                   count: widget.totalPartWorkout,
-                  effect: SlideEffect(
+                  effect: const SlideEffect(
                       dotHeight: 4,
                       dotColor: AppColors.gray_1,
                       activeDotColor: AppColors.primary),
-                )),
-                SizedBox(
+                ),
+                const SizedBox(
                   height: 15,
                 ),
                 Row(
@@ -157,15 +157,15 @@ class _PartWorkoutState extends State<PartWorkout> {
                         });
                       },
                       child: Container(
-                        padding: EdgeInsets.all(5),
+                        padding: const EdgeInsets.all(5),
                         width: 30,
                         height: 30,
-                        child: SvgPicture.asset(AppIcons.ic_close),
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                             shape: BoxShape.circle, color: AppColors.white),
+                        child: SvgPicture.asset(AppIcons.ic_close),
                       ),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
@@ -178,7 +178,7 @@ class _PartWorkoutState extends State<PartWorkout> {
                             '${timePartWorkout.inMinutes.toString().padLeft(2, '0')}:${timePartWorkout.inSeconds.toString().padLeft(2, '0')}',
                             style: AppText.medium.copyWith(
                                 fontWeight: FontWeight.w400,
-                                color: AppColors.gray_1))
+                                color: AppColors.gray_1)),
                       ],
                     )
                   ],
@@ -194,9 +194,15 @@ class _PartWorkoutState extends State<PartWorkout> {
             child: Visibility(
               visible: convertTimeToInt != 0 ? false : true,
               child: Container(
+                decoration: const BoxDecoration(
+                    color: AppColors.white,
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(30),
+                        topRight: Radius.circular(30))),
+                height: 300,
                 child: Column(
                   children: [
-                    Spacer(),
+                    const Spacer(),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -205,7 +211,7 @@ class _PartWorkoutState extends State<PartWorkout> {
                           style: AppText.heading4
                               .copyWith(fontWeight: FontWeight.w600),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 5,
                         ),
                         GestureDetector(
@@ -222,7 +228,7 @@ class _PartWorkoutState extends State<PartWorkout> {
                                 shape: BoxShape.circle,
                                 border: Border.all(
                                     color: AppColors.gray_1, width: 1)),
-                            child: Text('?'),
+                            child: const Text('?'),
                           ),
                         )
                       ],
@@ -232,7 +238,7 @@ class _PartWorkoutState extends State<PartWorkout> {
                       style: AppText.heading1
                           .copyWith(fontSize: 65, fontWeight: FontWeight.w700),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     Row(
@@ -247,7 +253,7 @@ class _PartWorkoutState extends State<PartWorkout> {
                               });
                             },
                             child: Container(
-                              padding: EdgeInsets.all(10),
+                              padding: const EdgeInsets.all(10),
                               decoration: BoxDecoration(
                                   color: AppColors.gray_3,
                                   borderRadius: BorderRadius.circular(100)),
@@ -260,7 +266,7 @@ class _PartWorkoutState extends State<PartWorkout> {
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 15,
                         ),
                         GestureDetector(
@@ -270,7 +276,7 @@ class _PartWorkoutState extends State<PartWorkout> {
                             });
                           },
                           child: Container(
-                            padding: EdgeInsets.symmetric(
+                            padding: const EdgeInsets.symmetric(
                                 horizontal: 65, vertical: 8),
                             decoration: BoxDecoration(
                                 gradient: AppColors.primaryGradiant,
@@ -283,7 +289,7 @@ class _PartWorkoutState extends State<PartWorkout> {
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 15,
                         ),
                         GestureDetector(
@@ -293,7 +299,7 @@ class _PartWorkoutState extends State<PartWorkout> {
                             });
                           },
                           child: Container(
-                            padding: EdgeInsets.all(10),
+                            padding: const EdgeInsets.all(10),
                             decoration: BoxDecoration(
                                 color: AppColors.gray_3,
                                 borderRadius: BorderRadius.circular(100)),
@@ -307,15 +313,9 @@ class _PartWorkoutState extends State<PartWorkout> {
                         )
                       ],
                     ),
-                    Spacer(),
+                    const Spacer(),
                   ],
                 ),
-                decoration: BoxDecoration(
-                    color: AppColors.white,
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(30),
-                        topRight: Radius.circular(30))),
-                height: 300,
               ),
             )),
         Positioned(
@@ -329,7 +329,7 @@ class _PartWorkoutState extends State<PartWorkout> {
                     durationIntro: durationIntro,
                     onPressedButtonStart: () {
                       setState(() {
-                        durationIntro = Duration(seconds: 0);
+                        durationIntro = const Duration(seconds: 0);
                       });
                     },
                   )
@@ -340,7 +340,8 @@ class _PartWorkoutState extends State<PartWorkout> {
                     durationIntro: durationIntro,
                     onPressedButtonAddTime: () {
                       setState(() {
-                        durationIntro = durationIntro + Duration(seconds: 20);
+                        durationIntro =
+                            durationIntro + const Duration(seconds: 20);
                       });
                     },
                     onPressedButtonSkip: () {
@@ -368,10 +369,8 @@ class _PartWorkoutState extends State<PartWorkout> {
                   isModalPause = false;
                 });
               },
-              onPressedQuit: () {
-                setState(() {
-                  isModalPause = false;
-                });
+              onPressedQuit: () async {
+                Navigator.of(context).pushReplacementNamed(AppRoutes.main);
               },
             )),
       ],

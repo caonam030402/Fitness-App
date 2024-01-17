@@ -16,15 +16,15 @@ class MealSchedule extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: ToolBar(title: 'Meal Schedule', isBackHome: true),
+      appBar: const ToolBar(title: 'Meal Schedule', isBackHome: true),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(
               horizontal: AppStyles.paddingBothSidesPage),
           child: Column(
             children: [
-              ButtonMonth(),
-              SizedBox(
+              const ButtonMonth(),
+              const SizedBox(
                 height: 15,
               ),
               SizedBox(
@@ -45,20 +45,20 @@ class MealSchedule extends StatelessWidget {
                   },
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               TitleItem(
                 title: 'Breakfast',
                 label: '${mealsCardItem.length} meals | 230 calories',
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               SizedBox(
                 height: 75 * mealsCardItem.length.toDouble(),
                 child: ListView.separated(
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index) {
                       final item = mealsCardItem[index];
                       return MealsCard(
@@ -70,26 +70,26 @@ class MealSchedule extends StatelessWidget {
                           icon: item.icon);
                     },
                     separatorBuilder: (context, index) {
-                      return SizedBox(
+                      return const SizedBox(
                         height: 15,
                       );
                     },
                     itemCount: mealsCardItem.length),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               TitleItem(
                 title: 'Lunch',
                 label: '${mealsCardItem.length} meals | 230 calories',
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               SizedBox(
                 height: 75 * mealsCardItem.length.toDouble(),
                 child: ListView.separated(
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index) {
                       final item = mealsCardItem[index];
                       return MealsCard(
@@ -101,26 +101,26 @@ class MealSchedule extends StatelessWidget {
                           icon: item.icon);
                     },
                     separatorBuilder: (context, index) {
-                      return SizedBox(
+                      return const SizedBox(
                         height: 15,
                       );
                     },
                     itemCount: mealsCardItem.length),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               TitleItem(
                 title: 'Snacks',
                 label: '${mealsCardItem.length} meals | 230 calories',
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               SizedBox(
                 height: 75 * mealsCardItem.length.toDouble(),
                 child: ListView.separated(
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index) {
                       final item = mealsCardItem[index];
                       return MealsCard(
@@ -132,26 +132,26 @@ class MealSchedule extends StatelessWidget {
                           icon: item.icon);
                     },
                     separatorBuilder: (context, index) {
-                      return SizedBox(
+                      return const SizedBox(
                         height: 15,
                       );
                     },
                     itemCount: mealsCardItem.length),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               TitleItem(
                 title: 'Dinner',
                 label: '${mealsCardItem.length} meals | 230 calories',
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               SizedBox(
                 height: 75 * mealsCardItem.length.toDouble(),
                 child: ListView.separated(
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index) {
                       final item = mealsCardItem[index];
                       return MealsCard(
@@ -163,26 +163,26 @@ class MealSchedule extends StatelessWidget {
                           icon: item.icon);
                     },
                     separatorBuilder: (context, index) {
-                      return SizedBox(
+                      return const SizedBox(
                         height: 15,
                       );
                     },
                     itemCount: mealsCardItem.length),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
-              TitleSection(
+              const TitleSection(
                 title: 'Today Meal Nutritions',
                 hiddenAction: true,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               SizedBox(
                 height: 78 * nutritionCardItem.length.toDouble(),
                 child: ListView.separated(
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index) {
                       final item = nutritionCardItem[index];
                       return NutritionCard(
@@ -192,13 +192,13 @@ class MealSchedule extends StatelessWidget {
                           icon: item.icon);
                     },
                     separatorBuilder: (context, index) {
-                      return SizedBox(
+                      return const SizedBox(
                         height: 15,
                       );
                     },
                     itemCount: nutritionCardItem.length),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
             ],

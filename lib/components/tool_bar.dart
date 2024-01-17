@@ -24,50 +24,48 @@ class ToolBar extends StatelessWidget implements PreferredSizeWidget {
       child: Column(
         children: [
           const Spacer(),
-          Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                GestureDetector(
-                  onTap: () => {
-                    isBackHome
-                        ? Navigator.of(context)
-                            .pushReplacementNamed(AppRoutes.main)
-                        : Navigator.pop(context)
-                  },
-                  child: Container(
-                    padding: const EdgeInsets.all(7),
-                    width: 32,
-                    height: 32,
-                    decoration: BoxDecoration(
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(5)),
-                        color: AppColors.gray_3.withOpacity(0.4)),
-                    child: SvgPicture.asset(
-                      AppIcons.ic_back,
-                      color: AppColors.black,
-                    ),
-                  ),
-                ),
-                Text(
-                  title,
-                  style: AppText.large.copyWith(
-                      fontWeight: FontWeight.w700, color: AppColors.black),
-                ),
-                Container(
-                  padding: const EdgeInsets.all(10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              GestureDetector(
+                onTap: () => {
+                  isBackHome
+                      ? Navigator.of(context)
+                          .pushReplacementNamed(AppRoutes.main)
+                      : Navigator.pop(context)
+                },
+                child: Container(
+                  padding: const EdgeInsets.all(7),
                   width: 32,
                   height: 32,
                   decoration: BoxDecoration(
                       borderRadius: const BorderRadius.all(Radius.circular(5)),
                       color: AppColors.gray_3.withOpacity(0.4)),
                   child: SvgPicture.asset(
-                    AppIcons.ic_menu,
+                    AppIcons.ic_back,
                     color: AppColors.black,
                   ),
                 ),
-              ],
-            ),
+              ),
+              Text(
+                title,
+                style: AppText.large.copyWith(
+                    fontWeight: FontWeight.w700, color: AppColors.black),
+              ),
+              Container(
+                padding: const EdgeInsets.all(10),
+                width: 32,
+                height: 32,
+                decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.all(Radius.circular(5)),
+                    color: AppColors.gray_3.withOpacity(0.4)),
+                child: SvgPicture.asset(
+                  AppIcons.ic_menu,
+                  // ignore: deprecated_member_use
+                  color: AppColors.black,
+                ),
+              ),
+            ],
           ),
         ],
       ),

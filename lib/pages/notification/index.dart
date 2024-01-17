@@ -10,9 +10,9 @@ class Notification extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: ToolBar(title: 'Notification'),
+      appBar: const ToolBar(title: 'Notification'),
       body: Padding(
-        padding: EdgeInsets.only(
+        padding: const EdgeInsets.only(
           top: AppStyles.paddingBothSidesPage - 10,
           right: AppStyles.paddingBothSidesPage,
           left: AppStyles.paddingBothSidesPage,
@@ -25,7 +25,7 @@ class Notification extends StatelessWidget {
               );
             },
             separatorBuilder: (context, index) {
-              return Divider(
+              return const Divider(
                 thickness: 1,
                 color: AppColors.gray_3,
               );

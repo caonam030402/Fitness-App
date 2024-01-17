@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CategoryCard extends StatelessWidget {
-  final String icon;
+  final String image;
   final String label;
   final Color? color;
   const CategoryCard({
     super.key,
-    required this.icon,
+    required this.image,
     required this.label,
     this.color,
   });
@@ -38,8 +38,8 @@ class CategoryCard extends StatelessWidget {
               ),
               child: Padding(
                 padding: const EdgeInsets.all(6.0),
-                child: SvgPicture.asset(
-                  icon,
+                child: SvgPicture.network(
+                  image,
                 ),
               ),
             ),

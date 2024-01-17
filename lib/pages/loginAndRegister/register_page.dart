@@ -52,7 +52,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 horizontal: AppStyles.paddingBothSidesPage),
             child: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 70,
                 ),
                 Row(
@@ -74,7 +74,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 Form(
@@ -89,7 +89,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             return RulesValidator.validatorName(value);
                           },
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 17,
                         ),
                         InputText(
@@ -101,7 +101,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           icon: AppIcons.ic_message,
                           keyboardType: TextInputType.emailAddress,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 17,
                         ),
                         InputText(
@@ -118,7 +118,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             return RulesValidator.validatorPassword(value);
                           },
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 17,
                         ),
                         InputText(
@@ -132,9 +132,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                       ],
                     )),
-                SizedBox(
-                  height: 17,
-                ),
+                Spacer(),
                 Row(
                   children: [
                     Checkbox(
@@ -146,7 +144,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             isChecked = value!;
                           });
                         }),
-                    Container(
+                    SizedBox(
                       width: 244,
                       child: Text(
                         'By continuing you accept our Privacy Policy and Term of Use',
@@ -157,7 +155,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                   ],
                 ),
-                Spacer(),
+                const Spacer(),
                 Button(
                     text: 'Register',
                     onPressed: () {
@@ -170,14 +168,14 @@ class _RegisterPageState extends State<RegisterPage> {
                         );
                       }
                     }),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
-                Container(
+                SizedBox(
                   width: MediaQuery.of(context).size.width,
                   child: Row(
                     children: [
-                      Expanded(
+                      const Expanded(
                         child: Divider(thickness: 1, color: AppColors.gray_3),
                       ),
                       Padding(
@@ -189,13 +187,13 @@ class _RegisterPageState extends State<RegisterPage> {
                               color: AppColors.black),
                         ),
                       ),
-                      Expanded(
+                      const Expanded(
                         child: Divider(thickness: 1, color: AppColors.gray_3),
                       ),
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 Row(
@@ -204,43 +202,29 @@ class _RegisterPageState extends State<RegisterPage> {
                     Container(
                       height: 50,
                       width: 50,
+                      padding: EdgeInsets.all(15),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(14),
                           border:
                               Border.all(width: 0.8, color: AppColors.gray_3)),
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.transparent,
-                          foregroundColor: AppColors.white,
-                          shadowColor: Colors.transparent,
-                        ),
-                        child: SvgPicture.asset(AppIcons.ic_google),
-                      ),
+                      child: SvgPicture.asset(AppIcons.ic_google),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 30,
                     ),
                     Container(
                       height: 50,
                       width: 50,
+                      padding: EdgeInsets.all(15),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(14),
                           border:
                               Border.all(width: 0.8, color: AppColors.gray_3)),
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.transparent,
-                          foregroundColor: AppColors.white,
-                          shadowColor: Colors.transparent,
-                        ),
-                        child: SvgPicture.asset(AppIcons.ic_facebook),
-                      ),
+                      child: SvgPicture.asset(AppIcons.ic_facebook),
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 Row(
@@ -265,7 +249,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     )
                   ],
                 ),
-                Spacer(),
+                const Spacer(),
               ],
             ),
           ),

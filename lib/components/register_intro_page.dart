@@ -32,23 +32,23 @@ class RegisterIntroPage extends StatelessWidget {
               horizontal: AppStyles.paddingBothSidesPage),
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 80,
               ),
               Text('What is your goal ?',
                   style: AppText.heading4.copyWith(
                       fontWeight: FontWeight.w700, color: AppColors.black)),
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
-              Container(
+              SizedBox(
                   width: 200,
                   child: Text(
                       'It will help us to choose a best program for you',
                       style: AppText.small.copyWith(
                           fontWeight: FontWeight.w400, color: AppColors.gray_1),
                       textAlign: TextAlign.center)),
-              Spacer(),
+              const Spacer(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -61,11 +61,11 @@ class RegisterIntroPage extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        SizedBox(
+                        const SizedBox(
                           height: 30,
                         ),
                         SvgPicture.asset(image),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         Column(
@@ -75,14 +75,14 @@ class RegisterIntroPage extends StatelessWidget {
                                     fontWeight: FontWeight.w600,
                                     color: AppColors.white),
                                 textAlign: TextAlign.center),
-                            Divider(
+                            const Divider(
                               height: 4,
                               thickness: 1,
                               indent: 110,
                               endIndent: 110,
                               color: AppColors.border,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 20,
                             ),
                             Container(
@@ -93,7 +93,7 @@ class RegisterIntroPage extends StatelessWidget {
                                       color: AppColors.white),
                                   textAlign: TextAlign.center),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 10,
                             ),
                           ],
@@ -103,7 +103,7 @@ class RegisterIntroPage extends StatelessWidget {
                   ),
                 ],
               ),
-              Spacer(),
+              const Spacer(),
               Button(
                   text: 'Confirm',
                   onPressed: () {
@@ -116,9 +116,8 @@ class RegisterIntroPage extends StatelessWidget {
                         indexPage,
                       );
                     }
-                    ;
                   }),
-              SizedBox(
+              const SizedBox(
                 height: AppStyles.paddingBothSidesPage,
               ),
             ],

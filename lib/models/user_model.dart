@@ -1,5 +1,5 @@
 import 'dart:convert';
-
+import 'package:fitness_app/models/meal_model.dart';
 import 'package:fitness_app/models/workout_model.dart';
 
 class User {
@@ -10,24 +10,25 @@ class User {
   final String? password;
   final int? height;
   final String? avatar;
-  final DateTime? dateOfBirth;
+  final String? dateOfBirth;
   final String? gender;
   final String? token;
   final List<WorkoutProgress>? workouts;
+  final List<MealPlannerForUser>? mealPlanners;
 
-  User({
-    this.id,
-    this.name,
-    this.email,
-    this.weight,
-    this.password,
-    this.height,
-    this.avatar,
-    this.dateOfBirth,
-    this.gender,
-    this.token,
-    this.workouts,
-  });
+  User(
+      {this.id,
+      this.name,
+      this.email,
+      this.weight,
+      this.password,
+      this.height,
+      this.avatar,
+      this.dateOfBirth,
+      this.gender,
+      this.token,
+      this.workouts,
+      this.mealPlanners});
 
   Map<String, dynamic> toMap() {
     Map<String, dynamic> map = {
@@ -39,6 +40,7 @@ class User {
       "date_of_birth": dateOfBirth,
       "gender": gender,
       "workouts": workouts?.map((w) => w.toMap()).toList(),
+      "mealPlanners": mealPlanners?.map((w) => w.toJson()).toList()
     };
 
     map.removeWhere((key, value) => value == null);
@@ -53,15 +55,16 @@ class User {
       email: map['email'] ?? '',
       password: map['password'] ?? '',
       avatar: map['avatar'] ?? '',
-      dateOfBirth: map['date_of_birth'] != null
-          ? DateTime.parse(map['date_of_birth'])
-          : null,
+      dateOfBirth: map['date_of_birth'] ?? '',
       token: map['token'] ?? '',
       gender: map['gender'] ?? '',
       height: map['height'] ?? 0,
       weight: map['weight'] ?? 0,
       workouts: (map['workouts'] as List<dynamic>?)
           ?.map((workout) => WorkoutProgress.fromMap(workout))
+          .toList(),
+      mealPlanners: (map['mealPlanners'] as List<dynamic>?)
+          ?.map((meal) => MealPlannerForUser.fromJson(meal))
           .toList(),
     );
   }

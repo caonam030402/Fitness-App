@@ -50,9 +50,6 @@ class _SwitchingPhotoState extends State<SwitchingPhoto>
                       controller: tabController,
                       unselectedLabelColor: AppColors.gray_2,
                       labelColor: AppColors.white,
-                      indicator: BoxDecoration(
-                          color: AppColors.primary,
-                          borderRadius: BorderRadius.circular(99)),
                       tabs: const [
                         Tab(text: 'Photo'),
                         Tab(text: 'Statistic'),

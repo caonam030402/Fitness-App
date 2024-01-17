@@ -31,7 +31,7 @@ class FoodCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          SizedBox(height: 78, child: SvgPicture.asset(icon)),
+          SizedBox(height: 78, child: SvgPicture.network(icon)),
           Column(
             children: [
               Text(title,

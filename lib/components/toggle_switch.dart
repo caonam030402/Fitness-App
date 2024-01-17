@@ -18,7 +18,7 @@ class _ToggleSwitchState extends State<ToggleSwitch> {
       width: 44,
       toggleSize: 14,
       inactiveColor: AppColors.gray_3,
-      activeColor: AppColors.secondary,
+      activeColor: AppColors.primary,
       value: _switchValue,
       onToggle: (value) {
         setState(() {
