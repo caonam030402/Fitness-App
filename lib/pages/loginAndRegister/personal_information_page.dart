@@ -165,14 +165,17 @@ class _PersonalInformationPageState extends State<PersonalInformationPage> {
                             Button(
                                 text: 'Next',
                                 onPressed: () {
+                                  print(_dateOfBirthController.text.toString());
                                   if (_formKey.currentState!.validate()) {
                                     userService.updateUser(
                                         body: User(
-                                          height:
-                                              int.parse(_heightController.text),
-                                          weight:
-                                              int.parse(_weightController.text),
-                                        ),
+                                            height: int.parse(
+                                                _heightController.text),
+                                            weight: int.parse(
+                                                _weightController.text),
+                                            dateOfBirth: _dateOfBirthController
+                                                .text
+                                                .toString()),
                                         context: context);
                                   }
                                 }),

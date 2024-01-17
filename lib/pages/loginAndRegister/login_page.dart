@@ -164,19 +164,12 @@ class _LoginPageState extends State<LoginPage> {
                   Container(
                     height: 50,
                     width: 50,
+                    padding: EdgeInsets.all(15),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(14),
                         border:
                             Border.all(width: 0.8, color: AppColors.gray_3)),
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.transparent,
-                        foregroundColor: AppColors.white,
-                        shadowColor: Colors.transparent,
-                      ),
-                      child: SvgPicture.asset(AppIcons.ic_google),
-                    ),
+                    child: SvgPicture.asset(AppIcons.ic_google),
                   ),
                   const SizedBox(
                     width: 30,
@@ -184,19 +177,12 @@ class _LoginPageState extends State<LoginPage> {
                   Container(
                     height: 50,
                     width: 50,
+                    padding: EdgeInsets.all(15),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(14),
                         border:
                             Border.all(width: 0.8, color: AppColors.gray_3)),
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.transparent,
-                        foregroundColor: AppColors.white,
-                        shadowColor: Colors.transparent,
-                      ),
-                      child: SvgPicture.asset(AppIcons.ic_facebook),
-                    ),
+                    child: SvgPicture.asset(AppIcons.ic_facebook),
                   ),
                 ],
               ),

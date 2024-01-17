@@ -7,6 +7,7 @@ import 'package:fitness_app/pages/mealPlanner/mealDetails/widgets/custom_step.da
 import 'package:fitness_app/pages/mealPlanner/mealDetails/widgets/ingredients_card.dart';
 import 'package:fitness_app/pages/mealPlanner/mealDetails/widgets/nutriotions_card.dart';
 import 'package:fitness_app/components/title_item.dart';
+import 'package:fitness_app/services/meal_services.dart';
 import 'package:fitness_app/styles/app_colors.dart';
 import 'package:fitness_app/styles/app_styles.dart';
 import 'package:fitness_app/styles/app_text.dart';
@@ -19,6 +20,7 @@ class MealDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    MealService mealService = MealService();
     final Meal mealDetail = ModalRoute.of(context)!.settings.arguments as Meal;
     return Stack(
       children: [
@@ -259,7 +261,8 @@ class MealDetails extends StatelessWidget {
             child: Button(
               text: 'Add to Breakfast Meal',
               onPressed: () {
-                Navigator.of(context).pop();
+                mealService.addMealPlannerForUser(mealDetail.id);
+                // Navigator.of(context).pop();
               },
             ),
           ),

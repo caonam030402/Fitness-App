@@ -7,7 +7,9 @@ import 'package:fitness_app/utils/auth.dart';
 import 'package:flutter/material.dart';
 
 class BannerHome extends StatelessWidget {
-  const BannerHome({super.key});
+  final double bmi;
+  final String status;
+  const BannerHome({super.key, required this.bmi, required this.status});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +32,7 @@ class BannerHome extends StatelessWidget {
                     color: AppColors.white, fontWeight: FontWeight.w600),
               ),
               Text(
-                'You have a normal weight',
+                'You have a $status weight',
                 style: AppText.small.copyWith(
                     fontWeight: FontWeight.w400, color: AppColors.white),
               ),
@@ -73,7 +75,7 @@ class BannerHome extends StatelessWidget {
                   top: 22,
                   right: 22,
                   child: Text(
-                    '25,1',
+                    bmi.toString(),
                     style: AppText.medium.copyWith(
                         color: AppColors.white, fontWeight: FontWeight.w600),
                   ))

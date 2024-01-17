@@ -117,3 +117,35 @@ class Category {
     };
   }
 }
+
+class MealPlannerForUser {
+  final String id;
+  final String createdAt;
+  final String updatedAt;
+  final Meal mealPlanner;
+
+  MealPlannerForUser({
+    required this.id,
+    required this.createdAt,
+    required this.updatedAt,
+    required this.mealPlanner,
+  });
+
+  factory MealPlannerForUser.fromJson(Map<String, dynamic> json) {
+    return MealPlannerForUser(
+      id: json['_id'] ?? '',
+      createdAt: json['createdAt'] ?? '',
+      updatedAt: json['updatedAt'] ?? '',
+      mealPlanner: Meal.fromJson(json['mealPlanner']),
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      '_id': id,
+      'createdAt': createdAt,
+      'updatedAt': updatedAt,
+      'mealPlanner': mealPlanner.toJson(),
+    };
+  }
+}

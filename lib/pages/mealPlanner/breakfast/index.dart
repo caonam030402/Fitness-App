@@ -7,11 +7,11 @@ import 'package:fitness_app/pages/mealPlanner/breakfast/widgets/category_card.da
 import 'package:fitness_app/pages/mealPlanner/breakfast/widgets/food_card.dart';
 import 'package:fitness_app/pages/mealPlanner/breakfast/widgets/popular_card.dart';
 import 'package:fitness_app/pages/mealPlanner/breakfast/widgets/search.dart';
-import 'package:fitness_app/providers/userProvider.dart';
 import 'package:fitness_app/services/meal_services.dart';
 import 'package:fitness_app/styles/app_colors.dart';
 import 'package:fitness_app/styles/app_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Breakfast extends StatefulWidget {
   const Breakfast({super.key});
@@ -21,11 +21,21 @@ class Breakfast extends StatefulWidget {
 }
 
 class _BreakfastState extends State<Breakfast> {
-  final getProfileProvider = ProfileProvider();
+  late String userId = '';
 
   @override
   void initState() {
     super.initState();
+    _loadStoredValue();
+  }
+
+  _loadStoredValue() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final id = prefs.getString('user-id') ?? '';
+
+    setState(() {
+      userId = id;
+    });
   }
 
   @override
@@ -41,8 +51,7 @@ class _BreakfastState extends State<Breakfast> {
         future: Future.wait([
           mealService.getCategories(),
           mealService.getAllMeal(field: 'popular'),
-          mealService.getAllMeal(
-              field: 'recommend', idUser: '65859fc769b08bbc1f9f7309'),
+          mealService.getAllMeal(field: 'recommend', idUser: userId),
         ]),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
@@ -113,11 +122,12 @@ class _BreakfastState extends State<Breakfast> {
                         child: ListView.separated(
                             scrollDirection: Axis.horizontal,
                             itemBuilder: (context, index) {
-                              final item = foodCardItem[index];
+                              final item = dataMealRecommend[index];
                               return FoodCard(
-                                icon: item.icon,
-                                label: item.label,
-                                title: item.title,
+                                icon: item.image,
+                                label:
+                                    '${item.calories}k Cal | ${item.forTheBody}',
+                                title: item.name,
                                 color: index % 2 == 0
                                     ? AppColors.primary.withOpacity(0.2)
                                     : AppColors.secondary.withOpacity(0.2),

@@ -19,6 +19,7 @@ class WorkupTrackerDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     final Workout workout =
         ModalRoute.of(context)!.settings.arguments as Workout;
+
     total(Type type) {
       int total = 0;
       for (var i = 0; i < workout.details.length; i++) {

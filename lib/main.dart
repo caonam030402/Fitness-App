@@ -15,7 +15,7 @@ void main() async {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => ProfileProvider()),
+        ChangeNotifierProvider(create: (context) => UserProvider()),
         ChangeNotifierProvider(create: (context) => MusicProvider()),
       ],
       child: const MyApp(),
@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.light),
       routes: AppRoutes.pages,
       builder: EasyLoading.init(),
-      initialRoute: AppRoutes.main,
+      initialRoute: AppRoutes.splash,
     );
   }
 }

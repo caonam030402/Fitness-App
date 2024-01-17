@@ -1,9 +1,7 @@
 import 'dart:convert';
-
 import 'package:fitness_app/configs/app_config.dart';
 import 'package:fitness_app/configs/app_routes.dart';
 import 'package:fitness_app/models/user_model.dart';
-
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -31,7 +29,7 @@ class UserService {
 
   Future<User> getUser() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    final userId = await prefs.getString('user-id');
+    final userId = prefs.getString('user-id');
 
     Response res = await get(
       Uri.parse('${config.baseUrl}user/$userId'),

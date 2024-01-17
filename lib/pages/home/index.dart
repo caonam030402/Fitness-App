@@ -6,13 +6,13 @@ import 'package:fitness_app/models/workout_model.dart';
 import 'package:fitness_app/pages/home/widgets/banner_home.dart';
 import 'package:fitness_app/pages/home/widgets/lasted_workout_card.dart';
 import 'package:fitness_app/pages/home/widgets/workout_card.dart';
-import 'package:fitness_app/pages/mealPlanner/mealPlannerPage/widgets/graph_section.dart';
 import 'package:fitness_app/providers/userProvider.dart';
 import 'package:fitness_app/services/user_services.dart';
 import 'package:fitness_app/services/workout_services.dart';
 import 'package:fitness_app/styles/app_colors.dart';
 import 'package:fitness_app/styles/app_styles.dart';
 import 'package:fitness_app/styles/app_text.dart';
+import 'package:fitness_app/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -26,7 +26,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   late Future<List<Workout>> workoutData;
 
-  final getProfileProvider = ProfileProvider();
+  final getProfileProvider = UserProvider();
 
   WorkoutService workoutService = WorkoutService();
   UserService userService = UserService();
@@ -43,7 +43,7 @@ class _HomePageState extends State<HomePage> {
       bottom: false,
       child: Scaffold(
         body: FutureBuilder(
-          future: getProfileProvider.setData(),
+          future: getProfileProvider.getUser(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(
@@ -53,7 +53,8 @@ class _HomePageState extends State<HomePage> {
               ));
             }
             final user = getProfileProvider.user;
-
+            final bmi = Utils.calculateBMI(user!.height ?? 0, user.weight ?? 0);
+            print(bmi);
             return Padding(
               padding: const EdgeInsets.only(
                   bottom: AppStyles.heightBottomNavigation,
@@ -112,7 +113,11 @@ class _HomePageState extends State<HomePage> {
                       height: 20,
                     ),
                   ),
-                  const SliverToBoxAdapter(child: BannerHome()),
+                  SliverToBoxAdapter(
+                      child: BannerHome(
+                    bmi: bmi,
+                    status: '',
+                  )),
                   const SliverToBoxAdapter(
                     child: SizedBox(
                       height: 20,
@@ -168,14 +173,6 @@ class _HomePageState extends State<HomePage> {
                             );
                           },
                         )),
-                  ),
-                  const SliverToBoxAdapter(
-                    child: SizedBox(
-                      height: 10,
-                    ),
-                  ),
-                  const SliverToBoxAdapter(
-                    child: GraphSection(),
                   ),
                   const SliverToBoxAdapter(
                     child: SizedBox(
